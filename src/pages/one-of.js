@@ -2,12 +2,12 @@ import React from "react"
 
 import Layout from "../components/layout"
 
-const IndexPage = () => {
+const OneOfPage = () => {
   return (
     <Layout>
-      <h1>Welcome page</h1>
+      <h1>One-Of page</h1>
     </Layout>
   )
 }
 
-export default IndexPage
+export default OneOfPage
