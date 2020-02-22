@@ -81,7 +81,7 @@ const Header = () => {
                 </ul>
             </nav>
             <div className={headerStyles.menuToggle} onClick={onToggle}>
-                <img src={menuIcon}></img>
+                <img src={menuIcon} alt="toggle menu"></img>
             </div>
         </header>
     )

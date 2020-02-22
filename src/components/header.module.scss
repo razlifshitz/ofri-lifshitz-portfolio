@@ -99,14 +99,15 @@ header {
     }
 
     header nav {
+        display: none;
         position: absolute;
         width: 60%;
         height: calc(100vh - 50px);
         background: #333;
         top: 50px;
         right: -100%;
-        transition: 0.5s;
-        animation: slide-in 0.5s forwards;
+        // transition: 0.5s;
+        // animation: slide-in 0.5s forwards;
 
         ul {
             display: block;
@@ -122,6 +123,7 @@ header {
 
     header nav.active-navbar {
         right: 0;
+        display: block;
     }
 
     .menu-toggle {
