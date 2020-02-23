@@ -34,6 +34,18 @@
 //     color: #9999;
 // }
 
+// i {
+//     border: solid black;
+//     border-width: 0 3px 3px 0;
+//     display: inline-block;
+//     padding: 3px;
+// }
+
+// .down {
+//     transform: rotate(45deg);
+//     -webkit-transform: rotate(45deg);
+// }
+
 header {
     font-family: sans-serif;
     position: absolute;
@@ -63,7 +75,11 @@ header {
             li {
                 margin-bottom: 0;
                 list-style-type: none;
-                a {
+                position: relative;
+                // width: max-content;
+
+                a,
+                span {
                     height: 50px;
                     line-height: 50px;
                     padding: 0 20px;
@@ -71,29 +87,79 @@ header {
                     text-decoration: none;
                     display: block;
                 }
-                a:hover,
-                .active-nav-item {
-                    color: #ffffff;
-                    background: #2196f3;
+
+                @media (min-width: 1011px) {
+                    // hover on menu item
+                    // active item
+                    a:hover,
+                    span:hover,
+                    a.active-nav-item {
+                        color: #ffffff;
+                        background: #2196f3;
+                        cursor: pointer;
+                    }
+                }
+
+                // submenu
+                ul {
+                    position: absolute;
+                    left: 0;
+                    background: #333;
+                    display: none;
+                    li {
+                        display: block;
+                        width: max-content;
+                    }
+                }
+            }
+
+            @media (min-width: 1011px) {
+                li.sub-menu:before {
+                    content: '\25bc';
+                    position: absolute;
+                    line-height: 50px;
+                    color: #fff;
+                    right: 1px;
+                }
+
+                // li.sub-menu .active-nav-item:before {
+                //     content: '\25b2';
+                // }
+            }
+
+            // li.sub-menu .active-nav-item:before {
+            //     content: '\25b2';
+            // }
+
+            // hover on submenu parent
+            li:hover {
+                ul {
+                    display: block;
                 }
             }
         }
     }
 }
 
+// menu toggle button
 .menu-toggle {
     float: right;
     line-height: 50px;
     font-size: 24px;
     cursor: pointer;
+
+    // not showing button in web view
     display: none;
+
+    // icon
     img {
         width: 26px;
         margin-bottom: -6px;
     }
 }
 
-@media (max-width: 1180px) {
+// mobile view
+@media (max-width: 1011px) {
     header {
         padding: 0 20px;
     }
@@ -117,15 +183,50 @@ header {
                 a {
                     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 }
+
+                // submenu click
+                span:hover {
+                    color: #ffffff;
+                    background: #2196f3;
+                    cursor: pointer;
+                }
+
+                ul {
+                    li {
+                        width: 100%;
+                    }
+                }
             }
+
+            li:hover {
+                ul {
+                    position: relative;
+                    background: #003e6f;
+                }
+            }
+
+            // submenu arrow
+            li.sub-menu:before {
+                content: '\25bc';
+                position: absolute;
+                line-height: 50px;
+                color: #fff;
+                right: 1px;
+            }
+
+            // li.sub-menu .active-nav-item:before {
+            //     content: '\25b2';
+            // }
         }
     }
 
+    // active menu
     header nav.active-navbar {
         right: 0;
         display: block;
     }
 
+    // showing toggle menu button in mobile view
     .menu-toggle {
         display: block;
     }

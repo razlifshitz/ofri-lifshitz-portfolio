@@ -9,29 +9,14 @@ const Header = () => {
         active: false,
     })
 
-    // const toggleDrawer = open => {
-    //     // const toggleDrawer = (side, open) => event => {
-    //     // if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-    //     //   return;
-    //     // }
-
-    //     setState({ ...state, active: open })
-    // }
-
     const onToggle = () => {
         setState({ ...state, active: !state.active })
     }
 
     return (
-        // <header className={headerStyles.Header}>
         <header>
             <div className={headerStyles.logo}>Ofri Lifshitz</div>
-            {/* <Link to="/" className={headerStyles.title}>
-                <h1> Ofri Lifshitz</h1>
-                <h3>Industrial Designer</h3>
-            </Link> */}
             <nav className={state.active ? headerStyles.activeNavbar : ''}>
-                {/* <ul className={headerStyles.navList}> */}
                 <ul>
                     <li>
                         <Link
@@ -42,14 +27,37 @@ const Header = () => {
                             About
                         </Link>
                     </li>
-                    <li>
-                        <Link
-                            className={headerStyles.navItem}
-                            activeClassName={headerStyles.activeNavItem}
-                            to="/one-of"
-                        >
-                            Industrial One Of
-                        </Link>
+                    <li className={headerStyles.subMenu}>
+                        <span>Industrial One Of</span>
+                        <ul>
+                            <li>
+                                <Link
+                                    className={headerStyles.navItem}
+                                    activeClassName={headerStyles.activeNavItem}
+                                    to="/one-of/v1.0"
+                                >
+                                    Industrial One Of v1.0
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className={headerStyles.navItem}
+                                    activeClassName={headerStyles.activeNavItem}
+                                    to="/one-of/v2.0"
+                                >
+                                    Industrial One Of v2.0
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className={headerStyles.navItem}
+                                    activeClassName={headerStyles.activeNavItem}
+                                    to="/one-of/v3.0"
+                                >
+                                    Industrial One Of v3.0
+                                </Link>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <Link
