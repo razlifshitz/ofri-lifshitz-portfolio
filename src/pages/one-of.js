@@ -8,6 +8,28 @@ import pageStyles from './one-of.module.scss'
 import machine from '../assets/one-of/oneof (1).jpg'
 import v1_0_dark from '../assets/one-of/v1.0/v1.0 (2).jpg'
 import v1_0_white from '../assets/one-of/v1.0/v1.0 (10).jpg'
+import image3 from '../assets/one-of/v1.0/v1.0 (3).jpg'
+import image4 from '../assets/one-of/v1.0/v1.0 (4).jpg'
+import image11 from '../assets/one-of/v1.0/v1.0 (11).jpg'
+import image8 from '../assets/one-of/v1.0/v1.0 (8).jpg'
+
+import v2_0_1 from '../assets/one-of/v2.0/SHIBUSH 3.jpg'
+import v2_0_2 from '../assets/one-of/v2.0/SHIBUSH 1.jpg'
+import v2_0_3 from '../assets/one-of/v2.0/SHIBUSH 2.jpg'
+import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
+
+import v3_0_1 from '../assets/one-of/v3.0/v3.0 (13).jpg'
+import v3_0_2 from '../assets/one-of/v3.0/v3.0 (12).jpg'
+import v3_0_3 from '../assets/one-of/v3.0/v3.0 (11).jpg'
+import v3_0_4 from '../assets/one-of/v3.0/v3.0 (9).jpg'
+import v3_0_5 from '../assets/one-of/v3.0/v3.0 (10).jpg'
+import v3_0_6 from '../assets/one-of/v3.0/v3.0 (14).jpg'
+import v3_0_7 from '../assets/one-of/v3.0/v3.0 (15).jpg'
+import v3_0_8 from '../assets/one-of/v3.0/v3.0 (3).jpg'
+import v3_0_9 from '../assets/one-of/v3.0/v3.0 (4).jpg'
+import v3_0_10 from '../assets/one-of/v3.0/v3.0 (8).jpg'
+import v3_0_11 from '../assets/one-of/v3.0/v3.0 (5).jpg'
+import v3_0_12 from '../assets/one-of/v3.0/v3.0 (7).jpg'
 
 class OneOfPage extends React.Component {
     constructor(props) {
@@ -16,16 +38,24 @@ class OneOfPage extends React.Component {
         this.state = { imageWidth: 0 }
 
         this.imageRef = React.createRef()
+        this.gifRef = React.createRef()
     }
 
     componentDidMount() {
         this.imageRef.current.addEventListener('load', this.setImageWidth)
+        window.addEventListener('resize', this.setImageWidth)
+        //this.gifRef.current.addEventListener('load', this.setImageWidth)
     }
 
     setImageWidth = () => {
         const imageWidth = this.imageRef.current.clientWidth
         this.setState({ imageWidth: imageWidth })
     }
+
+    // setImageWidth = () => {
+    //     const imageWidth = this.imageRef.current.clientWidth
+    //     this.setState({ imageWidth: imageWidth })
+    // }
 
     render() {
         return (
@@ -79,6 +109,7 @@ class OneOfPage extends React.Component {
                     creations.
                 </p>
                 <img ref={this.imageRef} src={machine}></img>
+                <img src={image3}></img>
                 <h2>v1.0</h2>
                 <p>
                     The first presented series of Industrial one of, “Machine’s
@@ -115,10 +146,13 @@ class OneOfPage extends React.Component {
                     provides a mechanical interpretation of the sculptor’s
                     hands.
                 </p>
+                <img src={image4}></img>
+                <img src={image11}></img>
+                <img src={image8}></img>
                 <iframe
                     src="https://player.vimeo.com/video/225211213"
                     width={this.state.imageWidth}
-                    height={this.state.imageWidth / 2}
+                    height={this.state.imageWidth / 1.778}
                     frameborder="0"
                     allow="autoplay; fullscreen"
                     allowfullscreen
@@ -134,6 +168,55 @@ class OneOfPage extends React.Component {
                     the clay’s surface, revealing a one of a kind ornament each
                     time.
                 </p>
+                <img src={v2_0_1}></img>
+                <img src={v2_0_2}></img>
+                <img src={v2_0_3}></img>
+                <img src={v2_0_gif} width={this.state.imageWidth}></img>
+                <iframe
+                    src="https://player.vimeo.com/video/308311075"
+                    width={this.state.imageWidth}
+                    height={this.state.imageWidth / 1.778}
+                    frameborder="0"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen
+                ></iframe>
+                <h2>v3.0</h2>
+                <p>
+                    Industrial one of 3.0 explores the post-industrial,
+                    anti-serial, coded, and singular era. The starting point for
+                    this reserch was ceramic ware, products of the industrial
+                    world, from various factories worldwide (Rosenthal,
+                    Wedgwood, Herend, IKEA, and Villeroy & Boch) due to their
+                    unique international status and high standing in European
+                    culture, as well as their personal significance in my
+                    extended family's vitrines. Their reproduction by the
+                    machine and its operating algorithm infuses them with a new
+                    interpretation, eliciting questions: What would be the
+                    language of these factories in the future? What will the
+                    language of craft look like in tomorrow's world, and what
+                    will the new meaning of art and design be in the
+                    post-industrial age?
+                </p>
+                <img src={v3_0_1}></img>
+                <img src={v3_0_2}></img>
+                <img src={v3_0_3}></img>
+                <img src={v3_0_4}></img>
+                <img src={v3_0_5}></img>
+                <img src={v3_0_6}></img>
+                <img src={v3_0_7}></img>
+                <img src={v3_0_8}></img>
+                <img src={v3_0_9}></img>
+                <img src={v3_0_10}></img>
+                <img src={v3_0_11}></img>
+                <img src={v3_0_12}></img>
+                <iframe
+                    src="https://player.vimeo.com/video/393245651"
+                    width={this.state.imageWidth}
+                    height={this.state.imageWidth / 1.778}
+                    frameborder="0"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen
+                ></iframe>
             </Layout>
         )
     }
