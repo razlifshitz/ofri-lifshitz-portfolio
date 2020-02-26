@@ -40,12 +40,12 @@ header {
     top: 0;
     left: 0;
     padding: 0 100px;
-    background: #262626;
+    background: rgb(255, 255, 255);
     width: 100%;
     box-sizing: border-box;
 
     .logo {
-        color: #ffffff;
+        color: #262626;
         height: 50px;
         line-height: 50px;
         font-size: 24px;
@@ -67,14 +67,14 @@ header {
                     height: 50px;
                     line-height: 50px;
                     padding: 0 20px;
-                    color: #ffffff;
+                    color: #262626;
                     text-decoration: none;
                     display: block;
                 }
                 a:hover,
                 .active-nav-item {
-                    color: #ffffff;
-                    background: #2196f3;
+                    color: #262626;
+                    background: #dddddd;
                 }
             }
         }
@@ -101,9 +101,9 @@ header {
     header nav {
         display: none;
         position: absolute;
-        width: 60%;
+        width: 100%;
         height: calc(100vh - 50px);
-        background: #333;
+        background: rgb(245, 245, 245);
         top: 50px;
         right: -100%;
         // transition: 0.5s;

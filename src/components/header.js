@@ -30,7 +30,10 @@ const Header = () => {
                 <h1> Ofri Lifshitz</h1>
                 <h3>Industrial Designer</h3>
             </Link> */}
-            <nav className={state.active ? headerStyles.activeNavbar : ''}>
+            <nav
+                className={state.active ? headerStyles.activeNavbar : ''}
+                onClick={onToggle}
+            >
                 {/* <ul className={headerStyles.navList}> */}
                 <ul>
                     <li>
