@@ -25,11 +25,9 @@ const Header = () => {
     return (
         // <header className={headerStyles.Header}>
         <header>
-            <div className={headerStyles.logo}>Ofri Lifshitz</div>
-            {/* <Link to="/" className={headerStyles.title}>
-                <h1> Ofri Lifshitz</h1>
-                <h3>Industrial Designer</h3>
-            </Link> */}
+            <div className={headerStyles.logo}>
+                <Link to="/">Ofri Lifshitz</Link>
+            </div>
             <nav
                 className={state.active ? headerStyles.activeNavbar : ''}
                 onClick={onToggle}
@@ -40,7 +38,7 @@ const Header = () => {
                         <Link
                             className={headerStyles.navItem}
                             activeClassName={headerStyles.activeNavItem}
-                            to="/"
+                            to="/about"
                         >
                             About
                         </Link>

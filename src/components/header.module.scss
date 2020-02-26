@@ -45,12 +45,15 @@ header {
     box-sizing: border-box;
 
     .logo {
-        color: #262626;
-        height: 50px;
-        line-height: 50px;
-        font-size: 24px;
-        float: left;
-        font-weight: bold;
+        a {
+            color: #262626;
+            height: 50px;
+            line-height: 50px;
+            font-size: 24px;
+            float: left;
+            font-weight: bold;
+            text-decoration: none;
+        }
     }
 
     nav {
@@ -103,7 +106,7 @@ header {
         position: absolute;
         width: 100%;
         height: calc(100vh - 50px);
-        background: rgb(245, 245, 245);
+        background: rgb(255, 255, 255);
         top: 50px;
         right: -100%;
         // transition: 0.5s;
@@ -115,7 +118,7 @@ header {
 
             li {
                 a {
-                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                    // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 }
             }
         }
