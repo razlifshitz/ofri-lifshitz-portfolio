@@ -52,7 +52,7 @@ const Header = () => {
                             Industrial One Of
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link
                             className={headerStyles.navItem}
                             activeClassName={headerStyles.activeNavItem}
@@ -60,7 +60,7 @@ const Header = () => {
                         >
                             Exhibitions
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link
                             className={headerStyles.navItem}
@@ -70,7 +70,7 @@ const Header = () => {
                             Press
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link
                             className={headerStyles.navItem}
                             activeClassName={headerStyles.activeNavItem}
@@ -78,7 +78,7 @@ const Header = () => {
                         >
                             Contact
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
             <div className={headerStyles.menuToggle} onClick={onToggle}>
