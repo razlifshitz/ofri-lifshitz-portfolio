@@ -4,6 +4,10 @@ import Layout from '../components/layout'
 
 import pageStyles from './one-of.module.scss'
 
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import NoStretchImage from '../components/noStretchImage'
+
 // pictures
 import machine from '../assets/one-of/oneof (1).jpg'
 import v1_0_dark from '../assets/one-of/v1.0/v1.0 (2).jpg'
@@ -31,6 +35,61 @@ import v3_0_10 from '../assets/one-of/v3.0/v3.0 (8).jpg'
 import v3_0_11 from '../assets/one-of/v3.0/v3.0 (5).jpg'
 import v3_0_12 from '../assets/one-of/v3.0/v3.0 (7).jpg'
 
+export const query = graphql`
+    query {
+        machine: file(relativePath: { eq: "one-of/oneof (1).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v1_0_dark: file(relativePath: { eq: "one-of/v1.0/v1.0 (2).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v1_0_white: file(relativePath: { eq: "one-of/v1.0/v1.0 (10).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image3: file(relativePath: { eq: "one-of/v1.0/v1.0 (3).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image4: file(relativePath: { eq: "one-of/v1.0/v1.0 (4).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image11: file(relativePath: { eq: "one-of/v1.0/v1.0 (11).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image8: file(relativePath: { eq: "one-of/v1.0/v1.0 (8).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+    }
+`
+const imageStyle = { marginBottom: '1.45rem' }
+
 class OneOfPage extends React.Component {
     constructor(props) {
         super(props)
@@ -41,21 +100,23 @@ class OneOfPage extends React.Component {
         this.gifRef = React.createRef()
     }
 
+    machine = [this.props.data.machine.childImageSharp.fluid]
+    v1_0_dark = [this.props.data.v1_0_dark.childImageSharp.fluid]
+    v1_0_white = [this.props.data.v1_0_white.childImageSharp.fluid]
+    image3 = [this.props.data.image3.childImageSharp.fluid]
+    image4 = [this.props.data.image4.childImageSharp.fluid]
+    image11 = [this.props.data.image11.childImageSharp.fluid]
+    image8 = [this.props.data.image8.childImageSharp.fluid]
+
     componentDidMount() {
         this.imageRef.current.addEventListener('load', this.setImageWidth)
         window.addEventListener('resize', this.setImageWidth)
-        //this.gifRef.current.addEventListener('load', this.setImageWidth)
     }
 
     setImageWidth = () => {
         const imageWidth = this.imageRef.current.clientWidth
         this.setState({ imageWidth: imageWidth })
     }
-
-    // setImageWidth = () => {
-    //     const imageWidth = this.imageRef.current.clientWidth
-    //     this.setState({ imageWidth: imageWidth })
-    // }
 
     render() {
         return (
@@ -108,8 +169,8 @@ class OneOfPage extends React.Component {
                     time, the same way a potter leaves his handprint on his
                     creations.
                 </p>
-                <img ref={this.imageRef} src={machine}></img>
-                <img src={image3}></img>
+                <NoStretchImage fluid={this.machine} style={imageStyle} />
+                <NoStretchImage fluid={this.image3} style={imageStyle} />
                 <h2>v1.0</h2>
                 <p>
                     The first presented series of Industrial one of, “Machine’s
@@ -127,12 +188,12 @@ class OneOfPage extends React.Component {
                     code makes each one distinguishable. Every piece produced is
                     one of a kind.
                 </p>
-                <img src={v1_0_white}></img>
+                <NoStretchImage fluid={this.v1_0_white} style={imageStyle} />
                 <div className={pageStyles.caption}>
                     This group of pottery was created with the same exact code,
                     yet each piece is unique.
                 </div>
-                <img src={v1_0_dark}></img>
+                <NoStretchImage fluid={this.v1_0_dark} style={imageStyle} />
                 <div className={pageStyles.caption}>
                     This group of pottery was created with the same code as the
                     other group, but with a different set of pre-defined range
@@ -146,16 +207,16 @@ class OneOfPage extends React.Component {
                     provides a mechanical interpretation of the sculptor’s
                     hands.
                 </p>
-                <img src={image4}></img>
-                <img src={image11}></img>
-                <img src={image8}></img>
+                <NoStretchImage fluid={this.image4} style={imageStyle} />
+                <NoStretchImage fluid={this.image11} style={imageStyle} />
+                <NoStretchImage fluid={this.image8} style={imageStyle} />
                 <iframe
                     src="https://player.vimeo.com/video/225211213"
                     width={this.state.imageWidth}
                     height={this.state.imageWidth / 1.778}
-                    frameborder="0"
+                    frameBorder="0"
                     allow="autoplay; fullscreen"
-                    allowfullscreen
+                    allowFullScreen
                 ></iframe>
                 <h2>v2.0</h2>
                 <p>
@@ -176,9 +237,9 @@ class OneOfPage extends React.Component {
                     src="https://player.vimeo.com/video/308311075"
                     width={this.state.imageWidth}
                     height={this.state.imageWidth / 1.778}
-                    frameborder="0"
+                    frameBorder="0"
                     allow="autoplay; fullscreen"
-                    allowfullscreen
+                    allowFullScreen
                 ></iframe>
                 <h2>v3.0</h2>
                 <p>
@@ -208,14 +269,14 @@ class OneOfPage extends React.Component {
                 <img src={v3_0_9}></img>
                 <img src={v3_0_10}></img>
                 <img src={v3_0_11}></img>
-                <img src={v3_0_12}></img>
+                <img ref={this.imageRef} src={v3_0_12}></img>
                 <iframe
                     src="https://player.vimeo.com/video/393245651"
                     width={this.state.imageWidth}
                     height={this.state.imageWidth / 1.778}
-                    frameborder="0"
+                    frameBorder="0"
                     allow="autoplay; fullscreen"
-                    allowfullscreen
+                    allowFullScreen
                 ></iframe>
             </Layout>
         )
