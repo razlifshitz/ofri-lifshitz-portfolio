@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-// import Img from 'gatsby-image'
+import Img from 'gatsby-image'
 
 // style
 import pageStyles from '../styles/one-of.module.scss'
@@ -59,7 +59,7 @@ class OneOfPage extends React.Component {
 
     componentDidMount() {
         this.imageRef.current.addEventListener('load', this.setImageWidth)
-        window.addEventListener('resize', this.setImageWidth)
+        // window.addEventListener('resize', this.setImageWidth)
     }
 
     setImageWidth = () => {
@@ -118,7 +118,7 @@ class OneOfPage extends React.Component {
                     time, the same way a potter leaves his handprint on his
                     creations.
                 </p>
-                <NoStretchImage fluid={this.machine} style={imageStyle} />
+                <Img fluid={this.machine} />
                 <NoStretchImage fluid={this.image3} style={imageStyle} />
                 <h2>v1.0</h2>
                 <p>
