@@ -1,93 +1,20 @@
 import React from 'react'
-
-import Layout from '../components/layout'
-
-import pageStyles from './one-of.module.scss'
-
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
+
+// style
+import pageStyles from '../styles/one-of.module.scss'
+
+// components
+import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
 
-// pictures
-import machine from '../assets/one-of/oneof (1).jpg'
-import v1_0_dark from '../assets/one-of/v1.0/v1.0 (2).jpg'
-import v1_0_white from '../assets/one-of/v1.0/v1.0 (10).jpg'
-import image3 from '../assets/one-of/v1.0/v1.0 (3).jpg'
-import image4 from '../assets/one-of/v1.0/v1.0 (4).jpg'
-import image11 from '../assets/one-of/v1.0/v1.0 (11).jpg'
-import image8 from '../assets/one-of/v1.0/v1.0 (8).jpg'
+// import { imageQuery } from '../constants/one-of.constants'
 
-import v2_0_1 from '../assets/one-of/v2.0/SHIBUSH 3.jpg'
-import v2_0_2 from '../assets/one-of/v2.0/SHIBUSH 1.jpg'
-import v2_0_3 from '../assets/one-of/v2.0/SHIBUSH 2.jpg'
+// images
 import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
-
-import v3_0_1 from '../assets/one-of/v3.0/v3.0 (13).jpg'
-import v3_0_2 from '../assets/one-of/v3.0/v3.0 (12).jpg'
-import v3_0_3 from '../assets/one-of/v3.0/v3.0 (11).jpg'
-import v3_0_4 from '../assets/one-of/v3.0/v3.0 (9).jpg'
-import v3_0_5 from '../assets/one-of/v3.0/v3.0 (10).jpg'
-import v3_0_6 from '../assets/one-of/v3.0/v3.0 (14).jpg'
-import v3_0_7 from '../assets/one-of/v3.0/v3.0 (15).jpg'
-import v3_0_8 from '../assets/one-of/v3.0/v3.0 (3).jpg'
-import v3_0_9 from '../assets/one-of/v3.0/v3.0 (4).jpg'
-import v3_0_10 from '../assets/one-of/v3.0/v3.0 (8).jpg'
-import v3_0_11 from '../assets/one-of/v3.0/v3.0 (5).jpg'
 import v3_0_12 from '../assets/one-of/v3.0/v3.0 (7).jpg'
 
-export const query = graphql`
-    query {
-        machine: file(relativePath: { eq: "one-of/oneof (1).jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        v1_0_dark: file(relativePath: { eq: "one-of/v1.0/v1.0 (2).jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        v1_0_white: file(relativePath: { eq: "one-of/v1.0/v1.0 (10).jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        image3: file(relativePath: { eq: "one-of/v1.0/v1.0 (3).jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        image4: file(relativePath: { eq: "one-of/v1.0/v1.0 (4).jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        image11: file(relativePath: { eq: "one-of/v1.0/v1.0 (11).jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        image8: file(relativePath: { eq: "one-of/v1.0/v1.0 (8).jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-    }
-`
 const imageStyle = { marginBottom: '1.45rem' }
 
 class OneOfPage extends React.Component {
@@ -97,16 +24,38 @@ class OneOfPage extends React.Component {
         this.state = { imageWidth: 0 }
 
         this.imageRef = React.createRef()
-        this.gifRef = React.createRef()
     }
 
-    machine = [this.props.data.machine.childImageSharp.fluid]
-    v1_0_dark = [this.props.data.v1_0_dark.childImageSharp.fluid]
-    v1_0_white = [this.props.data.v1_0_white.childImageSharp.fluid]
-    image3 = [this.props.data.image3.childImageSharp.fluid]
-    image4 = [this.props.data.image4.childImageSharp.fluid]
-    image11 = [this.props.data.image11.childImageSharp.fluid]
-    image8 = [this.props.data.image8.childImageSharp.fluid]
+    data = this.props.data
+
+    machine = this.data.machine.childImageSharp.fluid
+
+    // v1.0
+    v1_0_dark = this.data.v1_0_dark.childImageSharp.fluid
+    v1_0_white = this.data.v1_0_white.childImageSharp.fluid
+    image3 = this.data.image3.childImageSharp.fluid
+    image4 = this.data.image4.childImageSharp.fluid
+    image11 = this.data.image11.childImageSharp.fluid
+    image8 = this.data.image8.childImageSharp.fluid
+
+    // v2.0
+    v2_0_1 = this.data.v2_0_1.childImageSharp.fluid
+    v2_0_2 = this.data.v2_0_2.childImageSharp.fluid
+    v2_0_3 = this.data.v2_0_3.childImageSharp.fluid
+
+    // v3.0
+    v3_0_1 = this.data.v3_0_1.childImageSharp.fluid
+    v3_0_2 = this.data.v3_0_2.childImageSharp.fluid
+    v3_0_3 = this.data.v3_0_3.childImageSharp.fluid
+    v3_0_4 = this.data.v3_0_4.childImageSharp.fluid
+    v3_0_5 = this.data.v3_0_5.childImageSharp.fluid
+    v3_0_6 = this.data.v3_0_6.childImageSharp.fluid
+    v3_0_7 = this.data.v3_0_7.childImageSharp.fluid
+    v3_0_8 = this.data.v3_0_8.childImageSharp.fluid
+    v3_0_9 = this.data.v3_0_9.childImageSharp.fluid
+    v3_0_10 = this.data.v3_0_10.childImageSharp.fluid
+    v3_0_11 = this.data.v3_0_11.childImageSharp.fluid
+    //v3_0_12 = this.data.v3_0_12.childImageSharp.fluid
 
     componentDidMount() {
         this.imageRef.current.addEventListener('load', this.setImageWidth)
@@ -211,6 +160,7 @@ class OneOfPage extends React.Component {
                 <NoStretchImage fluid={this.image11} style={imageStyle} />
                 <NoStretchImage fluid={this.image8} style={imageStyle} />
                 <iframe
+                    title="Indusrial One Of v1.0 video"
                     src="https://player.vimeo.com/video/225211213"
                     width={this.state.imageWidth}
                     height={this.state.imageWidth / 1.778}
@@ -229,11 +179,12 @@ class OneOfPage extends React.Component {
                     the clay’s surface, revealing a one of a kind ornament each
                     time.
                 </p>
-                <img src={v2_0_1}></img>
-                <img src={v2_0_2}></img>
-                <img src={v2_0_3}></img>
-                <img src={v2_0_gif} width={this.state.imageWidth}></img>
+                <NoStretchImage fluid={this.v2_0_1} style={imageStyle} />
+                <NoStretchImage fluid={this.v2_0_2} style={imageStyle} />
+                <NoStretchImage fluid={this.v2_0_3} style={imageStyle} />
+                <img src={v2_0_gif} width={this.state.imageWidth} alt=""></img>
                 <iframe
+                    title="Indusrial One Of v2.0 video"
                     src="https://player.vimeo.com/video/308311075"
                     width={this.state.imageWidth}
                     height={this.state.imageWidth / 1.778}
@@ -258,19 +209,20 @@ class OneOfPage extends React.Component {
                     will the new meaning of art and design be in the
                     post-industrial age?
                 </p>
-                <img src={v3_0_1}></img>
-                <img src={v3_0_2}></img>
-                <img src={v3_0_3}></img>
-                <img src={v3_0_4}></img>
-                <img src={v3_0_5}></img>
-                <img src={v3_0_6}></img>
-                <img src={v3_0_7}></img>
-                <img src={v3_0_8}></img>
-                <img src={v3_0_9}></img>
-                <img src={v3_0_10}></img>
-                <img src={v3_0_11}></img>
-                <img ref={this.imageRef} src={v3_0_12}></img>
+                <NoStretchImage fluid={this.v3_0_1} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_2} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_3} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_4} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_5} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_6} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_7} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_8} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_9} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_10} style={imageStyle} />
+                <NoStretchImage fluid={this.v3_0_11} style={imageStyle} />
+                <img ref={this.imageRef} src={v3_0_12} alt=""></img>
                 <iframe
+                    title="Indusrial One Of v3.0 video"
                     src="https://player.vimeo.com/video/393245651"
                     width={this.state.imageWidth}
                     height={this.state.imageWidth / 1.778}
@@ -284,3 +236,163 @@ class OneOfPage extends React.Component {
 }
 
 export default OneOfPage
+
+// images query
+export const query = graphql`
+    query {
+        machine: file(relativePath: { eq: "one-of/oneof (1).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v1_0_dark: file(relativePath: { eq: "one-of/v1.0/v1.0 (2).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v1_0_white: file(relativePath: { eq: "one-of/v1.0/v1.0 (10).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image3: file(relativePath: { eq: "one-of/v1.0/v1.0 (3).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image4: file(relativePath: { eq: "one-of/v1.0/v1.0 (4).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image11: file(relativePath: { eq: "one-of/v1.0/v1.0 (11).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image8: file(relativePath: { eq: "one-of/v1.0/v1.0 (8).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v2_0_1: file(relativePath: { eq: "one-of/v2.0/SHIBUSH 3.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v2_0_2: file(relativePath: { eq: "one-of/v2.0/SHIBUSH 1.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v2_0_3: file(relativePath: { eq: "one-of/v2.0/SHIBUSH 2.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_1: file(relativePath: { eq: "one-of/v3.0/v3.0 (13).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_2: file(relativePath: { eq: "one-of/v3.0/v3.0 (12).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_3: file(relativePath: { eq: "one-of/v3.0/v3.0 (11).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_4: file(relativePath: { eq: "one-of/v3.0/v3.0 (9).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_5: file(relativePath: { eq: "one-of/v3.0/v3.0 (10).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_6: file(relativePath: { eq: "one-of/v3.0/v3.0 (14).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_7: file(relativePath: { eq: "one-of/v3.0/v3.0 (15).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_8: file(relativePath: { eq: "one-of/v3.0/v3.0 (3).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_9: file(relativePath: { eq: "one-of/v3.0/v3.0 (4).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_10: file(relativePath: { eq: "one-of/v3.0/v3.0 (8).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_11: file(relativePath: { eq: "one-of/v3.0/v3.0 (5).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        v3_0_12: file(relativePath: { eq: "one-of/v3.0/v3.0 (7).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+    }
+`

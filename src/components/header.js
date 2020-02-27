@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import headerStyles from './header.module.scss'
+import headerStyles from '../styles/header.module.scss'
 
 import menuIcon from '../assets/menu-toggle.png'
 
