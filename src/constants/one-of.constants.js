@@ -1,3 +1,6 @@
+export const imageWrapperStyle = { marginBottom: '1.45rem' }
+export const mediaWidth = '1180px'
+
 // export const imageQuery = graphql`
 //     query {
 //         machine: file(relativePath: { eq: "one-of/oneof (1).jpg" }) {

@@ -2,8 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+// constants
+import { imageWrapperStyle } from '../constants/one-of.constants'
+
 // style
-import pageStyles from '../styles/one-of.module.scss'
+import pageStyle from '../styles/one-of.module.scss'
 
 // components
 import Layout from '../components/layout'
@@ -14,15 +17,13 @@ import NoStretchImage from '../components/noStretchImage'
 // images
 import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
 
-const imageStyle = { marginBottom: '1.45rem' }
-
 class OneOfPage extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = { contentWidth: 0 }
 
-        this.imageRef = React.createRef()
+        this.contentWidth = React.createRef()
     }
 
     data = this.props.data
@@ -57,14 +58,14 @@ class OneOfPage extends React.Component {
     v3_0_12 = this.data.v3_0_12.childImageSharp.fluid
 
     componentDidMount() {
-        const contentWidth = this.imageRef.current.clientWidth
+        const contentWidth = this.contentWidth.current.clientWidth
         this.setState({ contentWidth: contentWidth })
     }
 
     render() {
         return (
             <Layout>
-                <div ref={this.imageRef}>
+                <div ref={this.contentWidth}>
                     <h1>Industrial One Of</h1>
                     <h3>
                         A machine that manufactures one of a kind pottery ware,
@@ -97,7 +98,7 @@ class OneOfPage extends React.Component {
                         was made after thorough observation and analysis of the
                         industrial production of ceramic tableware.
                     </p>
-                    <Img fluid={this.machine} style={imageStyle} />
+                    <Img fluid={this.machine} style={imageWrapperStyle} />
                     <p>
                         Industrial one of attempts to anthropomorphize the
                         machine, so the results will seem closer to the way a
@@ -116,7 +117,10 @@ class OneOfPage extends React.Component {
                         each time, the same way a potter leaves his handprint on
                         his creations.
                     </p>
-                    <NoStretchImage fluid={this.image3} style={imageStyle} />
+                    <NoStretchImage
+                        fluid={this.image3}
+                        style={imageWrapperStyle}
+                    />
                     <h2>v1.0</h2>
                     <p>
                         The first presented series of Industrial one of,
@@ -136,14 +140,17 @@ class OneOfPage extends React.Component {
                     </p>
                     <NoStretchImage
                         fluid={this.v1_0_white}
-                        style={imageStyle}
+                        style={imageWrapperStyle}
                     />
-                    <div className={pageStyles.caption}>
+                    <div className={pageStyle.caption}>
                         This group of pottery was created with the same exact
                         code, yet each piece is unique.
                     </div>
-                    <NoStretchImage fluid={this.v1_0_dark} style={imageStyle} />
-                    <div className={pageStyles.caption}>
+                    <NoStretchImage
+                        fluid={this.v1_0_dark}
+                        style={imageWrapperStyle}
+                    />
+                    <div className={pageStyle.caption}>
                         This group of pottery was created with the same code as
                         the other group, but with a different set of pre-defined
                         range of parameters. Changing the parameters enables the
@@ -157,9 +164,18 @@ class OneOfPage extends React.Component {
                         story and provides a mechanical interpretation of the
                         sculptor’s hands.
                     </p>
-                    <NoStretchImage fluid={this.image4} style={imageStyle} />
-                    <NoStretchImage fluid={this.image11} style={imageStyle} />
-                    <NoStretchImage fluid={this.image8} style={imageStyle} />
+                    <NoStretchImage
+                        fluid={this.image4}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.image11}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.image8}
+                        style={imageWrapperStyle}
+                    />
                     <iframe
                         title="Indusrial One Of v1.0 video"
                         src="https://player.vimeo.com/video/225211213"
@@ -180,9 +196,18 @@ class OneOfPage extends React.Component {
                         each time, cut through the clay’s surface, revealing a
                         one of a kind ornament each time.
                     </p>
-                    <NoStretchImage fluid={this.v2_0_1} style={imageStyle} />
-                    <NoStretchImage fluid={this.v2_0_2} style={imageStyle} />
-                    <NoStretchImage fluid={this.v2_0_3} style={imageStyle} />
+                    <NoStretchImage
+                        fluid={this.v2_0_1}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v2_0_2}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v2_0_3}
+                        style={imageWrapperStyle}
+                    />
                     <img
                         src={v2_0_gif}
                         width={this.state.contentWidth}
@@ -214,18 +239,54 @@ class OneOfPage extends React.Component {
                         in tomorrow's world, and what will the new meaning of
                         art and design be in the post-industrial age?
                     </p>
-                    <NoStretchImage fluid={this.v3_0_1} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_2} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_3} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_4} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_5} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_6} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_7} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_8} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_9} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_10} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_11} style={imageStyle} />
-                    <NoStretchImage fluid={this.v3_0_12} style={imageStyle} />
+                    <NoStretchImage
+                        fluid={this.v3_0_1}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_2}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_3}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_4}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_5}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_6}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_7}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_8}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_9}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_10}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_11}
+                        style={imageWrapperStyle}
+                    />
+                    <NoStretchImage
+                        fluid={this.v3_0_12}
+                        style={imageWrapperStyle}
+                    />
                     <iframe
                         title="Indusrial One Of v3.0 video"
                         src="https://player.vimeo.com/video/393245651"

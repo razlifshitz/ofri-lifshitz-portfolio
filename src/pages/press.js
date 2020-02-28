@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Layout from '../components/layout'
-import { Link } from 'gatsby'
 
 const pressList = [
     {
@@ -47,6 +46,7 @@ const PressPage = () => {
                             style={{ color: 'inherit', fontStyle: 'italic' }}
                             href={pressData.url}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {pressData.title}
                         </a>
