@@ -9,7 +9,7 @@ const Footer = () => {
                 color: '#3d3d3d',
             }}
         >
-            <span style={{ fontFamily: 'Dosis' }}>
+            <span style={{ fontFamily: 'Dosis', fontSize: '9px' }}>
                 © 2020 by Raz Lifshitz. All rights reserved.
             </span>
             <br />
@@ -22,17 +22,22 @@ const Footer = () => {
                 }}
             >
                 <a
+                    href="https://www.facebook.com/ofri.lifshitz"
+                    style={{ color: 'inherit' }}
+                >
+                    <i className="facebook icon"></i>
+                </a>
+                <a
                     href="https://www.instagram.com/ofrilifshitz_design/"
                     style={{ color: 'inherit' }}
                 >
-                    <i class="instagram icon"></i>
+                    <i className="instagram icon"></i>
                 </a>
                 <a
                     href="mailto:ofri.lif@gmail.com"
                     style={{ color: 'inherit' }}
                 >
-                    {' '}
-                    <i class="envelope icon"></i>
+                    <i className="envelope icon"></i>
                 </a>
             </div>
         </div>

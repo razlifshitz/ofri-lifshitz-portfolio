@@ -116,9 +116,11 @@ header {
         ul {
             display: block;
             text-align: center;
-
+            padding-top: 100px;
             li {
                 a {
+                    height: 55px;
+                    font-size: 27px;
                     // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 }
             }
