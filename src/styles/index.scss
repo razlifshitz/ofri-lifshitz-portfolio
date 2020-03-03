@@ -1,8 +1,20 @@
 html {
     font-family: sans-serif;
+    font-size: 21px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
+@media (max-width: 900px) {
+    html {
+        font-size: 21px;
+    }
+}
+@media (max-width: 400px) {
+    html {
+        font-size: 18px;
+    }
+}
+
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -59,10 +71,6 @@ strong {
 }
 dfn {
     font-style: italic;
-}
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
 }
 mark {
     background-color: #ff0;
@@ -185,7 +193,7 @@ textarea {
     font: inherit;
 }
 html {
-    font: 112.5%/1.45em georgia, serif;
+    font: georgia, serif;
     box-sizing: border-box;
 }
 * {
@@ -233,7 +241,7 @@ h1 {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 2.25rem;
+    font-size: 1.6667rem;
     line-height: 1.1;
 }
 h2 {
@@ -250,7 +258,7 @@ h2 {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 1.62671rem;
+    font-size: 1.5rem;
     line-height: 1.1;
 }
 h3 {
@@ -267,7 +275,7 @@ h3 {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 1.38316rem;
+    font-size: 1.3333rem;
     line-height: 1.1;
 }
 h4 {
@@ -284,7 +292,7 @@ h4 {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.1;
 }
 h5 {
@@ -301,7 +309,7 @@ h5 {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 0.85028rem;
+    font-size: 1.15rem;
     line-height: 1.1;
 }
 h6 {
@@ -318,7 +326,7 @@ h6 {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 0.78405rem;
+    font-size: 1.08rem;
     line-height: 1.1;
 }
 hgroup {
@@ -376,6 +384,7 @@ dd {
     margin-bottom: 1.45rem;
 }
 p {
+    font-size: 1rem;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -614,8 +623,8 @@ pre tt:before,
 pre tt:after {
     content: '';
 }
-@media only screen and (max-width: 480px) {
-    html {
-        font-size: 100%;
-    }
-}
+// @media only screen and (max-width: 480px) {
+//     html {
+//         font-size: 100%;
+//     }
+// }

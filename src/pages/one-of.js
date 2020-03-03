@@ -67,10 +67,10 @@ class OneOfPage extends React.Component {
             <Layout>
                 <div ref={this.contentWidth}>
                     <h1>Industrial One Of</h1>
-                    <h3>
+                    <h4>
                         A machine that manufactures one of a kind pottery ware,
                         by leaving its unique handprint on each creation.
-                    </h3>
+                    </h4>
                     <p>
                         Industrial one of is an ongoing project that examines
                         the feasibility of “one of a kind” industrial
@@ -84,6 +84,8 @@ class OneOfPage extends React.Component {
                         live in today, multidimensional, cooperative and global,
                         I believe that the two worlds do not have to remain
                         separate, and that we have the tools to connect them.
+                    </p>
+                    <p>
                         From the craft world, I took the spirit, the values, the
                         sensations and the formal character, From the industrial
                         world, I took the methods of production, the technology,

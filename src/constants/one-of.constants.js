@@ -1,4 +1,4 @@
-export const imageWrapperStyle = { marginBottom: '1.45rem' }
+export const imageWrapperStyle = { marginBottom: '1.1rem' }
 export const mediaWidth = '1180px'
 
 // export const imageQuery = graphql`

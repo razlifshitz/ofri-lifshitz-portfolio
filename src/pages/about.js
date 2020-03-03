@@ -36,21 +36,24 @@ const AboutPage = ({ data }) => {
                 }}
             />
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                tincidunt lectus sapien, mattis varius sem dapibus eu. Cras eget
-                eros fermentum, commodo neque eget, lobortis tellus. Quisque
-                dapibus tellus ut lobortis ornare. Donec nec vulputate tortor,
-                id vulputate ex. Sed tristique rhoncus efficitur. Vestibulum
-                justo risus, tempus vitae feugiat vel, imperdiet nec lacus.
-                Nulla eu libero id ex dapibus accumsan at eu eros. Phasellus
-                dapibus, felis a viverra suscipit, lorem diam porttitor dolor,
-                in hendrerit diam ante sagittis turpis. Praesent vitae gravida
-                quam. Suspendisse pellentesque est tortor, non pretium neque
-                consequat porta. Fusce turpis libero, congue eu tristique
-                malesuada, lobortis eu orci. Praesent ut lectus tincidunt,
-                sagittis justo et, convallis orci. In venenatis mauris lectus,
-                eu ultrices orci molestie vel. Aliquam auctor justo a erat
-                dapibus commodo.
+                Lorem ipsum is a pseudo-Latin text used in web design,
+                typography, layout, and printing in place of English to
+                emphasise design elements over content. It's also called
+                placeholder (or filler) text. It's a convenient tool for
+                mock-ups. It helps to outline the visual elements of a document
+                or presentation, eg typography, font, or layout. Lorem ipsum is
+                mostly a part of a Latin text by the classical author and
+                philosopher Cicero.
+            </p>
+            <p>
+                Its words and letters have been changed by addition or removal,
+                so to deliberately render its content nonsensical; it's not
+                genuine, correct, or comprehensible Latin anymore. While lorem
+                ipsum's still resembles classical Latin, it actually has no
+                meaning whatsoever. As Cicero's text doesn't contain the letters
+                K, W, or Z, alien to latin, these, and others are often inserted
+                randomly to mimic the typographic appearence of European
+                languages, as are digraphs not to be found in the original.
             </p>
             <FieldPresentation
                 name="Education"
@@ -69,7 +72,7 @@ const FieldPresentation = props => {
         <p>
             <h3>{props.name}</h3>
             {props.data.map(text => (
-                <h6>{text}</h6>
+                <p>{text}</p>
             ))}
         </p>
     )
