@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Layout from '../components/layout'
+import NoStretchImage from '../components/noStretchImage'
 
 const education = [
     '2013-2017/ B. Design, HIT (Holon Institute of Technology) - graduated with honor',
@@ -14,7 +15,9 @@ const awardsAndExhibitions = [
     '2017 / Design Department Dean’s first prize in excellence for Graduation Project',
 ]
 
-const AboutPage = () => {
+const AboutPage = ({ data }) => {
+    const ofriImage = data.ofriImage.childImageSharp.fluid
+
     return (
         <Layout>
             <h3>
@@ -22,6 +25,16 @@ const AboutPage = () => {
                 <br />
                 Industrial Designer
             </h3>
+            <NoStretchImage
+                fluid={ofriImage}
+                style={{
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    width: '80%',
+                    marginBottom: '1.45rem',
+                }}
+            />
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
                 tincidunt lectus sapien, mattis varius sem dapibus eu. Cras eget
@@ -63,3 +76,15 @@ const FieldPresentation = props => {
 }
 
 export default AboutPage
+
+export const query = graphql`
+    query {
+        ofriImage: file(relativePath: { eq: "ofri1.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+    }
+`
