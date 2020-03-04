@@ -37,6 +37,7 @@ const pressList = [
 const PressPage = () => {
     return (
         <Layout>
+            <p>As seen in:</p>
             {pressList.map(pressData => (
                 <p>
                     <h6>

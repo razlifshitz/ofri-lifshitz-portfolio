@@ -45,19 +45,16 @@ header {
     top: 0;
     left: 0;
     padding: 0 100px;
-    background: rgb(255, 255, 255);
+    background: #ffffff;
     width: 100%;
     box-sizing: border-box;
 
     .logo {
-        a {
-            color: #262626;
-            height: 50px;
-            line-height: 50px;
-            font-size: 24px;
+        img {
+            position: absolute;
+            padding-top: 10px;
+            height: 100px;
             float: left;
-            font-weight: bold;
-            text-decoration: none;
         }
     }
 
@@ -92,6 +89,8 @@ header {
 }
 
 .menu-toggle {
+    position: relative;
+    top: 60px;
     float: right;
     line-height: 50px;
     font-size: 24px;
@@ -113,9 +112,9 @@ header {
         display: none;
         position: absolute;
         width: 100%;
-        height: calc(100vh - 50px);
+        height: calc(100vh - 100px);
         background: rgb(255, 255, 255);
-        top: 50px;
+        top: 100px;
         right: -100%;
         // transition: 0.5s;
         // animation: slide-in 0.5s forwards;

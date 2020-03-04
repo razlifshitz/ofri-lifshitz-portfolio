@@ -20,11 +20,6 @@ const AboutPage = ({ data }) => {
 
     return (
         <Layout>
-            <h3>
-                Ofri Lifshitz
-                <br />
-                Industrial Designer
-            </h3>
             <NoStretchImage
                 fluid={ofriImage}
                 style={{

@@ -37,6 +37,7 @@ class OneOfPage extends React.Component {
     image4 = this.data.image4.childImageSharp.fluid
     image11 = this.data.image11.childImageSharp.fluid
     image8 = this.data.image8.childImageSharp.fluid
+    image7 = this.data.image7.childImageSharp.fluid
 
     // v2.0
     v2_0_1 = this.data.v2_0_1.childImageSharp.fluid
@@ -71,6 +72,13 @@ class OneOfPage extends React.Component {
                         A machine that manufactures one of a kind pottery ware,
                         by leaving its unique handprint on each creation.
                     </h4>
+                    <NoStretchImage
+                        fluid={this.image3}
+                        style={imageWrapperStyle}
+                    />
+                    <div className={pageStyle.caption}>
+                        Industrial One Of v1.0
+                    </div>
                     <p>
                         Industrial one of is an ongoing project that examines
                         the feasibility of “one of a kind” industrial
@@ -120,9 +128,12 @@ class OneOfPage extends React.Component {
                         his creations.
                     </p>
                     <NoStretchImage
-                        fluid={this.image3}
+                        fluid={this.image4}
                         style={imageWrapperStyle}
                     />
+                    <div className={pageStyle.caption}>
+                        Industrial One Of v1.0
+                    </div>
                     <h2>v1.0</h2>
                     <p>
                         The first presented series of Industrial one of,
@@ -167,15 +178,15 @@ class OneOfPage extends React.Component {
                         sculptor’s hands.
                     </p>
                     <NoStretchImage
-                        fluid={this.image4}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
                         fluid={this.image11}
                         style={imageWrapperStyle}
                     />
                     <NoStretchImage
                         fluid={this.image8}
+                        style={imageWrapperStyle}
+                    />{' '}
+                    <NoStretchImage
+                        fluid={this.image7}
                         style={imageWrapperStyle}
                     />
                     <iframe
@@ -352,6 +363,13 @@ export const query = graphql`
             }
         }
         image8: file(relativePath: { eq: "one-of/v1.0/v1.0 (8).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        image7: file(relativePath: { eq: "one-of/v1.0/v1.0 (7).jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 750) {
                     ...GatsbyImageSharpFluid

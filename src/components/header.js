@@ -7,6 +7,7 @@ import { mediaWidth } from '../constants/one-of.constants'
 
 // icon
 import menuIcon from '../assets/menu-toggle.png'
+import logo from '../assets/logos/logo 28.2.20 C.png'
 
 class Header extends React.Component {
     constructor(props) {
@@ -40,7 +41,9 @@ class Header extends React.Component {
             // <header className={headerStyles.Header}>
             <header>
                 <div className={headerStyles.logo}>
-                    <Link to="/">Ofri Lifshitz</Link>
+                    <Link to="/">
+                        <img src={logo}></img>
+                    </Link>
                 </div>
                 <nav
                     className={
@@ -100,11 +103,12 @@ class Header extends React.Component {
                 </nav>
                 {/* todo understand why this is undefined in method when 
                     removing here the arrow function */}
-                <div
-                    className={headerStyles.menuToggle}
-                    onClick={() => this.onToggle()}
-                >
-                    <img src={menuIcon} alt="toggle menu"></img>
+                <div className={headerStyles.menuToggle}>
+                    <img
+                        src={menuIcon}
+                        onClick={() => this.onToggle()}
+                        alt="toggle menu"
+                    ></img>
                 </div>
             </header>
         )
