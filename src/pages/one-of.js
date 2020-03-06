@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
 // constants
 import { imageWrapperStyle } from '../constants/one-of.constants'
@@ -108,7 +107,10 @@ class OneOfPage extends React.Component {
                         was made after thorough observation and analysis of the
                         industrial production of ceramic tableware.
                     </p>
-                    <Img fluid={this.machine} style={imageWrapperStyle} />
+                    <NoStretchImage
+                        fluid={this.machine}
+                        style={imageWrapperStyle}
+                    />
                     <p>
                         Industrial one of attempts to anthropomorphize the
                         machine, so the results will seem closer to the way a
