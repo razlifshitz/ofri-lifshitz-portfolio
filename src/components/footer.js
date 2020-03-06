@@ -9,7 +9,13 @@ const Footer = () => {
                 color: '#3d3d3d',
             }}
         >
-            <span style={{ fontFamily: 'Dosis', fontSize: '0.6rem' }}>
+            <span
+                style={{
+                    fontFamily: `-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif`,
+                    fontSize: '0.6rem',
+                }}
+            >
                 © 2020 by Raz Lifshitz. All rights reserved.
             </span>
             <br />
