@@ -42,6 +42,7 @@ header {
     z-index: 10;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 0.8rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -50,13 +51,10 @@ header {
     width: 100%;
     box-sizing: border-box;
 
-    .logo {
-        img {
-            position: absolute;
-            padding-top: 10px;
-            height: 100px;
-            float: left;
-        }
+    .logo img {
+        position: absolute;
+        width: 240px;
+        float: left;
     }
 
     nav {
@@ -70,6 +68,7 @@ header {
                 margin-bottom: 0;
                 list-style-type: none;
                 text-align: center;
+
                 a {
                     height: 50px;
                     line-height: 50px;
@@ -78,6 +77,7 @@ header {
                     text-decoration: none;
                     display: block;
                 }
+
                 a:hover,
                 .active-nav-item {
                     color: #262626;
@@ -95,11 +95,13 @@ header {
     float: right;
     line-height: 50px;
     font-size: 24px;
-    cursor: pointer;
+    // cursor: pointer;
     display: none;
+
     img {
-        width: 26px;
-        margin-bottom: -6px;
+        width: 24px;
+        margin-bottom: 2px;
+        margin-right: 7px;
     }
 }
 
@@ -107,36 +109,40 @@ header {
     header {
         padding: 0 20px;
         position: absolute;
-    }
 
-    header nav {
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: calc(100vh - 100px);
-        background: rgb(255, 255, 255);
-        top: 100px;
-        right: -100%;
-        // transition: 0.5s;
-        // animation: slide-in 0.5s forwards;
+        nav {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: calc(100vh - 100px);
+            background: rgb(255, 255, 255);
+            top: 100px;
+            right: -100%;
+            // transition: 0.5s;
+            // animation: slide-in 0.5s forwards;
 
-        ul {
-            display: block;
-            text-align: center;
-            padding-top: 100px;
-            li {
-                a {
+            ul {
+                display: block;
+                text-align: center;
+                padding-top: 100px;
+
+                li a {
                     height: 55px;
                     font-size: 27px;
+                    cursor: default;
                     // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 }
             }
         }
-    }
 
-    header nav.active-navbar {
-        right: 0;
-        display: block;
+        nav.active-navbar {
+            right: 0;
+            display: block;
+        }
+
+        .logo img {
+            padding-top: 53px;
+        }
     }
 
     .menu-toggle {

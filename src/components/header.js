@@ -7,13 +7,14 @@ import { mediaWidth } from '../constants/one-of.constants'
 
 // icon
 import menuIcon from '../assets/menu-toggle.png'
+import xIcon from '../assets/menu-toggle-x.png'
 import logo from '../assets/logos/logo 28.2.20 C.png'
 
 class Header extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { active: false }
+        this.state = { active: false, toggleIcon: menuIcon }
     }
 
     componentDidMount() {
@@ -27,12 +28,12 @@ class Header extends React.Component {
     }
 
     openMenu = () => {
-        this.setState({ active: true })
+        this.setState({ active: true, toggleIcon: xIcon })
         document.body.classList.add(`${headerStyles.disableScroll}`)
     }
 
     closeMenu = () => {
-        this.setState({ active: false })
+        this.setState({ active: false, toggleIcon: menuIcon })
         document.body.classList.remove(`${headerStyles.disableScroll}`)
     }
 
@@ -42,7 +43,7 @@ class Header extends React.Component {
             <header>
                 <div className={headerStyles.logo}>
                     <Link to="/">
-                        <img src={logo}></img>
+                        <img src={logo} onClick={this.closeMenu}></img>
                     </Link>
                 </div>
                 <nav
@@ -53,7 +54,7 @@ class Header extends React.Component {
                     {/* <ul className={headerStyles.navList}> */}
                     {/* todo understand why this is undefined in method when 
                     removing here the arrow function */}
-                    <ul onClick={() => this.onToggle()}>
+                    <ul>
                         <li>
                             <Link
                                 className={headerStyles.navItem}
@@ -105,9 +106,9 @@ class Header extends React.Component {
                     removing here the arrow function */}
                 <div className={headerStyles.menuToggle}>
                     <img
-                        src={menuIcon}
-                        onClick={() => this.onToggle()}
-                        alt="toggle menu"
+                        src={this.state.toggleIcon}
+                        onClick={this.onToggle}
+                        alt=""
                     ></img>
                 </div>
             </header>
