@@ -49,13 +49,15 @@ class Header extends React.Component {
                 </div>
                 <nav
                     className={
-                        this.state.active ? headerStyles.activeNavbar : ''
+                        this.state.active
+                            ? headerStyles.activeNavbar
+                            : headerStyles.inactiveNavbar
                     }
                 >
                     {/* <ul className={headerStyles.navList}> */}
                     {/* todo understand why this is undefined in method when 
                     removing here the arrow function */}
-                    <ul onClick={this.closeMenu}>
+                    <ul>
                         <li>
                             <Link
                                 className={headerStyles.navItem}
@@ -116,7 +118,9 @@ class Header extends React.Component {
                     removing here the arrow function */}
                 <div
                     className={`${headerStyles.menuToggle} ${
-                        this.state.active ? headerStyles.activeNavbar : ''
+                        this.state.active
+                            ? headerStyles.activeNavbar
+                            : headerStyles.inactiveNavbar
                     }`}
                 >
                     <img
