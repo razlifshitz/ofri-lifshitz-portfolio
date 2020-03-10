@@ -1,3 +1,5 @@
+@import 'base';
+
 // .carosule {
 //     position: relative;
 //     height: 281px;
@@ -22,6 +24,12 @@
 .slideshow-container {
     position: relative;
     margin: auto;
+}
+
+@media (max-width: $media-large) {
+    .slideshow-container {
+        padding-top: 40px;
+    }
 }
 
 /* Hide the images by default */
@@ -97,22 +105,10 @@
 
 /* Fading animation */
 .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 2s;
+    animation: fade-in 2s;
 }
 
-@-webkit-keyframes fade {
-    from {
-        opacity: 0.4;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fade {
+@include keyframes(fade-in) {
     from {
         opacity: 0.4;
     }

@@ -67,6 +67,7 @@ class Carousel extends React.Component {
                             <NoStretchImage
                                 fluid={image}
                                 imgStyle={{ width: '100%' }}
+                                loading="eager"
                             ></NoStretchImage>
                         </div>
                     )

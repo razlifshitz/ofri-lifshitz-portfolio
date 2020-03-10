@@ -1,3 +1,7 @@
+$media-small: 400px;
+$media-medium: 900px;
+$media-large: 1000px;
+
 @mixin keyframes($animationName) {
     @-webkit-keyframes #{$animationName} {
         @content;
