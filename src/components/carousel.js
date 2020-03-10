@@ -65,7 +65,7 @@ class Carousel extends React.Component {
                             className={style.mySlides + ' ' + style.fade}
                         >
                             <NoStretchImage
-                                fluid={image.src}
+                                fluid={image}
                                 imgStyle={{ width: '100%' }}
                             ></NoStretchImage>
                         </div>

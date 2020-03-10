@@ -19,6 +19,7 @@ class Header extends React.Component {
 
     componentDidMount() {
         this.isPhoneDisplay = window.matchMedia(`(max-width: ${mediaWidth}`)
+        document.body.classList.remove(`${headerStyles.disableScroll}`)
     }
 
     onToggle = () => {
