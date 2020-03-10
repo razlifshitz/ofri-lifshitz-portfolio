@@ -14,7 +14,7 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { active: false, toggleIcon: menuIcon }
+        this.state = { active: false }
     }
 
     componentDidMount() {
@@ -29,12 +29,12 @@ class Header extends React.Component {
     }
 
     openMenu = () => {
-        this.setState({ active: true, toggleIcon: xIcon })
+        this.setState({ active: true })
         document.body.classList.add(`${headerStyles.disableScroll}`)
     }
 
     closeMenu = () => {
-        this.setState({ active: false, toggleIcon: menuIcon })
+        this.setState({ active: false })
         document.body.classList.remove(`${headerStyles.disableScroll}`)
     }
 
@@ -55,7 +55,16 @@ class Header extends React.Component {
                     {/* <ul className={headerStyles.navList}> */}
                     {/* todo understand why this is undefined in method when 
                     removing here the arrow function */}
-                    <ul>
+                    <ul onClick={this.closeMenu}>
+                        <li>
+                            <Link
+                                className={headerStyles.navItem}
+                                activeClassName={headerStyles.activeNavItem}
+                                to="/"
+                            >
+                                Home
+                            </Link>
+                        </li>
                         <li>
                             <Link
                                 className={headerStyles.navItem}
@@ -105,9 +114,20 @@ class Header extends React.Component {
                 </nav>
                 {/* todo understand why this is undefined in method when 
                     removing here the arrow function */}
-                <div className={headerStyles.menuToggle}>
+                <div
+                    className={`${headerStyles.menuToggle} ${
+                        this.state.active ? headerStyles.activeNavbar : ''
+                    }`}
+                >
                     <img
-                        src={this.state.toggleIcon}
+                        className={headerStyles.menuIcon}
+                        src={menuIcon}
+                        onClick={this.onToggle}
+                        alt=""
+                    ></img>
+                    <img
+                        className={headerStyles.xIcon}
+                        src={xIcon}
                         onClick={this.onToggle}
                         alt=""
                     ></img>

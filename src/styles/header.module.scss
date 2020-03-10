@@ -91,7 +91,7 @@ header {
 
 .menu-toggle {
     position: relative;
-    top: 60px;
+    top: 68px;
     float: right;
     line-height: 50px;
     font-size: 24px;
@@ -147,5 +147,21 @@ header {
 
     .menu-toggle {
         display: block;
+
+        .menu-icon {
+            display: block;
+        }
+        .x-icon {
+            display: none;
+        }
+    }
+
+    .menu-toggle.active-navbar {
+        .menu-icon {
+            display: none;
+        }
+        .x-icon {
+            display: block;
+        }
     }
 }
