@@ -1,9 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-// constants
-import { imageWrapperStyle } from '../constants/one-of.constants'
-
 // style
 import pageStyle from '../styles/one-of.module.scss'
 
@@ -71,10 +68,7 @@ class OneOfPage extends React.Component {
                         A machine that manufactures one of a kind pottery ware,
                         by leaving its unique handprint on each creation.
                     </h4>
-                    <NoStretchImage
-                        fluid={this.image3}
-                        style={imageWrapperStyle}
-                    />
+                    <NoStretchImage fluid={this.image3} />
                     <div className={pageStyle.caption}>
                         Industrial One Of v1.0
                     </div>
@@ -107,10 +101,7 @@ class OneOfPage extends React.Component {
                         was made after thorough observation and analysis of the
                         industrial production of ceramic tableware.
                     </p>
-                    <NoStretchImage
-                        fluid={this.machine}
-                        style={imageWrapperStyle}
-                    />
+                    <NoStretchImage fluid={this.machine} />
                     <p>
                         Industrial one of attempts to anthropomorphize the
                         machine, so the results will seem closer to the way a
@@ -123,20 +114,26 @@ class OneOfPage extends React.Component {
                         occurrence, in which a one of a kind shape is created
                         that can never be replicated.
                     </p>
+                    <NoStretchImage fluid={this.image4} />
+                    <div className={pageStyle.caption}>
+                        Industrial One Of v1.0
+                    </div>
                     <p>
                         The machine is programmed to insert its own individual
                         mark on the pottery wares it produces, a different mark
                         each time, the same way a potter leaves his handprint on
                         his creations.
                     </p>
-                    <NoStretchImage
-                        fluid={this.image4}
-                        style={imageWrapperStyle}
-                    />
-                    <div className={pageStyle.caption}>
-                        Industrial One Of v1.0
-                    </div>
                     <h2>v1.0</h2>
+                    <iframe
+                        title="Indusrial One Of v1.0 video"
+                        src="https://player.vimeo.com/video/225211213"
+                        width={this.state.contentWidth}
+                        height={this.state.contentWidth / 1.778}
+                        frameBorder="0"
+                        allow="autoplay; fullscreen"
+                        allowFullScreen
+                    ></iframe>
                     <p>
                         The first presented series of Industrial one of,
                         “Machine’s handmade”, was made to demonstrate the
@@ -153,18 +150,12 @@ class OneOfPage extends React.Component {
                         line, but the code makes each one distinguishable. Every
                         piece produced is one of a kind.
                     </p>
-                    <NoStretchImage
-                        fluid={this.v1_0_white}
-                        style={imageWrapperStyle}
-                    />
+                    <NoStretchImage fluid={this.v1_0_white} />
                     <div className={pageStyle.caption}>
                         This group of pottery was created with the same exact
                         code, yet each piece is unique.
                     </div>
-                    <NoStretchImage
-                        fluid={this.v1_0_dark}
-                        style={imageWrapperStyle}
-                    />
+                    <NoStretchImage fluid={this.v1_0_dark} />
                     <div className={pageStyle.caption}>
                         This group of pottery was created with the same code as
                         the other group, but with a different set of pre-defined
@@ -179,28 +170,19 @@ class OneOfPage extends React.Component {
                         story and provides a mechanical interpretation of the
                         sculptor’s hands.
                     </p>
-                    <NoStretchImage
-                        fluid={this.image11}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.image8}
-                        style={imageWrapperStyle}
-                    />{' '}
-                    <NoStretchImage
-                        fluid={this.image7}
-                        style={imageWrapperStyle}
-                    />
+                    <NoStretchImage fluid={this.image11} />
+                    <NoStretchImage fluid={this.image8} />{' '}
+                    <NoStretchImage fluid={this.image7} />
+                    <h2>v2.0</h2>
                     <iframe
-                        title="Indusrial One Of v1.0 video"
-                        src="https://player.vimeo.com/video/225211213"
+                        title="Indusrial One Of v2.0 video"
+                        src="https://player.vimeo.com/video/308311075"
                         width={this.state.contentWidth}
                         height={this.state.contentWidth / 1.778}
                         frameBorder="0"
                         allow="autoplay; fullscreen"
                         allowFullScreen
                     ></iframe>
-                    <h2>v2.0</h2>
                     <p>
                         Industrial one of 2.0 explores the ceramic ornament. In
                         this series the machine was given a new role - creating
@@ -211,33 +193,24 @@ class OneOfPage extends React.Component {
                         each time, cut through the clay’s surface, revealing a
                         one of a kind ornament each time.
                     </p>
-                    <NoStretchImage
-                        fluid={this.v2_0_1}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v2_0_2}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v2_0_3}
-                        style={imageWrapperStyle}
-                    />
+                    <NoStretchImage fluid={this.v2_0_1} />
+                    <NoStretchImage fluid={this.v2_0_2} />
+                    <NoStretchImage fluid={this.v2_0_3} />
                     <img
                         src={v2_0_gif}
                         width={this.state.contentWidth}
                         alt=""
                     ></img>
+                    <h2>v3.0</h2>
                     <iframe
-                        title="Indusrial One Of v2.0 video"
-                        src="https://player.vimeo.com/video/308311075"
+                        title="Indusrial One Of v3.0 video"
+                        src="https://player.vimeo.com/video/393245651"
                         width={this.state.contentWidth}
                         height={this.state.contentWidth / 1.778}
                         frameBorder="0"
                         allow="autoplay; fullscreen"
                         allowFullScreen
                     ></iframe>
-                    <h2>v3.0</h2>
                     <p>
                         Industrial one of 3.0 explores the post-industrial,
                         anti-serial, coded, and singular era. The starting point
@@ -254,63 +227,18 @@ class OneOfPage extends React.Component {
                         in tomorrow's world, and what will the new meaning of
                         art and design be in the post-industrial age?
                     </p>
-                    <NoStretchImage
-                        fluid={this.v3_0_1}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_2}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_3}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_4}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_5}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_6}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_7}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_8}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_9}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_10}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_11}
-                        style={imageWrapperStyle}
-                    />
-                    <NoStretchImage
-                        fluid={this.v3_0_12}
-                        style={imageWrapperStyle}
-                    />
-                    <iframe
-                        title="Indusrial One Of v3.0 video"
-                        src="https://player.vimeo.com/video/393245651"
-                        width={this.state.contentWidth}
-                        height={this.state.contentWidth / 1.778}
-                        frameBorder="0"
-                        allow="autoplay; fullscreen"
-                        allowFullScreen
-                    ></iframe>
+                    <NoStretchImage fluid={this.v3_0_1} />
+                    <NoStretchImage fluid={this.v3_0_2} />
+                    <NoStretchImage fluid={this.v3_0_3} />
+                    <NoStretchImage fluid={this.v3_0_4} />
+                    <NoStretchImage fluid={this.v3_0_5} />
+                    <NoStretchImage fluid={this.v3_0_6} />
+                    <NoStretchImage fluid={this.v3_0_7} />
+                    <NoStretchImage fluid={this.v3_0_8} />
+                    <NoStretchImage fluid={this.v3_0_9} />
+                    <NoStretchImage fluid={this.v3_0_10} />
+                    <NoStretchImage fluid={this.v3_0_11} />
+                    <NoStretchImage fluid={this.v3_0_12} />
                 </div>
             </Layout>
         )
