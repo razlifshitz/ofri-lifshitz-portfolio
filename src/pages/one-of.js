@@ -54,6 +54,19 @@ class OneOfPage extends React.Component {
     v3_0_11 = this.data.v3_0_11.childImageSharp.fluid
     v3_0_12 = this.data.v3_0_12.childImageSharp.fluid
 
+    // vJeru
+    vJeru1 = this.data.vJeru1.childImageSharp.fluid
+    vJeru2 = this.data.vJeru2.childImageSharp.fluid
+    vJeru3 = this.data.vJeru3.childImageSharp.fluid
+    vJeru4 = this.data.vJeru4.childImageSharp.fluid
+    vJeru5 = this.data.vJeru5.childImageSharp.fluid
+    vJeru6 = this.data.vJeru6.childImageSharp.fluid
+    vJeru7 = this.data.vJeru7.childImageSharp.fluid
+    vJeru8 = this.data.vJeru8.childImageSharp.fluid
+    vJeru9 = this.data.vJeru9.childImageSharp.fluid
+    vJeru10 = this.data.vJeru10.childImageSharp.fluid
+    vJeru11 = this.data.vJeru11.childImageSharp.fluid
+
     componentDidMount() {
         const contentWidth = this.contentWidth.current.clientWidth
         this.setState({ contentWidth: contentWidth })
@@ -124,7 +137,11 @@ class OneOfPage extends React.Component {
                         each time, the same way a potter leaves his handprint on
                         his creations.
                     </p>
+                    <div className={pageStyle.divider}></div>
                     <h2>v1.0</h2>
+                    <div className={pageStyle.caption}>
+                        Year of design: 2017-2018
+                    </div>
                     <iframe
                         title="Indusrial One Of v1.0 video"
                         src="https://player.vimeo.com/video/225211213"
@@ -173,7 +190,11 @@ class OneOfPage extends React.Component {
                     <NoStretchImage fluid={this.image11} />
                     <NoStretchImage fluid={this.image8} />{' '}
                     <NoStretchImage fluid={this.image7} />
+                    <div className={pageStyle.divider}></div>
                     <h2>v2.0</h2>
+                    <div className={pageStyle.caption}>
+                        Year of design: 2018
+                    </div>
                     <iframe
                         title="Indusrial One Of v2.0 video"
                         src="https://player.vimeo.com/video/308311075"
@@ -201,7 +222,13 @@ class OneOfPage extends React.Component {
                         width={this.state.contentWidth}
                         alt=""
                     ></img>
+                    <div
+                        className={`${pageStyle.divider} ${pageStyle.gif}`}
+                    ></div>
                     <h2>v3.0</h2>
+                    <div className={pageStyle.caption}>
+                        Year of design: 2019-2020
+                    </div>
                     <iframe
                         title="Indusrial One Of v3.0 video"
                         src="https://player.vimeo.com/video/393245651"
@@ -239,6 +266,35 @@ class OneOfPage extends React.Component {
                     <NoStretchImage fluid={this.v3_0_10} />
                     <NoStretchImage fluid={this.v3_0_11} />
                     <NoStretchImage fluid={this.v3_0_12} />
+                    <div className={pageStyle.divider}></div>
+                    <h2>Industrial One Of Special Edition</h2>
+                    <div className={pageStyle.caption}>
+                        for Jerusalem Design week 2018
+                    </div>
+                    <NoStretchImage fluid={this.vJeru10} />
+                    <p>
+                        V.JERU.002 is a series made for the Jerusalem Design
+                        week 2018, with the use of “local material”- symbols and
+                        characteristics of the city, as the raw material for
+                        manufacturing. These symbols were picked and merged into
+                        the raw clay as graphic ornaments. Each symbol was
+                        embedded in a mass of clay of which a series of plates
+                        was made. This technique enabled samples of colors and
+                        shapes from all over the city to become an ornament of
+                        Jerusalem and an integral part of the “local material”.
+                        The Random and uncontrolled aspects during the whole
+                        manufacturing process assured that the ornament, like
+                        the shape of the plate, will be one of a kind.
+                    </p>
+                    <NoStretchImage fluid={this.vJeru1} />
+                    <NoStretchImage fluid={this.vJeru2} />
+                    <NoStretchImage fluid={this.vJeru3} />
+                    <NoStretchImage fluid={this.vJeru5} />
+                    <NoStretchImage fluid={this.vJeru6} />
+                    <NoStretchImage fluid={this.vJeru7} />
+                    <NoStretchImage fluid={this.vJeru8} />
+                    <NoStretchImage fluid={this.vJeru9} />
+                    <NoStretchImage fluid={this.vJeru11} />
                 </div>
             </Layout>
         )
@@ -405,6 +461,83 @@ export const query = graphql`
             }
         }
         v3_0_12: file(relativePath: { eq: "one-of/v3.0/v3.0 (7).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru1: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (1).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru2: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (2).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru3: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (3).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru4: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (4).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru5: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (5).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru6: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (6).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru7: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (7).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru8: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (8).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru9: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (9).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru10: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (10).jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        vJeru11: file(relativePath: { eq: "one-of/jeru/v1.0-jeru (11).jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 750) {
                     ...GatsbyImageSharpFluid
