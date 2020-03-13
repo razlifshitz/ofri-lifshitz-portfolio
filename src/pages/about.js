@@ -4,10 +4,12 @@ import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
 
 const education = [
-    '2013-2017/ B. Design, HIT (Holon Institute of Technology) - graduated with honor',
+    '2013-2017 / B. Design, HIT (Holon Institute of Technology) - graduated with honor',
+    '2015 / Design Academy Eindhoven, Holland - exchange semester',
 ]
 
 const awardsAndExhibitions = [
+    '2020 / Industrial One Of 3.0 - Solo exhibition- Jerusalem Artists’ House',
     '2018 / Award for art & design from AICF - America-Israel cultural foundation',
     '2018 / "Pro Jerusalem" - Jerusalem Design week - Hansen House Jerusalem',
     '2018 / "Shibush" Exhibition - "Vitrina" gallery Holon',
