@@ -28,29 +28,38 @@ const AboutPage = ({ data }) => {
                     display: 'block',
                     marginLeft: 'auto',
                     marginRight: 'auto',
-                    width: '80%',
+                    width: '12rem',
+                    borderRadius: '50%',
                     marginBottom: '1.45rem',
+                    // position: 'absolute', // web view..?
+                    // top: '5rem',
+                    // left: '8rem',
                 }}
             />
             <p>
-                Lorem ipsum is a pseudo-Latin text used in web design,
-                typography, layout, and printing in place of English to
-                emphasise design elements over content. It's also called
-                placeholder (or filler) text. It's a convenient tool for
-                mock-ups. It helps to outline the visual elements of a document
-                or presentation, eg typography, font, or layout. Lorem ipsum is
-                mostly a part of a Latin text by the classical author and
-                philosopher Cicero.
+                Ofri is an Israeli designer (b. 1990) who graduated with honors
+                from H.I.T, Holon Institute of Technology, Industrial design
+                department (2017). Though she specializes in digital craft,
+                conceptual design, and manufacturing methods, she is also
+                passionate about material research, innovations and technology.
             </p>
             <p>
-                Its words and letters have been changed by addition or removal,
-                so to deliberately render its content nonsensical; it's not
-                genuine, correct, or comprehensible Latin anymore. While lorem
-                ipsum's still resembles classical Latin, it actually has no
-                meaning whatsoever. As Cicero's text doesn't contain the letters
-                K, W, or Z, alien to latin, these, and others are often inserted
-                randomly to mimic the typographic appearence of European
-                languages, as are digraphs not to be found in the original.
+                As a designer, she is interested in the interface between craft
+                and technology, and most of her body of work incorporates both
+                worlds. She is driven by the process - the ideating process,
+                developing process, and manufacturing process. Having often been
+                drawn to objects that tell their own manufacturing story, it’s
+                therefore no coincidence that her current main project,
+                Industrial one-of, is one that centers on observing and also
+                interfering with manufacturing processes and methods.
+            </p>
+            <p>
+                She hopes to always challenge herself and approach a creative
+                design from an interdisciplinary standpoint. While doing so, she
+                aims to collaborate with individuals and companies that also
+                want to offer an alternative to industrial production, apart
+                from the visual, cultural and consumer homogeneity that is the
+                basis of global industrial production today.
             </p>
             <FieldPresentation
                 name="Education"
@@ -79,9 +88,9 @@ export default AboutPage
 
 export const query = graphql`
     query {
-        ofriImage: file(relativePath: { eq: "ofri1.jpg" }) {
+        ofriImage: file(relativePath: { eq: "ofri5.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 750) {
+                fluid(grayscale: true, maxWidth: 750) {
                     ...GatsbyImageSharpFluid
                 }
             }

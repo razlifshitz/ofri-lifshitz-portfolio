@@ -1,5 +1,6 @@
 import React from 'react'
 
+import style from '../styles/home.module.scss'
 import Layout from '../components/layout'
 // import NoStretchImage from '../components/noStretchImage'
 import Carousel from '../components/carousel'
@@ -10,6 +11,11 @@ const IndexPage = ({ data }) => {
     return (
         <Layout>
             {/* <NoStretchImage fluid={invitation} /> */}
+            <h3 className={style.homeDescription}>
+                Hi! I’m Ofri, Israeli designer,<br></br>specializes in digital
+                craft, conceptual design and manufacturing methods. Creating
+                industrial-one of a kind pieces.
+            </h3>
             <Carousel></Carousel>
         </Layout>
     )

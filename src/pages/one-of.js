@@ -11,6 +11,7 @@ import NoStretchImage from '../components/noStretchImage'
 // import { imageQuery } from '../constants/one-of.constants'
 
 // images
+import v1_0_gif from '../assets/one-of/v1.0/v1.gif'
 import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
 
 class OneOfPage extends React.Component {
@@ -139,9 +140,7 @@ class OneOfPage extends React.Component {
                     </p>
                     <div className={pageStyle.divider}></div>
                     <h2>v1.0</h2>
-                    <div className={pageStyle.caption}>
-                        Year of design: 2017-2018
-                    </div>
+                    <div className={pageStyle.caption}>2017-2018</div>
                     <iframe
                         title="Indusrial One Of v1.0 video"
                         src="https://player.vimeo.com/video/225211213"
@@ -190,11 +189,17 @@ class OneOfPage extends React.Component {
                     <NoStretchImage fluid={this.image11} />
                     <NoStretchImage fluid={this.image8} />{' '}
                     <NoStretchImage fluid={this.image7} />
-                    <div className={pageStyle.divider}></div>
+                    <img
+                        src={v1_0_gif}
+                        width={this.state.contentWidth}
+                        loading="eager"
+                        alt=""
+                    ></img>
+                    <div
+                        className={`${pageStyle.divider} ${pageStyle.gif}`}
+                    ></div>{' '}
                     <h2>v2.0</h2>
-                    <div className={pageStyle.caption}>
-                        Year of design: 2018
-                    </div>
+                    <div className={pageStyle.caption}>2018</div>
                     <iframe
                         title="Indusrial One Of v2.0 video"
                         src="https://player.vimeo.com/video/308311075"
@@ -221,14 +226,13 @@ class OneOfPage extends React.Component {
                         src={v2_0_gif}
                         width={this.state.contentWidth}
                         alt=""
+                        loading="eager"
                     ></img>
                     <div
                         className={`${pageStyle.divider} ${pageStyle.gif}`}
                     ></div>
                     <h2>v3.0</h2>
-                    <div className={pageStyle.caption}>
-                        Year of design: 2019-2020
-                    </div>
+                    <div className={pageStyle.caption}>2019-2020</div>
                     <iframe
                         title="Indusrial One Of v3.0 video"
                         src="https://player.vimeo.com/video/393245651"
@@ -269,7 +273,7 @@ class OneOfPage extends React.Component {
                     <div className={pageStyle.divider}></div>
                     <h2>Industrial One Of Special Edition</h2>
                     <div className={pageStyle.caption}>
-                        for Jerusalem Design week 2018
+                        for Jerusalem Design Week 2018
                     </div>
                     <NoStretchImage fluid={this.vJeru10} />
                     <p>

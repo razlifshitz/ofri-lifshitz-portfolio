@@ -1,0 +1,11 @@
+@import 'base';
+
+.home-description {
+    max-width: 25rem;
+}
+
+@media (max-width: 550px) {
+    .home-description {
+        max-width: 20rem;
+    }
+}
