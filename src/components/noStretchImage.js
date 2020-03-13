@@ -20,15 +20,25 @@ const NonStretchedImage = props => {
     //     }
     // }
 
+    const marginBottom =
+        props.style && props.style.marginBottom
+            ? props.style.marginBottom
+            : '1.1rem'
+
+    const pointerEvents =
+        props.style && props.style.pointerEvents
+            ? props.style.pointerEvents
+            : 'none'
+
     normalizedProps = {
         ...props,
         style: {
             ...(props.style || {}),
-            marginBottom: '1.1rem',
+            marginBottom: marginBottom,
         },
         imgStyle: {
             ...(props.imgStyle || {}),
-            pointerEvents: 'none',
+            pointerEvents: pointerEvents,
         },
     }
 

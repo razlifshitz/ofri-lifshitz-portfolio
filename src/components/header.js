@@ -73,7 +73,7 @@ class Header extends React.Component {
                                 activeClassName={headerStyles.activeNavItem}
                                 to="/about"
                             >
-                                About
+                                Profile
                             </Link>
                         </li>
                         <li>
