@@ -98,6 +98,7 @@ header {
                 padding-left: 40px;
 
                 li a {
+                    opacity: 0;
                     height: 55px;
                     font-size: 27px;
                     cursor: default;
@@ -113,7 +114,29 @@ header {
             visibility: visible;
             opacity: 1;
 
+            // fading in the menu
             @include transition(opacity 0.3s);
+
+            // animtaion for menu items
+            li:nth-child(1) a,
+            li:nth-child(2) a,
+            li:nth-child(3) a,
+            li:nth-child(4) a {
+                opacity: 1;
+                @include transition(opacity 0s 0.5s);
+            }
+            li:nth-child(1) a {
+                animation: fade-in-from-bottom 0.5s;
+            }
+            li:nth-child(2) a {
+                animation: fade-in-from-bottom 0.5s 0.1s;
+            }
+            li:nth-child(3) a {
+                animation: fade-in-from-bottom 0.5s 0.2s;
+            }
+            li:nth-child(4) a {
+                animation: fade-in-from-bottom 0.5s 0.3s;
+            }
         }
 
         nav.inactive-navbar {
@@ -152,6 +175,7 @@ header {
         }
     }
 
+    // menu fade animation
     @include keyframes(fade-in) {
         from {
             opacity: 0;

@@ -66,9 +66,9 @@ const PressPage = ({ data }) => {
 
     return (
         <Layout>
-            <div className={style.container}>
+            <ul className={style.container}>
                 {pressList.map(pressData => (
-                    <div className={style.card} key={pressData.url}>
+                    <li className={style.card} key={pressData.url}>
                         <a
                             href={pressData.url}
                             target="_blank"
@@ -79,9 +79,9 @@ const PressPage = ({ data }) => {
                                 fluid={pressData.logo}
                             ></NoStretchImage>
                         </a>
-                    </div>
+                    </li>
                 ))}
-                <div className={portfolio.style}>
+                <li className={portfolio.style}>
                     <a
                         href={portfolio.url}
                         target="_blank"
@@ -92,8 +92,8 @@ const PressPage = ({ data }) => {
                             fluid={portfolio.logo}
                         ></NoStretchImage>
                     </a>
-                </div>
-            </div>
+                </li>
+            </ul>
         </Layout>
     )
 }

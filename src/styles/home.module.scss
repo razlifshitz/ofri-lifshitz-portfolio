@@ -2,6 +2,8 @@
 
 .home-description {
     max-width: 25rem;
+
+    animation: fade-in-from-bottom 1s;
 }
 
 @media (max-width: 550px) {
