@@ -1,9 +1,14 @@
 @import 'base';
 
+.container {
+    max-width: 37.5rem;
+    margin: 0 auto;
+}
+
 .home-description {
     opacity: 1;
-    max-width: 25rem;
-    font-size: 1.15rem;
+    max-width: 26rem;
+    font-size: 1.2rem;
     font-weight: bold;
     animation: fade-in-from-bottom 1s;
 }

@@ -23,20 +23,22 @@ class IndexPage extends React.Component {
         return (
             <Layout>
                 {/* <NoStretchImage fluid={invitation} /> */}
-                <p className={style.homeDescription}>
-                    Hi! I'm Ofri, an Israeli designer and creator of{' '}
-                    <Link
-                        to="/one-of"
-                        ref={this.textRef}
-                        style={{ transition: '2s' }}
-                        className={style.greyLink}
-                    >
-                        industrial one-of
-                    </Link>{' '}
-                    a kind pieces. I specialize in digital craft, conceptual
-                    design along with manufacturing methods.
-                </p>
-                <Carousel onColorChange={this.onColorChange}></Carousel>
+                <div className={style.container}>
+                    <p className={style.homeDescription}>
+                        Hi! I'm Ofri, an Israeli designer and creator of{' '}
+                        <Link
+                            to="/one-of"
+                            ref={this.textRef}
+                            style={{ transition: '2s' }}
+                            className={style.greyLink}
+                        >
+                            industrial one-of
+                        </Link>{' '}
+                        a kind pieces. I specialize in digital craft, conceptual
+                        design along with manufacturing methods.
+                    </p>
+                    <Carousel onColorChange={this.onColorChange}></Carousel>
+                </div>
             </Layout>
         )
     }
