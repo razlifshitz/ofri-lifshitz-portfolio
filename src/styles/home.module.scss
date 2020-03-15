@@ -1,8 +1,10 @@
 @import 'base';
 
 .home-description {
+    opacity: 1;
     max-width: 25rem;
-
+    font-size: 1.15rem;
+    font-weight: bold;
     animation: fade-in-from-bottom 1s;
 }
 

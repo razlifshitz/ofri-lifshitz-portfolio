@@ -75,24 +75,25 @@ class OneOfPage extends React.Component {
 
     getReadMoreJsx = () => {
         return (
-            <div
+            // <span
+            //     style={
+            //         {
+            //             display: 'flex',
+            //             justifyContent: 'center',
+            //             marginBottom: '1.45rem',
+            //         }
+            //     }
+            // >
+            <span
                 style={{
-                    display: 'flex',
-                    justifyContent: 'center',
+                    display: this.state.readMore ? 'none' : 'inline-block',
                 }}
+                className={pageStyle.greyLink}
+                onClick={() => this.setState({ ...this.state, readMore: true })}
             >
-                <button
-                    style={{
-                        display: this.state.readMore ? 'none' : 'block',
-                    }}
-                    className={pageStyle.button}
-                    onClick={() =>
-                        this.setState({ ...this.state, readMore: true })
-                    }
-                >
-                    Read More..
-                </button>
-            </div>
+                Continue reading..
+            </span>
+            // </span>
         )
     }
 
@@ -129,9 +130,9 @@ class OneOfPage extends React.Component {
                         world, I took the methods of production, the technology,
                         and the machinery. When combined together, they create a
                         new manufacturing method that is very characteristic of
-                        our time period – innovation alongside uniqueness.
+                        our time period – innovation alongside uniqueness.{' '}
+                        {this.getReadMoreJsx()}
                     </p>
-                    {this.getReadMoreJsx()}
                     <p
                         style={{
                             display: this.state.readMore ? 'block' : 'none',

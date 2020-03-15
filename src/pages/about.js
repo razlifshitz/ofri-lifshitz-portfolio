@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import style from '../styles/about.module.scss'
+
 import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
 
@@ -10,7 +12,7 @@ const education = [
 ]
 
 const awardsAndExhibitions = [
-    '2020 / Industrial One Of 3.0 - Solo exhibition- Jerusalem Artists’ House',
+    '2020 / Industrial One Of 3.0 - Solo Exhibition - Jerusalem Artists’ House',
     '2018 / Award for art & design from AICF - America-Israel cultural foundation',
     '2018 / "Pro Jerusalem" - Jerusalem Design week - Hansen House Jerusalem',
     '2018 / "Shibush" Exhibition - "Vitrina" gallery Holon',
@@ -51,8 +53,8 @@ const AboutPage = ({ data }) => {
                 developing process, and manufacturing process. Having often been
                 drawn to objects that tell their own manufacturing story, it’s
                 therefore no coincidence that her current main project,{' '}
-                <Link to="/one-of" style={{ color: 'inherit' }}>
-                    <i>Industrial one-of</i>
+                <Link to="/one-of" className={style.greyLink}>
+                    Industrial one-of
                 </Link>
                 , is one that centers on observing and also interfering with
                 manufacturing processes and methods.

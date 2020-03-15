@@ -51,3 +51,20 @@ $media-large: 1000px;
     -o-user-select: $property;
     user-select: $property;
 }
+
+.grey-link {
+    color: black;
+    font-weight: bold;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.grey-link:hover {
+    color: #6d6e71;
+    opacity: 0.6;
+}
+@media (max-width: $media-large) {
+    .grey-link {
+        cursor: default;
+    }
+}

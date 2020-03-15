@@ -20,12 +20,29 @@ class Carousel extends React.Component {
         this.state = {
             activeIndex: 0,
             images: [image1, image2, image3, image4, image5, image6, image7],
+            dominantColor: [
+                '#A09590',
+                '#4BA1CC',
+                '#F7855B',
+                '#B79679',
+                '#A19FA8',
+                '#0818A8',
+                '#4BA1CC',
+            ],
         }
 
-        setInterval(this.next, 4000)
+        this.intervalKey = setInterval(this.next, 4000)
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.props.onColorChange(
+            this.state.dominantColor[this.state.activeIndex]
+        )
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalKey)
+    }
 
     next = () => {
         const { activeIndex } = this.state
@@ -33,6 +50,8 @@ class Carousel extends React.Component {
             activeIndex === this.state.images.length - 1 ? 0 : activeIndex + 1
 
         this.setState({ ...this.state, activeIndex: newIndex })
+
+        this.props.onColorChange(this.state.dominantColor[newIndex])
     }
 
     previous = () => {
@@ -41,6 +60,8 @@ class Carousel extends React.Component {
             activeIndex === 0 ? this.state.images.length - 1 : activeIndex - 1
 
         this.setState({ ...this.state, activeIndex: newIndex })
+
+        this.props.onColorChange(this.state.dominantColor[newIndex])
     }
 
     render() {
