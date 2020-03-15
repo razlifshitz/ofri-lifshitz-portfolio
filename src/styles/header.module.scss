@@ -95,12 +95,14 @@ header {
                 display: block;
                 text-align: left;
                 padding-top: 145px;
-                padding-left: 40px;
+                padding-left: 60px;
 
                 li a {
                     opacity: 0;
                     height: 55px;
                     font-size: 27px;
+                    padding: 0;
+                    display: inline-block;
                     cursor: default;
                     // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 }
@@ -212,6 +214,7 @@ header {
 //     font-size: 0.9rem;
 //     margin-right: 1.3rem;
 //     text-decoration: none;
+//     display: inline-block;
 // }
 // .nav-item:hover {
 //     color: #aaaaaa;

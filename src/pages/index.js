@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import style from '../styles/home.module.scss'
 import Layout from '../components/layout'
@@ -12,9 +13,12 @@ const IndexPage = ({ data }) => {
         <Layout>
             {/* <NoStretchImage fluid={invitation} /> */}
             <h3 className={style.homeDescription}>
-                Hi! I’m Ofri, Israeli designer,<br></br>specializes in digital
-                craft, conceptual design and manufacturing methods. Creating
-                industrial-one of a kind pieces.
+                Hi! I'm Ofri, an Israeli designer and creator of{' '}
+                <Link to="/one-of" style={{ color: 'inherit' }}>
+                    <i>industrial one-of</i>
+                </Link>{' '}
+                a kind pieces. I specialize in digital craft, conceptual design
+                along with manufacturing methods.
             </h3>
             <Carousel></Carousel>
         </Layout>

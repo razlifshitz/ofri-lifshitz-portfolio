@@ -18,7 +18,7 @@ class OneOfPage extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { contentWidth: 0 }
+        this.state = { contentWidth: 0, readMore: false }
 
         this.contentWidth = React.createRef()
     }
@@ -73,6 +73,29 @@ class OneOfPage extends React.Component {
         this.setState({ contentWidth: contentWidth })
     }
 
+    getReadMoreJsx = () => {
+        return (
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}
+            >
+                <button
+                    style={{
+                        display: this.state.readMore ? 'none' : 'block',
+                    }}
+                    className={pageStyle.button}
+                    onClick={() =>
+                        this.setState({ ...this.state, readMore: true })
+                    }
+                >
+                    Read More..
+                </button>
+            </div>
+        )
+    }
+
     render() {
         return (
             <Layout>
@@ -108,7 +131,13 @@ class OneOfPage extends React.Component {
                         new manufacturing method that is very characteristic of
                         our time period – innovation alongside uniqueness.
                     </p>
-                    <p>
+                    {this.getReadMoreJsx()}
+                    <p
+                        style={{
+                            display: this.state.readMore ? 'block' : 'none',
+                        }}
+                        className={pageStyle.fade}
+                    >
                         At the center of the project stands a machine, that
                         manufactures one of a kind pottery ware. The machine is
                         a take on a traditional ceramic jigger. This adaptation
@@ -116,7 +145,12 @@ class OneOfPage extends React.Component {
                         industrial production of ceramic tableware.
                     </p>
                     <NoStretchImage fluid={this.machine} />
-                    <p>
+                    <p
+                        style={{
+                            display: this.state.readMore ? 'block' : 'none',
+                        }}
+                        className={pageStyle.fade}
+                    >
                         Industrial one of attempts to anthropomorphize the
                         machine, so the results will seem closer to the way a
                         person would have crafted them. An artisan, even the
@@ -132,7 +166,11 @@ class OneOfPage extends React.Component {
                     <div className={pageStyle.caption}>
                         Industrial One Of v1.0
                     </div>
-                    <p>
+                    <p
+                        style={{
+                            display: this.state.readMore ? 'block' : 'none',
+                        }}
+                    >
                         The machine is programmed to insert its own individual
                         mark on the pottery wares it produces, a different mark
                         each time, the same way a potter leaves his handprint on

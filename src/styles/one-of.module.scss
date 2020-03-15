@@ -19,6 +19,28 @@
     margin-top: 0.55rem;
 }
 
+.fade {
+    animation: fade-in-from-bottom 1s;
+}
+
+.button {
+    background-color: white;
+    border: 1px solid #555555;
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    margin-bottom: 1.45rem;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button:hover {
+    opacity: 1;
+    background-color: #555555;
+    color: white;
+}
+
 // not in use
 
 // .wrapper {

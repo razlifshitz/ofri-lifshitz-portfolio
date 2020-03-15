@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
@@ -40,7 +41,7 @@ const AboutPage = ({ data }) => {
                 Ofri is an Israeli designer (b. 1990) who graduated with honors
                 from H.I.T, Holon Institute of Technology, Industrial design
                 department (2017). Though she specializes in digital craft,
-                conceptual design, and manufacturing methods, she is also
+                conceptual design along with manufacturing methods, she is also
                 passionate about material research, innovations and technology.
             </p>
             <p>
@@ -49,9 +50,12 @@ const AboutPage = ({ data }) => {
                 worlds. She is driven by the process - the ideating process,
                 developing process, and manufacturing process. Having often been
                 drawn to objects that tell their own manufacturing story, it’s
-                therefore no coincidence that her current main project,
-                Industrial one-of, is one that centers on observing and also
-                interfering with manufacturing processes and methods.
+                therefore no coincidence that her current main project,{' '}
+                <Link to="/one-of" style={{ color: 'inherit' }}>
+                    <i>Industrial one-of</i>
+                </Link>
+                , is one that centers on observing and also interfering with
+                manufacturing processes and methods.
             </p>
             <p>
                 She hopes to always challenge herself and approach a creative
