@@ -19,15 +19,15 @@ class Carousel extends React.Component {
 
         this.state = {
             activeIndex: 0,
-            images: [image1, image2, image3, image4, image5, image6, image7],
+            images: [image2, image1, image3, image4, image7, image5, image6],
             dominantColor: [
-                '#A09590',
                 '#4BA1CC',
+                '#A09590',
                 '#F7855B',
                 '#B79679',
+                '#4BA1CC',
                 '#A19FA8',
                 '#0818A8',
-                '#4BA1CC',
             ],
         }
 

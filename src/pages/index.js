@@ -29,7 +29,7 @@ class IndexPage extends React.Component {
                         <Link
                             to="/one-of"
                             ref={this.textRef}
-                            style={{ transition: '2s' }}
+                            style={{ transition: '2s', color: '#4BA1CC' }}
                             className={style.greyLink}
                         >
                             industrial one-of
