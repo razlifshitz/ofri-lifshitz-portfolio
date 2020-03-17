@@ -19,15 +19,14 @@ class Carousel extends React.Component {
 
         this.state = {
             activeIndex: 0,
-            images: [image2, image1, image3, image4, image7, image5, image6],
-            dominantColor: [
-                '#4BA1CC',
-                '#A09590',
-                '#F7855B',
-                '#B79679',
-                '#4BA1CC',
-                '#A19FA8',
-                '#0818A8',
+            images: [
+                { src: image2, dominantColor: '#4BA1CC' },
+                { src: image1, dominantColor: '#A09590' },
+                { src: image3, dominantColor: '#F7855B' },
+                { src: image4, dominantColor: '#B79679' },
+                { src: image7, dominantColor: '#4BA1CC' },
+                { src: image5, dominantColor: '#A19FA8' },
+                { src: image6, dominantColor: '#0818A8' },
             ],
         }
 
@@ -35,9 +34,7 @@ class Carousel extends React.Component {
     }
 
     componentDidMount() {
-        this.props.onColorChange(
-            this.state.dominantColor[this.state.activeIndex]
-        )
+        this.onImageChange(this.state.activeIndex)
     }
 
     componentWillUnmount() {
@@ -51,7 +48,7 @@ class Carousel extends React.Component {
 
         this.setState({ ...this.state, activeIndex: newIndex })
 
-        this.props.onColorChange(this.state.dominantColor[newIndex])
+        this.onImageChange(newIndex)
     }
 
     previous = () => {
@@ -61,37 +58,51 @@ class Carousel extends React.Component {
 
         this.setState({ ...this.state, activeIndex: newIndex })
 
-        this.props.onColorChange(this.state.dominantColor[newIndex])
+        this.onImageChange(newIndex)
+    }
+
+    /**
+     * Updating dominant color
+     */
+    onImageChange = newIndex => {
+        this.props.onImageChange(this.state.images[newIndex].dominantColor)
+    }
+
+    /**
+     * Getting Image JSX
+     */
+    getImageJsx = (image, index) => {
+        return index === this.state.activeIndex ? (
+            <div
+                key={index}
+                style={{ display: 'block' }}
+                className={style.mySlides + ' ' + style.fade}
+            >
+                <NoStretchImage
+                    fluid={image.src}
+                    imgStyle={{ width: '100%' }}
+                ></NoStretchImage>
+            </div>
+        ) : (
+            <div
+                key={index}
+                style={{ display: 'none' }}
+                className={style.mySlides + ' ' + style.fade}
+            >
+                <NoStretchImage
+                    fluid={image.src}
+                    imgStyle={{ width: '100%' }}
+                    loading="eager"
+                ></NoStretchImage>
+            </div>
+        )
     }
 
     render() {
         return (
             <div className={style.slideshowContainer}>
                 {this.state.images.map((image, index) =>
-                    index === this.state.activeIndex ? (
-                        <div
-                            key={index}
-                            style={{ display: 'block' }}
-                            className={style.mySlides + ' ' + style.fade}
-                        >
-                            <NoStretchImage
-                                fluid={image}
-                                imgStyle={{ width: '100%' }}
-                            ></NoStretchImage>
-                        </div>
-                    ) : (
-                        <div
-                            key={index}
-                            style={{ display: 'none' }}
-                            className={style.mySlides + ' ' + style.fade}
-                        >
-                            <NoStretchImage
-                                fluid={image}
-                                imgStyle={{ width: '100%' }}
-                                loading="eager"
-                            ></NoStretchImage>
-                        </div>
-                    )
+                    this.getImageJsx(image, index)
                 )}
                 {/* <button onClick={this.next}>Next</button>
                 <button onClick={this.previous}>Previous</button> */}

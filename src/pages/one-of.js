@@ -146,6 +146,7 @@ class OneOfPage extends React.Component {
                         industrial production of ceramic tableware.
                     </p>
                     <NoStretchImage fluid={this.machine} />
+                    {/* <div className={pageStyle.caption}>The machine</div> */}
                     <p
                         style={{
                             display: this.state.readMore ? 'block' : 'none',
@@ -298,10 +299,23 @@ class OneOfPage extends React.Component {
                         art and design be in the post-industrial age?
                     </p>
                     <NoStretchImage fluid={this.v3_0_1} />
+                    {/* <div className={pageStyle.caption}>
+                        Half & Half - Wedgwood
+                    </div> */}
                     <NoStretchImage fluid={this.v3_0_2} />
+                    {/* <div className={pageStyle.caption}>
+                        Half & Half - Villeroy & boch
+                    </div> */}
                     <NoStretchImage fluid={this.v3_0_3} />
+                    {/* <div className={pageStyle.caption}>
+                        Half & Half - Rosenthal
+                    </div> */}
                     <NoStretchImage fluid={this.v3_0_4} />
+                    {/* <div className={pageStyle.caption}>
+                        Half & Half - Herend
+                    </div> */}
                     <NoStretchImage fluid={this.v3_0_5} />
+                    {/* <div className={pageStyle.caption}>Half & Half - IKEA</div> */}
                     <NoStretchImage fluid={this.v3_0_6} />
                     <NoStretchImage fluid={this.v3_0_7} />
                     <NoStretchImage fluid={this.v3_0_8} />

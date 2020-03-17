@@ -9,6 +9,14 @@ const Footer = () => {
                 color: '#3d3d3d',
             }}
         >
+            {/* Divider */}
+            {/* <div
+                style={{
+                    paddingBottom: '0.5rem',
+                    borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+                    marginTop: '2rem',
+                }}
+            ></div> */}
             <span
                 style={{
                     fontFamily: `-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
