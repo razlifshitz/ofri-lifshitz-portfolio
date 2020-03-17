@@ -26,8 +26,9 @@ class ContactPage extends React.Component {
                     <div ref={this.formRef} className={style.form}>
                         <form
                             name="contact"
+                            method="POST"
                             autoComplete="off"
-                            netlify
+                            data-netlify="true"
                             netlify-honeypot="bot-field"
                         >
                             <h1 className={style.title}>Let's Talk!</h1>
