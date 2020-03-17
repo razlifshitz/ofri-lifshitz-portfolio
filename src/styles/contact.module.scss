@@ -88,8 +88,8 @@
     animation: spin 6s linear infinite;
 }
 
-textarea:focus,
-input:focus {
+.textarea:focus,
+.input:focus {
     outline: none;
 }
 
@@ -112,7 +112,7 @@ $black-color: #222;
     }
 }
 
-input {
+.input {
     margin-bottom: 1.45rem;
     opacity: 1;
     width: 100%;
@@ -128,7 +128,7 @@ input {
     }
 }
 
-textarea {
+.textarea {
     height: 5rem;
     margin-bottom: 1.45rem;
     opacity: 1;
@@ -162,6 +162,9 @@ textarea {
     }
     .form {
         width: 100%;
+    }
+    .input {
+        margin-bottom: 1rem;
     }
     .plate-wrapper {
         width: 50%;

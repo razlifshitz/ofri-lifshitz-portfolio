@@ -93,7 +93,7 @@ $media-large: 1000px;
     }
 }
 
-// button {
+// .button {
 //     display: block;
 //     background-color: white;
 //     border: 1px solid #555555;
@@ -105,8 +105,30 @@ $media-large: 1000px;
 //     text-decoration: none;
 // }
 
-// button:hover {
+// .button:hover {
 //     opacity: 1;
 //     background-color: #555555;
 //     color: white;
 // }
+
+.button {
+    border: none;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.button:hover {
+    color: #6d6e71;
+    opacity: 0.6;
+}
+
+@media (max-width: $media-large) {
+    .button {
+        cursor: default;
+    }
+}

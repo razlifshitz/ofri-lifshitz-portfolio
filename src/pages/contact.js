@@ -36,31 +36,39 @@ class ContactPage extends React.Component {
                                 name="bot-field"
                             />
                             {/* Name */}
-                            <input type="text" name="name" placeholder="Name" />
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Name"
+                                className={style.input}
+                            />
                             {/* Email */}
                             <input
                                 type="text"
                                 name="email"
                                 placeholder="Email"
+                                className={style.input}
                             />
                             {/* Subject */}
                             <input
                                 type="text"
                                 name="subject"
                                 placeholder="Subject"
+                                className={style.input}
                             />
                             {/* Message */}
                             <textarea
                                 type="message"
                                 name="message"
                                 placeholder="Message"
+                                className={style.textarea}
                             />
-                            <span
-                                className={`${style.greyLink} ${style.submit}`}
+                            <button
+                                className={`${style.button} ${style.submit}`}
                                 type="submit"
                             >
                                 Send
-                            </span>
+                            </button>
                         </form>
                     </div>
                     <div
