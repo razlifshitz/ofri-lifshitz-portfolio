@@ -31,6 +31,13 @@ class ContactPage extends React.Component {
                             data-netlify="true"
                             netlify-honeypot="bot-field"
                         >
+                            {/* hidden netlify field */}
+                            <input
+                                type="hidden"
+                                name="form-name"
+                                value="contact"
+                            />
+
                             <h1 className={style.title}>Let's Talk!</h1>
                             <input
                                 style={{ display: 'none' }}
@@ -45,7 +52,7 @@ class ContactPage extends React.Component {
                             />
                             {/* Email */}
                             <input
-                                type="text"
+                                type="email"
                                 name="email"
                                 placeholder="Email"
                                 className={style.input}
