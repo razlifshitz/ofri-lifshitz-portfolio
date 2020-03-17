@@ -37,7 +37,7 @@ class IndexPage extends React.Component {
                         a kind pieces. I specialize in digital craft, conceptual
                         design along with manufacturing methods.
                     </p>
-                    <Carousel onColorChange={this.onColorChange}></Carousel>
+                    <Carousel onImageChange={this.onColorChange}></Carousel>
                 </div>
             </Layout>
         )

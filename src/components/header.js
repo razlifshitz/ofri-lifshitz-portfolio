@@ -58,7 +58,7 @@ class Header extends React.Component {
                     {/* todo understand why this is undefined in method when 
                     removing here the arrow function */}
                     <ul>
-                        <li>
+                        {/* <li>
                             <Link
                                 className={headerStyles.navItem}
                                 activeClassName={headerStyles.activeNavItem}
@@ -66,7 +66,7 @@ class Header extends React.Component {
                             >
                                 Home
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link
                                 className={headerStyles.navItem}
@@ -103,7 +103,7 @@ class Header extends React.Component {
                                 Press
                             </Link>
                         </li>
-                        {/* <li>
+                        <li>
                             <Link
                                 className={headerStyles.navItem}
                                 activeClassName={headerStyles.activeNavItem}
@@ -111,7 +111,7 @@ class Header extends React.Component {
                             >
                                 Contact
                             </Link>
-                        </li> */}
+                        </li>
                     </ul>
                 </nav>
                 {/* todo understand why this is undefined in method when 

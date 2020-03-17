@@ -124,6 +124,7 @@ header {
             li:nth-child(2) a,
             li:nth-child(3) a,
             li:nth-child(4) a {
+                // li:nth-child(5) a {
                 opacity: 1;
                 @include transition(opacity 0s 0.5s);
             }
@@ -139,6 +140,9 @@ header {
             li:nth-child(4) a {
                 animation: fade-in-from-bottom 0.5s 0.3s;
             }
+            // li:nth-child(5) a {
+            //     animation: fade-in-from-bottom 0.5s 0.4s;
+            // }
         }
 
         nav.inactive-navbar {
