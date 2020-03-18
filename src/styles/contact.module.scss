@@ -155,6 +155,7 @@ $black-color: #222;
 // success page
 .success-message {
     margin-top: 70px;
+    animation: fade-in 1s;
 }
 
 // mobile calc(100vh-100px)
