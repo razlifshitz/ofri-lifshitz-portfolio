@@ -42,6 +42,7 @@ class ContactPage extends React.Component {
     }
 
     componentDidMount() {
+        this.setIsMobileView()
         window.addEventListener('resize', this.setIsMobileView)
     }
 
