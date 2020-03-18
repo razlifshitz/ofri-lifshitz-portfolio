@@ -32,7 +32,6 @@ export default function HTML(props) {
                     <input type="text" name="name" />
                     <input type="email" name="email" />
                     <input type="text" name="subject" />
-                    <input type="text" name="message" />
                     <textarea name="message"></textarea>
                 </form>
 

@@ -1,4 +1,6 @@
 import React from 'react'
+import NoStretchImage from '../components/noStretchImage'
+
 import style from '../styles/contact.module.scss'
 import Layout from '../components/layout'
 import wedgwood from '../assets/plates/wedgwood1.png'
@@ -6,17 +8,18 @@ import wedgwood from '../assets/plates/wedgwood1.png'
 class ContactPage extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { contentHeight: null }
+        // this.state = { contentHeight: null }
         this.wrapperRef = React.createRef()
         this.formRef = React.createRef()
+
+        // images
+        this.top3_a = this.props.data.top3_a.childImageSharp.fluid
     }
 
     componentDidMount() {
-        const contentHeight = this.wrapperRef.current.clientHeight
-        const formHeight = this.formRef.current.clientHeight
-        this.setState({ photoWrapperHeight: formHeight + 'px' })
-        let x = formHeight + 'px'
-        console.log(x)
+        // const contentHeight = this.wrapperRef.current.clientHeight
+        // const formHeight = this.formRef.current.clientHeight
+        // this.setState({ photoWrapperHeight: formHeight + 'px' })
     }
 
     render() {
@@ -87,7 +90,10 @@ class ContactPage extends React.Component {
                         }
                         className={style.plateWrapper}
                     >
-                        <img className={style.rotatingImage} src={wedgwood} />
+                        <NoStretchImage
+                            className={style.rotatingImage}
+                            fluid={this.top3_a}
+                        />
                     </div>
                 </div>
             </Layout>
@@ -96,3 +102,50 @@ class ContactPage extends React.Component {
 }
 
 export default ContactPage
+
+export const query = graphql`
+    query {
+        top3_a: file(relativePath: { eq: "plates/wedgwood1.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 250) {
+                    ...GatsbyImageSharpFluid_noBase64
+                }
+            }
+        }
+        coolHunting: file(relativePath: { eq: "press/coolHunting.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 250) {
+                    ...GatsbyImageSharpFluid_noBase64
+                }
+            }
+        }
+        PD: file(relativePath: { eq: "press/PD.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 250) {
+                    ...GatsbyImageSharpFluid_noBase64
+                }
+            }
+        }
+        DM: file(relativePath: { eq: "press/DM.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 250) {
+                    ...GatsbyImageSharpFluid_noBase64
+                }
+            }
+        }
+        culaizuv: file(relativePath: { eq: "press/culaizuv.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 250) {
+                    ...GatsbyImageSharpFluid_noBase64
+                }
+            }
+        }
+        portfolio: file(relativePath: { eq: "press/portfolio.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 250) {
+                    ...GatsbyImageSharpFluid_noBase64
+                }
+            }
+        }
+    }
+`

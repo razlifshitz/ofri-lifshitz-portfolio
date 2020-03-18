@@ -69,10 +69,12 @@
 .plate-wrapper {
     width: 50%;
     margin-left: 1rem;
+    animation: fade-in 1s;
 }
 .submit {
     text-align: center;
     display: block;
+    float: right;
 }
 
 /* Rotating Image*/
@@ -130,7 +132,7 @@ $black-color: #222;
 
 .textarea {
     height: 5rem;
-    margin-bottom: 1.45rem;
+    margin-bottom: 0.45rem;
     opacity: 1;
     width: 100%;
     display: block;
@@ -150,6 +152,11 @@ $black-color: #222;
     overflow-y: auto;
 }
 
+// success page
+.success-message {
+    margin-top: 122px;
+}
+
 // mobile calc(100vh-100px)
 @media (max-width: 830px) {
     .wrapper {
@@ -166,6 +173,12 @@ $black-color: #222;
     .input {
         margin-bottom: 1rem;
     }
+    .textarea {
+        margin-bottom: 1.2rem;
+    }
+    .submit {
+        float: inherit;
+    }
     .plate-wrapper {
         width: 50%;
         margin: 0 auto;
@@ -173,6 +186,18 @@ $black-color: #222;
         // position: relative;
     }
     .rotating-image {
-        margin: 0;
+        margin: 0 !important;
+    }
+}
+
+// success page
+@media (max-width: $media-medium) {
+    .form {
+        height: 396.4px;
+    }
+}
+@media (max-width: $media-small) {
+    .form {
+        height: 355.4px;
     }
 }
