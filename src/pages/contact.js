@@ -33,7 +33,7 @@ class ContactPage extends React.Component {
         this.state = {
             activeIndex: this.getRandIndex(images.length),
             images: images,
-            isMobileView: this.isMobileView(),
+            isMobileView: null,
         }
     }
 
@@ -56,21 +56,18 @@ class ContactPage extends React.Component {
         })
     }
 
-    isMobileView = () => {
+    setIsMobileView = () => {
         const result = window.matchMedia(`(max-width: ${contactMobileDisplay}`)
-        return result.matches
-    }
-
-    onWindowResize = () => {
-        this.setState({ ...this.state, isMobileView: this.isMobileView() })
+        this.setState({ ...this.state, isMobileView: result.matches })
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.onWindowResize)
+        this.setIsMobileView()
+        window.addEventListener('resize', this.setIsMobileView)
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.onWindowResize)
+        window.removeEventListener('resize', this.setIsMobileView)
     }
 
     getImageJsx = () => {
