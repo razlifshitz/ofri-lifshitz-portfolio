@@ -7,38 +7,40 @@ class Carousel extends React.Component {
     constructor(props) {
         super(props)
 
-        const data = this.props.data
+        const images = this.props.images
 
-        const image1 = data.image1.childImageSharp.fluid
-        const image2 = data.image2.childImageSharp.fluid
-        const image3 = data.image3.childImageSharp.fluid
-        const image4 = data.image4.childImageSharp.fluid
-        const image5 = data.image5.childImageSharp.fluid
-        const image6 = data.image6.childImageSharp.fluid
-        const image7 = data.image7.childImageSharp.fluid
-
-        this.state = {
-            activeIndex: 0,
-            images: [
-                { src: image2, dominantColor: '#4BA1CC' },
-                { src: image1, dominantColor: '#A09590' },
-                { src: image3, dominantColor: '#F7855B' },
-                { src: image4, dominantColor: '#B79679' },
-                { src: image7, dominantColor: '#4BA1CC' },
-                { src: image5, dominantColor: '#A19FA8' },
-                { src: image6, dominantColor: '#0818A8' },
-            ],
+        // Interval
+        if (this.props.interval) {
+            this.intervalKey = setInterval(this.next, this.props.interval)
         }
 
-        this.intervalKey = setInterval(this.next, 4000)
+        // classes from parent
+        this.wrapperClass = this.props.wrapperClass
+
+        this.state = {
+            activeIndex: this.props.activeIndex ? this.props.activeIndex : 0,
+            images: images,
+        }
     }
 
     componentDidMount() {
         this.onImageChange(this.state.activeIndex)
     }
 
+    componentDidUpdate(prevProps) {
+        // if receiving new active index from parent
+        if (this.props.activeIndex !== prevProps.activeIndex) {
+            this.setState({
+                ...this.state,
+                activeIndex: this.props.activeIndex,
+            })
+        }
+    }
+
     componentWillUnmount() {
-        clearInterval(this.intervalKey)
+        if (this.intervalKey) {
+            clearInterval(this.intervalKey)
+        }
     }
 
     next = () => {
@@ -65,7 +67,9 @@ class Carousel extends React.Component {
      * Updating dominant color
      */
     onImageChange = newIndex => {
-        this.props.onImageChange(this.state.images[newIndex].dominantColor)
+        if (this.props.onImageChange) {
+            this.props.onImageChange(this.state.images[newIndex].dominantColor)
+        }
     }
 
     /**
@@ -80,6 +84,7 @@ class Carousel extends React.Component {
             >
                 <NoStretchImage
                     fluid={image.src}
+                    className={this.wrapperClass}
                     imgStyle={{ width: '100%' }}
                 ></NoStretchImage>
             </div>
@@ -110,62 +115,11 @@ class Carousel extends React.Component {
         )
     }
 }
+export default Carousel
 
-export default props => (
-    <StaticQuery
-        query={graphql`
-            query {
-                image1: file(relativePath: { eq: "carousel/1.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid_noBase64
-                        }
-                    }
-                }
-                image2: file(relativePath: { eq: "carousel/2.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid_noBase64
-                        }
-                    }
-                }
-                image3: file(relativePath: { eq: "carousel/3.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid_noBase64
-                        }
-                    }
-                }
-                image4: file(relativePath: { eq: "carousel/4.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid_noBase64
-                        }
-                    }
-                }
-                image5: file(relativePath: { eq: "carousel/5.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid_noBase64
-                        }
-                    }
-                }
-                image6: file(relativePath: { eq: "carousel/6.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid_noBase64
-                        }
-                    }
-                }
-                image7: file(relativePath: { eq: "carousel/7.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid_noBase64
-                        }
-                    }
-                }
-            }
-        `}
-        render={data => <Carousel data={data} {...props} />}
-    />
-)
+// export default props => (
+//     <StaticQuery
+//         query={}
+//         render={data => <Carousel data={data} {...props} />}
+//     />
+// )

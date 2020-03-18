@@ -112,6 +112,15 @@ class Header extends React.Component {
                                 Contact
                             </Link>
                         </li>
+                        {/* <li>
+                            <Link
+                                className={headerStyles.navItem}
+                                activeClassName={headerStyles.activeNavItem}
+                                to="/contact-success"
+                            >
+                                success
+                            </Link>
+                        </li> */}
                     </ul>
                 </nav>
                 {/* todo understand why this is undefined in method when 
