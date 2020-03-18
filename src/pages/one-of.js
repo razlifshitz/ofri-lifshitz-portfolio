@@ -18,7 +18,10 @@ class OneOfPage extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { contentWidth: 0, readMore: false }
+        this.state = {
+            contentWidth: 0,
+            readMore: false,
+        }
 
         this.contentWidth = React.createRef()
     }
@@ -69,8 +72,17 @@ class OneOfPage extends React.Component {
     vJeru11 = this.data.vJeru11.childImageSharp.fluid
 
     componentDidMount() {
+        this.setContentWidth()
+        window.addEventListener('resize', this.setContentWidth)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.setContentWidth)
+    }
+
+    setContentWidth = () => {
         const contentWidth = this.contentWidth.current.clientWidth
-        this.setState({ contentWidth: contentWidth })
+        this.setState({ ...this.state, contentWidth: contentWidth })
     }
 
     getReadMoreJsx = () => {

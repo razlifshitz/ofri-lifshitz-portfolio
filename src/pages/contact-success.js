@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import style from '../styles/contact.module.scss'
 import Layout from '../components/layout'
 import Carousel from '../components/carousel'
+import { contactMobileDisplay } from '../constants/one-of.constants'
 
 class ContactPage extends React.Component {
     constructor(props) {
@@ -31,38 +32,64 @@ class ContactPage extends React.Component {
         this.state = {
             activeIndex: this.getRandIndex(images.length),
             images: images,
+            isMobileView: this.isMobileView(),
         }
     }
 
-    componentDidMount() {}
+    isMobileView = () => {
+        const result = window.matchMedia(`(max-width: ${contactMobileDisplay}`)
+        return result.matches
+    }
+
+    onWindowResize = () => {
+        this.setState({ ...this.state, isMobileView: this.isMobileView() })
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.onWindowResize)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.onWindowResize)
+    }
 
     getRandIndex = limit => {
         return Math.floor(Math.random() * Math.floor(limit))
     }
 
+    getImageJsx = () => {
+        return (
+            <div className={style.plateWrapper}>
+                <Carousel
+                    activeIndex={this.state.activeIndex}
+                    images={this.state.images}
+                    wrapperClass={style.rotatingImage}
+                    random="true"
+                ></Carousel>
+            </div>
+        )
+    }
+
     render() {
         return (
             <Layout>
-                <div className={style.wrapper}>
-                    <div className={style.form}>
+                <div ref={this.wrapperRef} className={style.wrapper}>
+                    <div ref={this.formRef} className={style.form}>
                         <h1 className={style.title}>Thank you!</h1>
+
+                        {this.state.isMobileView ? this.getImageJsx() : null}
+
                         <div className={style.successMessage}>
                             <h4 style={{ marginBottom: '2rem' }}>
-                                I have received your message! Will get back to
-                                you shortly :)
+                                I have received your message!<br></br>Will get
+                                back to you shortly :)
                             </h4>
                             <Link className={style.button} to="/">
-                                Back Home
+                                ← Back Home
                             </Link>
                         </div>
                     </div>
-                    <div className={style.plateWrapper}>
-                        <Carousel
-                            activeIndex={this.state.activeIndex}
-                            images={this.state.images}
-                            wrapperClass={style.rotatingImage}
-                        ></Carousel>
-                    </div>
+                    {!this.state.isMobileView ? this.getImageJsx() : null}
                 </div>
             </Layout>
         )

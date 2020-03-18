@@ -50,7 +50,11 @@ class IndexPage extends React.Component {
                         <Link
                             to="/one-of"
                             ref={this.textRef}
-                            style={{ transition: '2s', color: '#4BA1CC' }}
+                            style={{
+                                transition: '2s',
+                                color: '#4BA1CC',
+                                cursor: 'pointer',
+                            }}
                             className={style.greyLink}
                         >
                             industrial one-of

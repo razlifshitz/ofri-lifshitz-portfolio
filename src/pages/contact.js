@@ -3,6 +3,7 @@ import React from 'react'
 import style from '../styles/contact.module.scss'
 import Layout from '../components/layout'
 import Carousel from '../components/carousel'
+import { contactMobileDisplay } from '../constants/one-of.constants'
 
 class ContactPage extends React.Component {
     constructor(props) {
@@ -32,6 +33,7 @@ class ContactPage extends React.Component {
         this.state = {
             activeIndex: this.getRandIndex(images.length),
             images: images,
+            isMobileView: this.isMobileView(),
         }
     }
 
@@ -54,10 +56,34 @@ class ContactPage extends React.Component {
         })
     }
 
+    isMobileView = () => {
+        const result = window.matchMedia(`(max-width: ${contactMobileDisplay}`)
+        return result.matches
+    }
+
+    onWindowResize = () => {
+        this.setState({ ...this.state, isMobileView: this.isMobileView() })
+    }
+
     componentDidMount() {
-        // const contentHeight = this.wrapperRef.current.clientHeight
-        // const formHeight = this.formRef.current.clientHeight
-        // this.setState({ photoWrapperHeight: formHeight + 'px' })
+        window.addEventListener('resize', this.onWindowResize)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.onWindowResize)
+    }
+
+    getImageJsx = () => {
+        return (
+            <div className={style.plateWrapper}>
+                <Carousel
+                    activeIndex={this.state.activeIndex}
+                    images={this.state.images}
+                    wrapperClass={style.rotatingImage}
+                    random="true"
+                ></Carousel>
+            </div>
+        )
     }
 
     render() {
@@ -80,7 +106,14 @@ class ContactPage extends React.Component {
                                 value="contact"
                             />
 
+                            {/* <div className={style.titleWrapper}></div> */}
+
                             <h1 className={style.title}>Let's Talk!</h1>
+
+                            {this.state.isMobileView
+                                ? this.getImageJsx()
+                                : null}
+
                             <input
                                 style={{ display: 'none' }}
                                 name="bot-field"
@@ -125,21 +158,7 @@ class ContactPage extends React.Component {
                             </button>
                         </form>
                     </div>
-                    <div
-                        style={
-                            {
-                                // height: `calc(100vh - 1rem - 110px - ${this.state.photoWrapperHeight})`,
-                            }
-                        }
-                        className={style.plateWrapper}
-                    >
-                        <Carousel
-                            activeIndex={this.state.activeIndex}
-                            images={this.state.images}
-                            wrapperClass={style.rotatingImage}
-                            random="true"
-                        ></Carousel>
-                    </div>
+                    {!this.state.isMobileView ? this.getImageJsx() : null}
                 </div>
             </Layout>
         )

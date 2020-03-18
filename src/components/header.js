@@ -8,7 +8,7 @@ import { mediaWidth } from '../constants/one-of.constants'
 // icon
 import menuIcon from '../assets/menu-toggle.png'
 import xIcon from '../assets/menu-toggle-x.png'
-import logo from '../assets/logos/logo 28.2.20 C.png'
+import logo from '../assets/logos/logo 18.3.20.png'
 
 class Header extends React.Component {
     constructor(props) {

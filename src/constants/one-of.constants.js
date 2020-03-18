@@ -1,5 +1,6 @@
 // TODO: use SCSS style variable when possible
 export const mediaWidth = '1180px'
+export const contactMobileDisplay = '830px'
 
 // export const imageQuery = graphql`
 //     query {
