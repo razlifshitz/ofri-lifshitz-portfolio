@@ -77,7 +77,6 @@ class ContactPage extends React.Component {
                     activeIndex={this.state.activeIndex}
                     images={this.state.images}
                     wrapperClass={style.rotatingImage}
-                    random="true"
                 ></Carousel>
             </div>
         )

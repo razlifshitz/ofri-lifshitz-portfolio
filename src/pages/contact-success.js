@@ -36,11 +36,6 @@ class ContactPage extends React.Component {
         }
     }
 
-    setIsMobileView = () => {
-        const result = window.matchMedia(`(max-width: ${contactMobileDisplay}`)
-        this.setState({ ...this.state, isMobileView: result.matches })
-    }
-
     componentDidMount() {
         this.setIsMobileView()
         window.addEventListener('resize', this.setIsMobileView)
@@ -50,9 +45,19 @@ class ContactPage extends React.Component {
         window.removeEventListener('resize', this.setIsMobileView)
     }
 
+    setIsMobileView = () => {
+        const result = window.matchMedia(`(max-width: ${contactMobileDisplay}`)
+        this.setState({ ...this.state, isMobileView: result.matches })
+    }
+
     getRandIndex = limit => {
         return Math.floor(Math.random() * Math.floor(limit))
     }
+
+
+    /**
+     * Jsx getters
+     */
 
     getImageJsx = () => {
         return (
@@ -61,10 +66,38 @@ class ContactPage extends React.Component {
                     activeIndex={this.state.activeIndex}
                     images={this.state.images}
                     wrapperClass={style.rotatingImage}
-                    random="true"
                 ></Carousel>
             </div>
         )
+    }
+
+    getSuccessContentJsx = () => {
+        return (
+                        <div className={style.successMessage}>
+                            <h4 style={{ marginBottom: '2rem' }}>
+                    I have received your message!<br></br>Will get back to you
+                    shortly :)
+                            </h4>
+                            <Link className={style.button} to="/">
+                                ← Back Home
+                            </Link>
+                        </div>
+        )
+    }
+
+    getContentJsx = () => {
+        if (this.state.isMobileView === null) {
+            return null
+        } else if (this.state.isMobileView) {
+            return (
+                <div>
+                    {this.getImageJsx()}
+                    {this.getSuccessContentJsx()}
+                </div>
+            )
+        } else {
+            return this.getSuccessContentJsx()
+        }
     }
 
     render() {
@@ -73,18 +106,7 @@ class ContactPage extends React.Component {
                 <div ref={this.wrapperRef} className={style.wrapper}>
                     <div ref={this.formRef} className={style.form}>
                         <h1 className={style.title}>Thank you!</h1>
-
-                        {this.state.isMobileView ? this.getImageJsx() : null}
-
-                        <div className={style.successMessage}>
-                            <h4 style={{ marginBottom: '2rem' }}>
-                                I have received your message!<br></br>Will get
-                                back to you shortly :)
-                            </h4>
-                            <Link className={style.button} to="/">
-                                ← Back Home
-                            </Link>
-                        </div>
+                        {this.getContentJsx()}
                     </div>
                     {!this.state.isMobileView ? this.getImageJsx() : null}
                 </div>
