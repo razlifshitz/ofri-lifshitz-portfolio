@@ -154,7 +154,7 @@ $black-color: #222;
 
 // success page
 .success-message {
-    margin-top: 70px;
+    margin-top: 4.5rem;
     animation: fade-in 1s;
 }
 
@@ -163,7 +163,7 @@ $black-color: #222;
     .wrapper {
         // display: block;
         // flex-flow: row wrap;
-        // flex-flow: column;
+        flex-flow: column;
         // height: 100%;
 
         overflow: hidden;

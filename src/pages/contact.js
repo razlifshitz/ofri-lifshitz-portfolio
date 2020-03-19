@@ -2,14 +2,11 @@ import React from 'react'
 
 import style from '../styles/contact.module.scss'
 import Layout from '../components/layout'
-import Carousel from '../components/carousel'
-import { contactMobileDisplay } from '../constants/one-of.constants'
+import RotatingPlateDialog from '../components/RotatingPlateDialog'
 
 class ContactPage extends React.Component {
     constructor(props) {
         super(props)
-        this.wrapperRef = React.createRef()
-        this.formRef = React.createRef()
 
         // images
         const top_1 = this.props.data.top_1.childImageSharp.fluid
@@ -33,7 +30,6 @@ class ContactPage extends React.Component {
         this.state = {
             activeIndex: this.getRandIndex(images.length),
             images: images,
-            isMobileView: null,
         }
     }
 
@@ -56,106 +52,68 @@ class ContactPage extends React.Component {
         })
     }
 
-    setIsMobileView = () => {
-        const result = window.matchMedia(`(max-width: ${contactMobileDisplay}`)
-        this.setState({ ...this.state, isMobileView: result.matches })
-    }
-
-    componentDidMount() {
-        this.setIsMobileView()
-        window.addEventListener('resize', this.setIsMobileView)
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.setIsMobileView)
-    }
-
-    getImageJsx = () => {
-        return (
-            <div className={style.plateWrapper}>
-                <Carousel
-                    activeIndex={this.state.activeIndex}
-                    images={this.state.images}
-                    wrapperClass={style.rotatingImage}
-                ></Carousel>
-            </div>
-        )
-    }
-
     render() {
         return (
             <Layout>
-                <div ref={this.wrapperRef} className={style.wrapper}>
-                    <div ref={this.formRef} className={style.form}>
-                        <form
-                            name="contact"
-                            method="POST"
-                            action="/contact-success/"
-                            autoComplete="off"
-                            data-netlify="true"
-                            netlify-honeypot="bot-field"
+                <RotatingPlateDialog
+                    title="Let's Talk!"
+                    images={this.state.images}
+                    activeIndex={this.state.activeIndex}
+                >
+                    <form
+                        name="contact"
+                        method="POST"
+                        action="/contact-success/"
+                        autoComplete="off"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
+                    >
+                        {/* hidden netlify field */}
+                        <input type="hidden" name="form-name" value="contact" />
+
+                        {/* <div className={style.titleWrapper}></div> */}
+
+                        <input style={{ display: 'none' }} name="bot-field" />
+                        {/* Name */}
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            className={style.input}
+                            onFocus={this.onFieldFocus}
+                        />
+                        {/* Email */}
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            className={style.input}
+                            onFocus={this.onFieldFocus}
+                        />
+                        {/* Subject */}
+                        <input
+                            type="text"
+                            name="subject"
+                            placeholder="Subject"
+                            className={style.input}
+                            onFocus={this.onFieldFocus}
+                        />
+                        {/* Message */}
+                        <textarea
+                            type="message"
+                            name="message"
+                            placeholder="Message"
+                            className={style.textarea}
+                            onFocus={this.onFieldFocus}
+                        />
+                        <button
+                            className={`${style.button} ${style.submit}`}
+                            type="submit"
                         >
-                            {/* hidden netlify field */}
-                            <input
-                                type="hidden"
-                                name="form-name"
-                                value="contact"
-                            />
-
-                            {/* <div className={style.titleWrapper}></div> */}
-
-                            <h1 className={style.title}>Let's Talk!</h1>
-
-                            {this.state.isMobileView
-                                ? this.getImageJsx()
-                                : null}
-
-                            <input
-                                style={{ display: 'none' }}
-                                name="bot-field"
-                            />
-                            {/* Name */}
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Name"
-                                className={style.input}
-                                onFocus={this.onFieldFocus}
-                            />
-                            {/* Email */}
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                className={style.input}
-                                onFocus={this.onFieldFocus}
-                            />
-                            {/* Subject */}
-                            <input
-                                type="text"
-                                name="subject"
-                                placeholder="Subject"
-                                className={style.input}
-                                onFocus={this.onFieldFocus}
-                            />
-                            {/* Message */}
-                            <textarea
-                                type="message"
-                                name="message"
-                                placeholder="Message"
-                                className={style.textarea}
-                                onFocus={this.onFieldFocus}
-                            />
-                            <button
-                                className={`${style.button} ${style.submit}`}
-                                type="submit"
-                            >
-                                Send
-                            </button>
-                        </form>
-                    </div>
-                    {!this.state.isMobileView ? this.getImageJsx() : null}
-                </div>
+                            Send
+                        </button>
+                    </form>
+                </RotatingPlateDialog>
             </Layout>
         )
     }
