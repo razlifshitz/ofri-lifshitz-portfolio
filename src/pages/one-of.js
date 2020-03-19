@@ -238,6 +238,11 @@ class OneOfPage extends React.Component {
                         story and provides a mechanical interpretation of the
                         sculptor’s hands.
                     </p>
+                    <p>
+                        The first series of the “Industrial one of” project was
+                        developed as Ofri’s graduation project at HIT, Holon
+                        Institute of Technology, Industrial Design Department.
+                    </p>
                     <NoStretchImage fluid={this.image11} />
                     <NoStretchImage fluid={this.image8} />{' '}
                     <NoStretchImage fluid={this.image7} />
