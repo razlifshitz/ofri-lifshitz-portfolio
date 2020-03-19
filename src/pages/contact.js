@@ -70,10 +70,8 @@ class ContactPage extends React.Component {
                     >
                         {/* hidden netlify field */}
                         <input type="hidden" name="form-name" value="contact" />
-
-                        {/* <div className={style.titleWrapper}></div> */}
-
                         <input style={{ display: 'none' }} name="bot-field" />
+
                         {/* Name */}
                         <input
                             type="text"
@@ -81,6 +79,7 @@ class ContactPage extends React.Component {
                             placeholder="Name"
                             className={style.input}
                             onFocus={this.onFieldFocus}
+                            required
                         />
                         {/* Email */}
                         <input
@@ -89,6 +88,7 @@ class ContactPage extends React.Component {
                             placeholder="Email"
                             className={style.input}
                             onFocus={this.onFieldFocus}
+                            required
                         />
                         {/* Subject */}
                         <input
@@ -97,6 +97,7 @@ class ContactPage extends React.Component {
                             placeholder="Subject"
                             className={style.input}
                             onFocus={this.onFieldFocus}
+                            required
                         />
                         {/* Message */}
                         <textarea
@@ -105,6 +106,8 @@ class ContactPage extends React.Component {
                             placeholder="Message"
                             className={style.textarea}
                             onFocus={this.onFieldFocus}
+                            required
+                            minLength="10"
                         />
                         <button
                             className={`${style.button} ${style.submit}`}
