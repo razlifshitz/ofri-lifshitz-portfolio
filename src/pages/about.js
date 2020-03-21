@@ -20,11 +20,11 @@ const awardsAndExhibitions = [
     '2017 / Design Department Dean’s first prize in excellence for Graduation Project',
 ]
 
-const AboutPage = ({ data }) => {
+const AboutPage = ({ data, location }) => {
     const ofriImage = data.ofriImage.childImageSharp.fluid
 
     return (
-        <Layout>
+        <Layout activeItem={location.state.activeItem}>
             <NoStretchImage
                 fluid={ofriImage}
                 style={{

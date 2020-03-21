@@ -7,10 +7,12 @@ import '../styles/index.scss'
 import layoutStyle from '../styles/layout.module.scss'
 
 const Layout = props => {
+    const { activeItem } = props
+
     return (
         <div className={layoutStyle.container}>
             <div className={layoutStyle.content}>
-                <Header />
+                <Header activeItem={activeItem} />
                 {props.children}
             </div>
 

@@ -5,7 +5,7 @@ import style from '../styles/press.module.scss'
 
 import Layout from '../components/layout'
 
-const PressPage = ({ data }) => {
+const PressPage = ({ data, location }) => {
     // images
     const designZoom = data.designZoom.childImageSharp.fluid
     const coolHunting = data.coolHunting.childImageSharp.fluid
@@ -65,7 +65,7 @@ const PressPage = ({ data }) => {
     ]
 
     return (
-        <Layout>
+        <Layout activeItem={location.state.activeItem}>
             <ul className={style.container}>
                 {pressList.map(pressData => (
                     <li className={style.card} key={pressData.url}>

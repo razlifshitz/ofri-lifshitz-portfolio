@@ -41,7 +41,7 @@ class ContactPage extends React.Component {
 
     render() {
         return (
-            <Layout>
+            <Layout activeItem={this.props.location.state.activeItem}>
                 <RotatingPlateDialog
                     title="Let's Talk!"
                     images={this.props.images}

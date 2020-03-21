@@ -111,7 +111,7 @@ class OneOfPage extends React.Component {
 
     render() {
         return (
-            <Layout>
+            <Layout activeItem={this.props.location.state.activeItem}>
                 <div ref={this.contentWidth}>
                     <h1>Industrial One Of</h1>
                     <h4>

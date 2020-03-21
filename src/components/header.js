@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import NavBar from '../components/navigation/NavBar'
+
+// style
 import headerStyles from '../styles/header.module.scss'
 
 // constans
@@ -9,6 +12,29 @@ import { mediaWidth } from '../constants/one-of.constants'
 import menuIcon from '../assets/menu-toggle.png'
 import xIcon from '../assets/menu-toggle-x.png'
 import logo from '../assets/logos/logo 18.3.20.png'
+
+const items = [
+    {
+        id: 'ABOUT',
+        name: 'About',
+        slug: '/about/',
+    },
+    {
+        id: 'INDUSTRIAL_ONE_OF',
+        name: 'Industrial One Of',
+        slug: '/one-of/',
+    },
+    {
+        id: 'PRESS',
+        name: 'Press',
+        slug: '/press/',
+    },
+    {
+        id: 'CONTACT',
+        name: 'Contact',
+        slug: '/contact/',
+    },
+]
 
 class Header extends React.Component {
     constructor(props) {
@@ -47,82 +73,11 @@ class Header extends React.Component {
                         <img src={logo} onClick={this.closeMenu}></img>
                     </Link>
                 </div>
-                <nav
-                    className={
-                        this.state.active
-                            ? headerStyles.activeNavbar
-                            : headerStyles.inactiveNavbar
-                    }
-                >
-                    {/* <ul className={headerStyles.navList}> */}
-                    {/* todo understand why this is undefined in method when 
-                    removing here the arrow function */}
-                    <ul>
-                        {/* <li>
-                            <Link
-                                className={headerStyles.navItem}
-                                activeClassName={headerStyles.activeNavItem}
-                                to="/"
-                            >
-                                Home
-                            </Link>
-                        </li> */}
-                        <li>
-                            <Link
-                                className={headerStyles.navItem}
-                                activeClassName={headerStyles.activeNavItem}
-                                to="/about"
-                            >
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                className={headerStyles.navItem}
-                                activeClassName={headerStyles.activeNavItem}
-                                to="/one-of"
-                            >
-                                Industrial One Of
-                            </Link>
-                        </li>
-                        {/* <li>
-                            <Link
-                                className={headerStyles.navItem}
-                                activeClassName={headerStyles.activeNavItem}
-                                to="/exhibitions"
-                            >
-                                Exhibitions
-                            </Link>
-                        </li> */}
-                        <li>
-                            <Link
-                                className={headerStyles.navItem}
-                                activeClassName={headerStyles.activeNavItem}
-                                to="/press"
-                            >
-                                Press
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                className={headerStyles.navItem}
-                                activeClassName={headerStyles.activeNavItem}
-                                to="/contact"
-                            >
-                                Contact
-                            </Link>
-                        </li>
-                        {/* <li>
-                            <Link
-                                className={headerStyles.navItem}
-                                activeClassName={headerStyles.activeNavItem}
-                                to="/contact-success"
-                            >
-                                success
-                            </Link>
-                        </li> */}
-                    </ul>
-                </nav>
+                <NavBar
+                    items={items}
+                    isNavActive={this.state.active}
+                    activeItem={this.props.activeItem}
+                ></NavBar>
                 {/* todo understand why this is undefined in method when 
                     removing here the arrow function */}
                 <div
