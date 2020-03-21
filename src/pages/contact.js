@@ -1,44 +1,31 @@
 import React from 'react'
 
+// style
 import style from '../styles/contact.module.scss'
+
+// components
 import Layout from '../components/layout'
+import { withPlatesImages } from '../components/hoc/withPlatesImages'
 import RotatingPlateDialog from '../components/RotatingPlateDialog'
+
+// constants
+import { getRandIndex } from '../constants/one-of.constants'
 
 class ContactPage extends React.Component {
     constructor(props) {
         super(props)
 
-        // images
-        const top_1 = this.props.data.top_1.childImageSharp.fluid
-        const top_1b = this.props.data.top_1b.childImageSharp.fluid
-        const top_2 = this.props.data.top_2.childImageSharp.fluid
-        const top_3 = this.props.data.top_3.childImageSharp.fluid
-        const top_3a = this.props.data.top_3a.childImageSharp.fluid
-        const top_3b = this.props.data.top_3b.childImageSharp.fluid
-        const top_3c = this.props.data.top_3c.childImageSharp.fluid
-
-        const images = [
-            { src: top_1 },
-            { src: top_1b },
-            { src: top_2 },
-            { src: top_3 },
-            { src: top_3a },
-            { src: top_3b },
-            { src: top_3c },
-        ]
-
         this.state = {
-            activeIndex: this.getRandIndex(images.length),
-            images: images,
+            activeIndex: this.getRandIndex(props.images.length),
         }
     }
 
     getRandIndex = limit => {
-        let result = Math.floor(Math.random() * Math.floor(limit))
+        let result = getRandIndex(limit)
 
         if (this.state) {
             while (result === this.state.activeIndex) {
-                result = Math.floor(Math.random() * Math.floor(limit))
+                result = getRandIndex(limit)
             }
         }
 
@@ -48,7 +35,7 @@ class ContactPage extends React.Component {
     onFieldFocus = () => {
         this.setState({
             ...this.state,
-            activeIndex: this.getRandIndex(this.state.images.length),
+            activeIndex: this.getRandIndex(this.props.images.length),
         })
     }
 
@@ -57,7 +44,7 @@ class ContactPage extends React.Component {
             <Layout>
                 <RotatingPlateDialog
                     title="Let's Talk!"
-                    images={this.state.images}
+                    images={this.props.images}
                     activeIndex={this.state.activeIndex}
                 >
                     <form
@@ -122,58 +109,4 @@ class ContactPage extends React.Component {
     }
 }
 
-export default ContactPage
-
-export const query = graphql`
-    query {
-        top_1: file(relativePath: { eq: "plates/top_1.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        top_1b: file(relativePath: { eq: "plates/top_1b.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        top_2: file(relativePath: { eq: "plates/top_2.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        top_3: file(relativePath: { eq: "plates/top_3.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        top_3a: file(relativePath: { eq: "plates/top_3a.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        top_3b: file(relativePath: { eq: "plates/top_3b.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        top_3c: file(relativePath: { eq: "plates/top_3c.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-    }
-`
+export default withPlatesImages(ContactPage)

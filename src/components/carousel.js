@@ -6,9 +6,6 @@ import NoStretchImage from './noStretchImage'
 class Carousel extends React.Component {
     constructor(props) {
         super(props)
-
-        const images = this.props.images
-
         // Interval
         if (this.props.interval) {
             this.intervalKey = setInterval(this.next, this.props.interval)
@@ -19,7 +16,7 @@ class Carousel extends React.Component {
 
         this.state = {
             activeIndex: this.props.activeIndex ? this.props.activeIndex : 0,
-            images: images,
+            images: props.images,
         }
     }
 

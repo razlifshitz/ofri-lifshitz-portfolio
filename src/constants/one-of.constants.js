@@ -2,6 +2,10 @@
 export const mediaWidth = '1180px'
 export const contactMobileDisplay = '830px'
 
+export const getRandIndex = limit => {
+    return Math.floor(Math.random() * Math.floor(limit))
+}
+
 // export const imageQuery = graphql`
 //     query {
 //         machine: file(relativePath: { eq: "one-of/oneof (1).jpg" }) {
