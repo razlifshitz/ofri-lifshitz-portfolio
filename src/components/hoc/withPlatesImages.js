@@ -3,12 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 export const withPlatesImages = Component => {
     return class extends React.Component {
-        constructor(props) {
-            super(props)
-        }
-
         render() {
-            //   return <WithPlatesImages {...this.props} Component={Component} />
             return (
                 <StaticQuery
                     query={graphql`
@@ -76,6 +71,15 @@ export const withPlatesImages = Component => {
                                     }
                                 }
                             }
+                            top_all_4: file(
+                                relativePath: { eq: "plates/top_all_4.png" }
+                            ) {
+                                childImageSharp {
+                                    fluid(maxWidth: 250) {
+                                        ...GatsbyImageSharpFluid_noBase64
+                                    }
+                                }
+                            }
                         }
                     `}
                     render={data => (
@@ -100,6 +104,7 @@ const WithPlatesImages = props => {
     const top_3a = props.data.top_3a.childImageSharp.fluid
     const top_3b = props.data.top_3b.childImageSharp.fluid
     const top_3c = props.data.top_3c.childImageSharp.fluid
+    const top_all_4 = props.data.top_all_4.childImageSharp.fluid
 
     const Component = props.Component
 
@@ -111,6 +116,7 @@ const WithPlatesImages = props => {
         { src: top_3a },
         { src: top_3b },
         { src: top_3c },
+        { src: top_all_4 },
     ]
 
     return <Component images={images} {...props}></Component>
