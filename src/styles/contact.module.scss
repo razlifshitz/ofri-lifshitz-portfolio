@@ -98,6 +98,10 @@
 // colorlib
 $grey-light: #999;
 $black-color: #222;
+$contact-mobile-display: 830px;
+:export {
+    contactMobileDisplay: $contact-mobile-display;
+}
 
 @mixin input-placeholder($value) {
     &::-webkit-input-placeholder {
@@ -159,7 +163,7 @@ $black-color: #222;
 }
 
 // mobile calc(100vh-100px)
-@media (max-width: 830px) {
+@media (max-width: $contact-mobile-display) {
     .wrapper {
         // display: block;
         // flex-flow: row wrap;

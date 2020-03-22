@@ -6,28 +6,35 @@ import menuIcon from '../../assets/menu-toggle.png'
 import xIcon from '../../assets/menu-toggle-x.png'
 
 const NavBar = ({ items, activeItem }) => {
-    // const mobileMachMedia = window.matchMedia(`(max-width: ${mediaWidth}`)
+    const mobileMachMedia = window.matchMedia(`(max-width: ${style.mediaLarge}`)
 
+    // active menu
     const [active, setActive] = useState(false)
     useEffect(() => {
+        // modifing class according to whether menu is active/inactive
         active
             ? document.body.classList.add(`${style.disableScroll}`)
             : document.body.classList.remove(`${style.disableScroll}`)
     }, [active])
 
-    // TODO: change width to wide -> should close menu
-    // const [mobileDisplay, setmobileDisplay] = useState(mobileMachMedia.matches)
-    // useEffect(() => {
-    //     function onScreenSizeChange () {
-    //         setmobileDisplay(mobileMachMedia.matches)
-    //     }
+    // is mobile display
+    const [mobileDisplay, setmobileDisplay] = useState(mobileMachMedia.matches)
+    useEffect(() => {
+        function onScreenSizeChange() {
+            setmobileDisplay(mobileMachMedia.matches)
+        }
 
-    //     window.addEventListener('resize', onScreenSizeChange)
-    //     onScreenSizeChange()
-    //     return () => {
-    //         window.removeEventListener('resize', onScreenSizeChange)
-    //     }
-    // }, [mobileDisplay])
+        window.addEventListener('resize', onScreenSizeChange)
+
+        // if display changed to web and mobile menu was opened --> closes menu
+        if (!mobileDisplay && active) {
+            closeMenu()
+        }
+
+        return () => {
+            window.removeEventListener('resize', onScreenSizeChange)
+        }
+    }, [mobileDisplay])
 
     function onToggle() {
         active ? closeMenu() : openMenu()

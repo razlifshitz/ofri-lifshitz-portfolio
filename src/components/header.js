@@ -4,10 +4,6 @@ import NavBar from '../components/navigation/NavBar'
 
 // style
 import headerStyles from '../styles/header.module.scss'
-
-// constans
-import { mediaWidth } from '../constants/one-of.constants'
-
 import logo from '../assets/logos/logo 18.3.20.png'
 
 const items = [

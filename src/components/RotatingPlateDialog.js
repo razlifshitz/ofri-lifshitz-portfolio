@@ -1,7 +1,6 @@
 import React from 'react'
 import style from '../styles/contact.module.scss'
 import Carousel from '../components/carousel'
-import { contactMobileDisplay } from '../constants/one-of.constants'
 
 class RotatingPlateDialog extends React.Component {
     constructor(props) {
@@ -24,7 +23,9 @@ class RotatingPlateDialog extends React.Component {
     }
 
     setIsMobileView = () => {
-        const result = window.matchMedia(`(max-width: ${contactMobileDisplay}`)
+        const result = window.matchMedia(
+            `(max-width: ${style.contactMobileDisplay}`
+        )
         this.setState({ ...this.state, isMobileView: result.matches })
     }
 

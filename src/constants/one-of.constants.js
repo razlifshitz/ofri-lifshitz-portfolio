@@ -1,6 +1,6 @@
 // TODO: use SCSS style variable when possible
-export const mediaWidth = '1180px'
-export const contactMobileDisplay = '830px'
+// export const mediaWidth = '1180px'
+// export const contactMobileDisplay = '830px'
 
 export const getRandIndex = limit => {
     return Math.floor(Math.random() * Math.floor(limit))

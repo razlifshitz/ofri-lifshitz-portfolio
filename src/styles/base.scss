@@ -2,6 +2,12 @@ $media-small: 400px;
 $media-medium: 900px;
 $media-large: 1000px;
 
+:export {
+    mediaSmall: $media-small;
+    mediaMedium: $media-medium;
+    mediaLarge: $media-large;
+}
+
 @mixin keyframes($animationName) {
     @-webkit-keyframes #{$animationName} {
         @content;
