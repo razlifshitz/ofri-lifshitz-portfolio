@@ -42,7 +42,12 @@ class IndexPage extends React.Component {
 
     render() {
         return (
-            <Layout activeItem={this.props.location.state.activeItem}>
+            <Layout
+                activeItem={
+                    this.props.location.state &&
+                    this.props.location.state.activeItem
+                }
+            >
                 {/* <NoStretchImage fluid={invitation} /> */}
                 <div className={style.container}>
                     <p className={style.homeDescription}>

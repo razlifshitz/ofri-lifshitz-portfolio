@@ -5,9 +5,7 @@ const NavItem = ({ item, isActive, onItemClick }) => {
     return (
         <li>
             <a
-                className={`${style.navItem} ${
-                    isActive ? style.activeNavItem : ''
-                }`}
+                className={isActive ? style.activeNavItem : ''}
                 onClick={() => onItemClick(item)}
             >
                 {item.name}
