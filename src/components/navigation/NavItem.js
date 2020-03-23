@@ -1,7 +1,7 @@
 import React from 'react'
 import style from '../../styles/header.module.scss'
 
-const NavItem = ({ item, activeItem, onItemClick }) => {
+const NavItem = ({ item, activeItem, isActiveParent, onItemClick }) => {
     function getChildrenJsx() {
         return (
             <ul>
@@ -19,9 +19,11 @@ const NavItem = ({ item, activeItem, onItemClick }) => {
 
     const isActive = activeItem && item.id === activeItem.id
     return (
-        <li>
+        <li className={isActiveParent ? style.activeParentItem : ''}>
             <a
-                className={isActive ? style.activeNavItem : ''}
+                className={`${isActive ? style.activeNavItem : ''} ${
+                    item.children ? style.subMenu : ''
+                }`}
                 onClick={() => onItemClick(item)}
             >
                 {item.name}

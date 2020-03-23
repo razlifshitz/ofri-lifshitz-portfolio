@@ -48,8 +48,8 @@ header {
                     cursor: pointer;
                 }
 
-                a:hover,
-                .active-nav-item {
+                a:hover
+                /*.active-nav-item*/ {
                     color: #262626;
                     background: #ffffff;
                     font-weight: bold;
@@ -72,9 +72,28 @@ header {
                         }
                     }
                 }
-                &:hover ul {
+                &.active-parent-item ul {
                     display: block;
                 }
+                &:not(.active-parent-item) {
+                    .active-nav-item {
+                        color: #262626;
+                        background: #ffffff;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            // arrow
+            li a.sub-menu:before {
+                // content: '\23F7';
+                content: '\25BE';
+                position: absolute;
+                left: -25px;
+            }
+            li.active-parent-item a.sub-menu:before {
+                // content: '\23F6';
+                content: '\25B4';
             }
         }
     }
@@ -121,14 +140,34 @@ header {
                 padding-top: 145px;
                 padding-left: 60px;
 
-                li a {
-                    opacity: 0;
-                    height: 55px;
-                    font-size: 27px;
-                    padding: 0;
-                    display: inline-block;
-                    cursor: default;
-                    // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                li {
+                    a {
+                        opacity: 0;
+                        height: 55px;
+                        font-size: 27px;
+                        padding: 0;
+                        display: inline-block;
+                        cursor: default;
+                        // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                    }
+
+                    // submenu
+                    &.active-parent-item ul {
+                        position: relative;
+                    }
+                    ul {
+                        padding-top: 0;
+                        padding-left: 10px;
+                        border: none;
+                        li {
+                            width: 100%;
+
+                            a {
+                                font-size: 21px;
+                                font-weight: 100;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -167,6 +206,15 @@ header {
             // li:nth-child(5) a {
             //     animation: fade-in-from-bottom 0.5s 0.4s;
             // }
+
+            // submenu
+            li ul li:nth-child(1) a,
+            li ul li:nth-child(2) a,
+            li ul li:nth-child(3) a,
+            li ul li:nth-child(4) a,
+            li ul li:nth-child(5) a {
+                animation: fade-in 0.3s;
+            }
         }
 
         nav.inactive-navbar {

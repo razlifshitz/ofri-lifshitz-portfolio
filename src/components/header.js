@@ -24,22 +24,22 @@ const items = [
             },
             {
                 id: 'INDUSTRIAL_ONE_OF_1_0',
-                name: 'Industrial One Of 1.0',
+                name: '1.0',
                 slug: '/one-of#ioo_1_0',
             },
             {
                 id: 'INDUSTRIAL_ONE_OF_2_0',
-                name: 'Industrial One Of 2.0',
+                name: '2.0',
                 slug: '/one-of#ioo_2_0',
             },
             {
                 id: 'INDUSTRIAL_ONE_OF_3_0',
-                name: 'Industrial One Of 3.0',
+                name: '3.0',
                 slug: '/one-of#ioo_3_0',
             },
             {
                 id: 'INDUSTRIAL_ONE_OF_1_0_SPECIAL',
-                name: 'Special Edition',
+                name: 'Jerusalem Special Edition',
                 slug: '/one-of#ioo_1_0_special',
             },
         ],

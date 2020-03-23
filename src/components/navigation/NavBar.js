@@ -9,13 +9,16 @@ const NavBar = ({ items, activeItem }) => {
     const mobileMachMedia = window.matchMedia(`(max-width: ${style.mediaLarge}`)
 
     // active menu
-    const [active, setActive] = useState(false)
+    const [isNavbarActive, setIsNavbarActive] = useState(false)
     useEffect(() => {
         // modifing class according to whether menu is active/inactive
-        active
+        isNavbarActive
             ? document.body.classList.add(`${style.disableScroll}`)
             : document.body.classList.remove(`${style.disableScroll}`)
-    }, [active])
+    }, [isNavbarActive])
+
+    // active parent item
+    const [activeParentItem, setActiveParentItem] = useState(null)
 
     // is mobile display
     const [mobileDisplay, setmobileDisplay] = useState(mobileMachMedia.matches)
@@ -27,7 +30,7 @@ const NavBar = ({ items, activeItem }) => {
         window.addEventListener('resize', onScreenSizeChange)
 
         // if display changed to web and mobile menu was opened --> closes menu
-        if (!mobileDisplay && active) {
+        if (!mobileDisplay && isNavbarActive) {
             closeMenu()
         }
 
@@ -37,33 +40,45 @@ const NavBar = ({ items, activeItem }) => {
     }, [mobileDisplay])
 
     function onToggle() {
-        active ? closeMenu() : openMenu()
+        isNavbarActive ? closeMenu() : openMenu()
     }
 
     function openMenu() {
-        setActive(true)
+        setIsNavbarActive(true)
     }
 
     function closeMenu() {
-        setActive(false)
+        setIsNavbarActive(false)
     }
 
     const onItemClick = item => {
-        if (item.slug) {
+        if (item.children /*&& mobileDisplay*/) {
+            !activeParentItem || activeParentItem.id != item.id
+                ? setActiveParentItem(item)
+                : setActiveParentItem(null)
+        } else {
             navigate(item.slug, { state: { activeItem: item } })
+            closeMenu()
         }
-        closeMenu()
     }
 
     return (
         <div>
-            <nav className={active ? style.activeNavbar : style.inactiveNavbar}>
+            <nav
+                className={
+                    isNavbarActive ? style.activeNavbar : style.inactiveNavbar
+                }
+            >
                 <ul>
                     {items.map(item => (
                         <NavItem
                             key={item.id}
                             item={item}
                             activeItem={activeItem}
+                            isActiveParent={
+                                activeParentItem &&
+                                item.id === activeParentItem.id
+                            }
                             onItemClick={onItemClick}
                         ></NavItem>
                     ))}
@@ -73,7 +88,7 @@ const NavBar = ({ items, activeItem }) => {
                     removing here the arrow function */}
             <div
                 className={`${style.menuToggle} ${
-                    active ? style.activeNavbar : style.inactiveNavbar
+                    isNavbarActive ? style.activeNavbar : style.inactiveNavbar
                 }`}
             >
                 <img
