@@ -36,6 +36,7 @@ header {
                 margin-bottom: 0;
                 list-style-type: none;
                 text-align: left;
+                position: relative;
 
                 a {
                     height: 60px;
@@ -52,6 +53,27 @@ header {
                     color: #262626;
                     background: #ffffff;
                     font-weight: bold;
+                }
+
+                ul {
+                    position: absolute;
+                    background: #ffffff;
+                    left: 0;
+                    display: none;
+                    border: 1px solid #999;
+                    animation: fade-in 0.6s;
+
+                    li {
+                        display: block;
+                        width: 220px;
+                        a {
+                            height: 45px;
+                            line-height: 45px;
+                        }
+                    }
+                }
+                &:hover ul {
+                    display: block;
                 }
             }
         }
@@ -180,16 +202,6 @@ header {
         .x-icon {
             display: block;
             animation: fade-in 0.5s;
-        }
-    }
-
-    // menu fade animation
-    @include keyframes(fade-in) {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
         }
     }
 }

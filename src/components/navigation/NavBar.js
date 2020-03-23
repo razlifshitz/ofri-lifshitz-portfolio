@@ -49,7 +49,9 @@ const NavBar = ({ items, activeItem }) => {
     }
 
     const onItemClick = item => {
-        navigate(item.slug, { state: { activeItem: item } })
+        if (item.slug) {
+            navigate(item.slug, { state: { activeItem: item } })
+        }
         closeMenu()
     }
 
@@ -61,7 +63,7 @@ const NavBar = ({ items, activeItem }) => {
                         <NavItem
                             key={item.id}
                             item={item}
-                            isActive={activeItem && item.id === activeItem.id}
+                            activeItem={activeItem}
                             onItemClick={onItemClick}
                         ></NavItem>
                     ))}

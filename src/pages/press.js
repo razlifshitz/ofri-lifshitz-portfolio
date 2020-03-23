@@ -65,7 +65,7 @@ const PressPage = ({ data, location }) => {
     ]
 
     return (
-        <Layout activeItem={location.state.activeItem}>
+        <Layout activeItem={location.state && location.state.activeItem}>
             <ul className={style.container}>
                 {pressList.map(pressData => (
                     <li className={style.card} key={pressData.url}>

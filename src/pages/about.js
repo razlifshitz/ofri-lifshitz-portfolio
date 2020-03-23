@@ -24,7 +24,7 @@ const AboutPage = ({ data, location }) => {
     const ofriImage = data.ofriImage.childImageSharp.fluid
 
     return (
-        <Layout activeItem={location.state.activeItem}>
+        <Layout activeItem={location.state && location.state.activeItem}>
             <NoStretchImage
                 fluid={ofriImage}
                 style={{

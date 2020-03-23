@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 // style
 import pageStyle from '../styles/one-of.module.scss'
@@ -111,9 +111,29 @@ class OneOfPage extends React.Component {
 
     render() {
         return (
-            <Layout activeItem={this.props.location.state.activeItem}>
+            <Layout
+                activeItem={
+                    this.props.location.state &&
+                    this.props.location.state.activeItem
+                }
+            >
                 <div ref={this.contentWidth}>
-                    <h1>Industrial One Of</h1>
+                    {/* <p>
+                        <Link to="/one-of#story_behind">The Story Behind</Link>
+                        {' - '}
+                        <Link to="/one-of#ioo_1_0">1.0</Link>
+                        {' - '}
+                        <Link to="/one-of#ioo_2_0">2.0</Link>
+                        {' - '}
+                        <Link to="/one-of#ioo_3_0">3.0</Link>
+                        {' - '}
+                        <Link to="/one-of#ioo_1_0_special">
+                            Special Edition
+                        </Link>
+                    </p> */}
+                    <h1 id="story_behind" className={pageStyle.pullDown}>
+                        Industrial One Of
+                    </h1>
                     <h4>
                         A machine that manufactures one of a kind pottery ware,
                         by leaving its unique handprint on each creation.
@@ -191,7 +211,9 @@ class OneOfPage extends React.Component {
                         his creations.
                     </p>
                     <div className={pageStyle.divider}></div>
-                    <h2>v1.0</h2>
+                    <h2 id="ioo_1_0" className={pageStyle.pullDown}>
+                        Industrial One Of 1.0
+                    </h2>
                     <div className={pageStyle.caption}>2017-2018</div>
                     <iframe
                         title="Indusrial One Of v1.0 video"
@@ -249,13 +271,16 @@ class OneOfPage extends React.Component {
                     <img
                         src={v1_0_gif}
                         width={this.state.contentWidth}
+                        rel="preload"
                         loading="eager"
                         alt=""
                     ></img>
                     <div
                         className={`${pageStyle.divider} ${pageStyle.gif}`}
                     ></div>{' '}
-                    <h2>v2.0</h2>
+                    <h2 id="ioo_2_0" className={pageStyle.pullDown}>
+                        Industrial One Of 2.0
+                    </h2>
                     <div className={pageStyle.caption}>2018</div>
                     <iframe
                         title="Indusrial One Of v2.0 video"
@@ -283,12 +308,15 @@ class OneOfPage extends React.Component {
                         src={v2_0_gif}
                         width={this.state.contentWidth}
                         alt=""
+                        rel="preload"
                         loading="eager"
                     ></img>
                     <div
                         className={`${pageStyle.divider} ${pageStyle.gif}`}
                     ></div>
-                    <h2>v3.0</h2>
+                    <h2 id="ioo_3_0" className={pageStyle.pullDown}>
+                        Industrial One Of 3.0
+                    </h2>
                     <div className={pageStyle.caption}>2019-2020</div>
                     <iframe
                         title="Indusrial One Of v3.0 video"
@@ -341,7 +369,9 @@ class OneOfPage extends React.Component {
                     <NoStretchImage fluid={this.v3_0_11} />
                     <NoStretchImage fluid={this.v3_0_12} />
                     <div className={pageStyle.divider}></div>
-                    <h2>Industrial One Of Special Edition</h2>
+                    <h2 id="ioo_1_0_special" className={pageStyle.pullDown}>
+                        Industrial One Of Special Edition{' '}
+                    </h2>
                     <div className={pageStyle.caption}>
                         for Jerusalem Design Week 2018
                     </div>

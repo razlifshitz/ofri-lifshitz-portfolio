@@ -10,22 +10,49 @@ const items = [
     {
         id: 'ABOUT',
         name: 'About',
-        slug: '/about/',
+        slug: '/about',
     },
     {
         id: 'INDUSTRIAL_ONE_OF',
         name: 'Industrial One Of',
-        slug: '/one-of/',
+        // slug: '/one-of',
+        children: [
+            {
+                id: 'STORT_BEHIND',
+                name: 'The Story Behind',
+                slug: '/one-of#story_behind',
+            },
+            {
+                id: 'INDUSTRIAL_ONE_OF_1_0',
+                name: 'Industrial One Of 1.0',
+                slug: '/one-of#ioo_1_0',
+            },
+            {
+                id: 'INDUSTRIAL_ONE_OF_2_0',
+                name: 'Industrial One Of 2.0',
+                slug: '/one-of#ioo_2_0',
+            },
+            {
+                id: 'INDUSTRIAL_ONE_OF_3_0',
+                name: 'Industrial One Of 3.0',
+                slug: '/one-of#ioo_3_0',
+            },
+            {
+                id: 'INDUSTRIAL_ONE_OF_1_0_SPECIAL',
+                name: 'Special Edition',
+                slug: '/one-of#ioo_1_0_special',
+            },
+        ],
     },
     {
         id: 'PRESS',
         name: 'Press',
-        slug: '/press/',
+        slug: '/press',
     },
     {
         id: 'CONTACT',
         name: 'Contact',
-        slug: '/contact/',
+        slug: '/contact',
     },
 ]
 
