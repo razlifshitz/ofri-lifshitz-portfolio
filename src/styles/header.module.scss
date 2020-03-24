@@ -48,10 +48,10 @@ header {
                     cursor: pointer;
                 }
 
-                a:hover
-                /*.active-nav-item*/ {
+                a:hover,
+                .active-nav-item {
                     color: #262626;
-                    background: #ffffff;
+                    // background: #ffffff;
                     font-weight: bold;
                 }
 
@@ -72,28 +72,6 @@ header {
                         }
                     }
                 }
-                &.active-parent-item ul {
-                    display: block;
-                }
-                &:not(.active-parent-item) {
-                    .active-nav-item {
-                        color: #262626;
-                        background: #ffffff;
-                        font-weight: bold;
-                    }
-                }
-            }
-
-            // arrow
-            li a.sub-menu:before {
-                // content: '\23F7';
-                content: '\25BE';
-                position: absolute;
-                left: -25px;
-            }
-            li.active-parent-item a.sub-menu:before {
-                // content: '\23F6';
-                content: '\25B4';
             }
         }
     }
@@ -151,6 +129,23 @@ header {
                         // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                     }
 
+                    a:hover {
+                        font-weight: inherit;
+                    }
+
+                    &.active-parent-item ul {
+                        display: block;
+
+                        li a {
+                            font-weight: 100;
+                        }
+                    }
+                    &:not(.active-parent-item) {
+                        .active-nav-item {
+                            font-weight: inherit;
+                        }
+                    }
+
                     // submenu
                     &.active-parent-item ul {
                         position: relative;
@@ -168,6 +163,18 @@ header {
                             }
                         }
                     }
+                }
+
+                // arrow
+                li a.sub-menu:before {
+                    // content: '\23F7';
+                    content: '\25BE';
+                    position: absolute;
+                    left: -25px;
+                }
+                li.active-parent-item a.sub-menu:before {
+                    // content: '\23F6';
+                    content: '\25B4';
                 }
             }
         }

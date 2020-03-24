@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import NavBar from '../components/navigation/NavBar'
+import { OPEN_MENU } from '../constants/one-of.constants'
 
 // style
 import headerStyles from '../styles/header.module.scss'
@@ -15,7 +16,7 @@ const items = [
     {
         id: 'INDUSTRIAL_ONE_OF',
         name: 'Industrial One Of',
-        // slug: '/one-of',
+        slug: '/one-of',
         children: [
             {
                 id: 'STORT_BEHIND',
@@ -59,6 +60,18 @@ const items = [
 class Header extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            isNavbarActive: false,
+        }
+    }
+
+    onNavbarAction = action => {
+        this.dispatchMenuAction(action === OPEN_MENU)
+    }
+
+    dispatchMenuAction = value => {
+        this.setState({ isNavbarActive: value })
     }
 
     render() {
@@ -67,12 +80,17 @@ class Header extends React.Component {
             <header>
                 <div className={headerStyles.logo}>
                     <Link to="/">
-                        <img src={logo} onClick={this.closeMenu}></img>
+                        <img
+                            src={logo}
+                            onClick={() => this.dispatchMenuAction(false)}
+                        ></img>
                     </Link>
                 </div>
                 <NavBar
                     items={items}
                     activeItem={this.props.activeItem}
+                    isNavbarActive={this.state.isNavbarActive}
+                    onAction={this.onNavbarAction}
                 ></NavBar>
             </header>
         )

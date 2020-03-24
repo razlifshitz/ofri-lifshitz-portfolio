@@ -1,27 +1,51 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import NavItem from './NavItem'
 import style from '../../styles/header.module.scss'
 import menuIcon from '../../assets/menu-toggle.png'
 import xIcon from '../../assets/menu-toggle-x.png'
+import { OPEN_MENU, CLOSE_MENU } from '../../constants/one-of.constants'
 
-const NavBar = ({ items, activeItem }) => {
+const NavBar = props => {
+    // constant
     const mobileMachMedia = window.matchMedia(`(max-width: ${style.mediaLarge}`)
 
-    // active menu
-    const [isNavbarActive, setIsNavbarActive] = useState(false)
+    /**
+     * State
+     */
+
+    // from props
+    const [items] = useState([...props.items])
+    const [activeItem, setActiveItem] = useState(props.activeItem)
+    const [isNavbarActive, setIsNavbarActive] = useState(props.isNavbarActive)
+
+    // internal state
+    const [activeParentItem, setActiveParentItem] = useState(null)
+    const [mobileDisplay, setmobileDisplay] = useState(mobileMachMedia.matches)
+
+    /**
+     * Effects
+     */
+
+    // updating state on props change
     useEffect(() => {
-        // modifing class according to whether menu is active/inactive
+        setIsNavbarActive(props.isNavbarActive)
+    }, [props.isNavbarActive])
+
+    useEffect(() => {
+        setActiveItem(props.activeItem)
+    }, [props.activeItem])
+
+    // modifing class according to whether menu is active/inactive
+    useEffect(() => {
         isNavbarActive
             ? document.body.classList.add(`${style.disableScroll}`)
             : document.body.classList.remove(`${style.disableScroll}`)
+
+        console.log('state nav: ' + isNavbarActive)
     }, [isNavbarActive])
 
-    // active parent item
-    const [activeParentItem, setActiveParentItem] = useState(null)
-
-    // is mobile display
-    const [mobileDisplay, setmobileDisplay] = useState(mobileMachMedia.matches)
+    // if display changed to web and mobile menu was opened --> closes menu
     useEffect(() => {
         function onScreenSizeChange() {
             setmobileDisplay(mobileMachMedia.matches)
@@ -29,7 +53,6 @@ const NavBar = ({ items, activeItem }) => {
 
         window.addEventListener('resize', onScreenSizeChange)
 
-        // if display changed to web and mobile menu was opened --> closes menu
         if (!mobileDisplay && isNavbarActive) {
             closeMenu()
         }
@@ -39,26 +62,33 @@ const NavBar = ({ items, activeItem }) => {
         }
     }, [mobileDisplay])
 
+    /**
+     * Methods
+     */
+
     function onToggle() {
         isNavbarActive ? closeMenu() : openMenu()
     }
 
     function openMenu() {
-        setIsNavbarActive(true)
+        props.onAction(OPEN_MENU)
     }
 
     function closeMenu() {
-        setIsNavbarActive(false)
+        setActiveParentItem(null)
+        props.onAction(CLOSE_MENU)
     }
 
     const onItemClick = item => {
-        if (item.children /*&& mobileDisplay*/) {
+        if (item.children && mobileDisplay) {
             !activeParentItem || activeParentItem.id != item.id
                 ? setActiveParentItem(item)
                 : setActiveParentItem(null)
-        } else {
-            navigate(item.slug, { state: { activeItem: item } })
+        } else if (activeItem && item.id === activeItem.id) {
             closeMenu()
+        } else {
+            // fixme: pass isNavbarActive = false to location state
+            navigate(item.slug, { state: { activeItem: item } })
         }
     }
 

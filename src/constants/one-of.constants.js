@@ -2,6 +2,10 @@
 // export const mediaWidth = '1180px'
 // export const contactMobileDisplay = '830px'
 
+// actions
+export const OPEN_MENU = 'OPEN_MENU'
+export const CLOSE_MENU = 'CLOSE_MENU'
+
 export const getRandIndex = limit => {
     return Math.floor(Math.random() * Math.floor(limit))
 }

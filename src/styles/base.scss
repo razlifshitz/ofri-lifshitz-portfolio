@@ -99,6 +99,16 @@ $media-large: 1000px;
     }
 }
 
+.section-anchor {
+    position: absolute;
+    top: -80px;
+}
+@media (max-width: $media-large) {
+    .section-anchor {
+        top: -2.7rem;
+    }
+}
+
 // .button {
 //     display: block;
 //     background-color: white;

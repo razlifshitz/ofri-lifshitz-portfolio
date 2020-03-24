@@ -11,24 +11,33 @@
     @include user-select(none);
 }
 
-.divider {
-    padding-bottom: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
-}
+// .divider {
+//     padding-bottom: 2rem;
+//     border-top: 1px solid rgba(0, 0, 0, 0.1);
+//     margin-top: 2rem;
+// }
 
-.divider.gif {
-    margin-top: 0.55rem;
-}
+// .divider.gif {
+//     margin-top: 0.55rem;
+// }
 
 .fade {
     animation: fade-in-from-bottom 1s;
 }
 
-.pull-down {
-    padding-top: 100px;
-    margin-top: -100px !important;
+.section {
+    display: block;
+    position: relative;
+
+    // padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
+
+// .pull-down {
+//     padding-top: 100px;
+//     margin-top: -100px !important;
+// }
 
 // not in use
 
