@@ -148,7 +148,7 @@ header {
                     }
                     ul {
                         padding-top: 0;
-                        padding-left: 10px;
+                        padding-left: 0;
                         border: none;
                         li {
                             width: 100%;
@@ -173,6 +173,7 @@ header {
                     // content: '\23F6';
                     // content: '\25B4';
                     content: '\002D';
+                    left: -22px;
                 }
             }
         }

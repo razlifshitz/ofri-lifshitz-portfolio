@@ -12,7 +12,7 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
      */
     // internal state
     const [activeParentItem, setActiveParentItem] = useState(null)
-    const [mobileDisplay, setmobileDisplay] = useState(null)
+    const [mobileDisplay, setMobileDisplay] = useState(null)
 
     /**
      * Effects
@@ -35,12 +35,14 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
         )
 
         function onScreenSizeChange() {
-            setmobileDisplay(mobileMachMedia.matches)
+            setMobileDisplay(mobileMachMedia.matches)
         }
 
+        setMobileDisplay(mobileMachMedia.matches)
         window.addEventListener('resize', onScreenSizeChange)
 
-        if (!mobileDisplay && isNavbarActive) {
+        // todo check if can use here mobileDisplay
+        if (!mobileMachMedia.matches && isNavbarActive) {
             closeMenu()
         }
 
