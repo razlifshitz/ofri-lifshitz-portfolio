@@ -74,16 +74,14 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
                 ? setActiveParentItem(item)
                 : setActiveParentItem(null)
         }
-        // Click on current active item
-        else if (activeItem && item.id === activeItem.id) {
-            closeMenu()
-        }
-        // move to another child of same parent OR moved from parent
-        // to one of his children (can happen only if starting from
-        // web view and transforming to mobile in the middle)
+        // Click on current active item OR
+        // move to another child of same parent OR
+        // moved from parent to one of his children (can happen only
+        // if starting from web view and transforming to mobile in the middle)
         else if (
             activeItem &&
-            (item.parentId === activeItem.id ||
+            ((activeItem && item.id === activeItem.id) ||
+                item.parentId === activeItem.id ||
                 item.parentId === activeItem.parentId)
         ) {
             // we should close memu ourself becuse navigation to other
