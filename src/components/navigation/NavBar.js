@@ -6,19 +6,13 @@ import menuIcon from '../../assets/menu-toggle.png'
 import xIcon from '../../assets/menu-toggle-x.png'
 import { OPEN_MENU, CLOSE_MENU } from '../../constants/one-of.constants'
 
-const NavBar = props => {
+const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
     // constant
     const mobileMachMedia = window.matchMedia(`(max-width: ${style.mediaLarge}`)
 
     /**
      * State
      */
-
-    // from props
-    const [items] = useState([...props.items])
-    const [activeItem, setActiveItem] = useState(props.activeItem)
-    const [isNavbarActive, setIsNavbarActive] = useState(props.isNavbarActive)
-
     // internal state
     const [activeParentItem, setActiveParentItem] = useState(null)
     const [mobileDisplay, setmobileDisplay] = useState(mobileMachMedia.matches)
@@ -27,22 +21,14 @@ const NavBar = props => {
      * Effects
      */
 
-    // updating state on props change
-    useEffect(() => {
-        setIsNavbarActive(props.isNavbarActive)
-    }, [props.isNavbarActive])
-
-    useEffect(() => {
-        setActiveItem(props.activeItem)
-    }, [props.activeItem])
-
     // modifing class according to whether menu is active/inactive
     useEffect(() => {
-        isNavbarActive
-            ? document.body.classList.add(`${style.disableScroll}`)
-            : document.body.classList.remove(`${style.disableScroll}`)
-
-        console.log('state nav: ' + isNavbarActive)
+        if (isNavbarActive) {
+            document.body.classList.add(`${style.disableScroll}`)
+        } else {
+            document.body.classList.remove(`${style.disableScroll}`)
+            setActiveParentItem(null)
+        }
     }, [isNavbarActive])
 
     // if display changed to web and mobile menu was opened --> closes menu
@@ -71,23 +57,39 @@ const NavBar = props => {
     }
 
     function openMenu() {
-        props.onAction(OPEN_MENU)
+        onAction(OPEN_MENU)
     }
 
     function closeMenu() {
-        setActiveParentItem(null)
-        props.onAction(CLOSE_MENU)
+        onAction(CLOSE_MENU)
     }
 
     const onItemClick = item => {
+        // Click on parent item - mobile
         if (item.children && mobileDisplay) {
             !activeParentItem || activeParentItem.id != item.id
                 ? setActiveParentItem(item)
                 : setActiveParentItem(null)
-        } else if (activeItem && item.id === activeItem.id) {
+        }
+        // Click on current active item
+        else if (activeItem && item.id === activeItem.id) {
             closeMenu()
+            // Click on other child of same parent
+        }
+        // move to another child of same parent OR moved from parent
+        // to one of his children (can happen only if starting from
+        // web view and transforming to mobile in the middle)
+        else if (
+            activeItem &&
+            (item.parentId === activeItem.id ||
+                item.parentId === activeItem.parentId)
+        ) {
+            // we should close memu ourself becuse navigation to other
+            // anchor on same page doen't render NavBar Component
+            // TODO: think about a better mechanizem (redux)
+            closeMenu()
+            navigate(item.slug, { state: { activeItem: item } })
         } else {
-            // fixme: pass isNavbarActive = false to location state
             navigate(item.slug, { state: { activeItem: item } })
         }
     }

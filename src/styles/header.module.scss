@@ -129,7 +129,8 @@ header {
                         // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                     }
 
-                    a:hover {
+                    a:hover,
+                    .active-nav-item {
                         font-weight: inherit;
                     }
 
@@ -138,11 +139,6 @@ header {
 
                         li a {
                             font-weight: 100;
-                        }
-                    }
-                    &:not(.active-parent-item) {
-                        .active-nav-item {
-                            font-weight: inherit;
                         }
                     }
 
@@ -168,13 +164,15 @@ header {
                 // arrow
                 li a.sub-menu:before {
                     // content: '\23F7';
-                    content: '\25BE';
+                    // content: '\25BE';
                     position: absolute;
+                    content: '\002B';
                     left: -25px;
                 }
                 li.active-parent-item a.sub-menu:before {
                     // content: '\23F6';
-                    content: '\25B4';
+                    // content: '\25B4';
+                    content: '\002D';
                 }
             }
         }
