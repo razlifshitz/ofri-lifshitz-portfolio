@@ -7,15 +7,12 @@ import xIcon from '../../assets/menu-toggle-x.png'
 import { OPEN_MENU, CLOSE_MENU } from '../../constants/one-of.constants'
 
 const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
-    // constant
-    const mobileMachMedia = window.matchMedia(`(max-width: ${style.mediaLarge}`)
-
     /**
      * State
      */
     // internal state
     const [activeParentItem, setActiveParentItem] = useState(null)
-    const [mobileDisplay, setmobileDisplay] = useState(mobileMachMedia.matches)
+    const [mobileDisplay, setmobileDisplay] = useState(null)
 
     /**
      * Effects
@@ -33,6 +30,10 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
 
     // if display changed to web and mobile menu was opened --> closes menu
     useEffect(() => {
+        const mobileMachMedia = window.matchMedia(
+            `(max-width: ${style.mediaLarge}`
+        )
+
         function onScreenSizeChange() {
             setmobileDisplay(mobileMachMedia.matches)
         }
@@ -74,7 +75,6 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
         // Click on current active item
         else if (activeItem && item.id === activeItem.id) {
             closeMenu()
-            // Click on other child of same parent
         }
         // move to another child of same parent OR moved from parent
         // to one of his children (can happen only if starting from
