@@ -41,6 +41,75 @@
     animation: fade-in 1s;
 }
 
+// table of contents
+.table-of-contents {
+    margin-left: 5rem;
+    max-width: 18rem;
+    // position: -webkit-sticky;
+    // position: sticky;
+    top: 7rem;
+    max-height: 12rem;
+    overflow: auto;
+
+    // new start
+    display: block;
+    top: 7.2rem;
+    left: 1.58rem;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    @include transition(
+        (visibility 0s 0.3s, top 0s 0.3s, left 0s 0.3s, opacity 0.3s)
+    );
+    // new end
+
+    li {
+        // margin-bottom: 0;
+        list-style-type: none;
+        text-align: left;
+
+        a {
+            // color: #262626;
+            color: grey;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: lighter;
+        }
+        a:hover,
+        a.active-item {
+            color: #606060;
+            font-weight: normal;
+        }
+    }
+}
+
+.table-of-contents-title {
+    font-size: 1rem;
+    top: 7rem;
+    left: 8rem;
+    position: fixed;
+    max-height: 12rem;
+    color: #606060;
+    // font-weight: 500;
+}
+
+@media (min-width: 1200px) {
+    // html:not([data-scroll='0'])
+    .table-of-contents.active {
+        top: 9.35rem;
+        left: 1.58rem;
+        opacity: 1;
+        visibility: visible;
+        // transition: all 0.4s 0.15s;
+        transition: all 0.5s;
+    }
+    .table-of-contents-title.active,
+    .table-of-contents.active {
+        display: block;
+        animation: fade-in 0.5s;
+    }
+}
+
 // TODO: video animation
 // .video {
 //     // animation: fade-in 0.7s ease 0.3s;
