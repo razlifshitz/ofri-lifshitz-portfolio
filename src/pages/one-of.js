@@ -81,12 +81,12 @@ class OneOfPage extends React.Component {
     vJeru11 = this.data.vJeru11.childImageSharp.fluid
 
     componentDidMount() {
-        this.setContentWidth()
         window.addEventListener('resize', this.setContentWidth)
 
         // data for table of contents
         this.setState({
             ...this.state,
+            contentWidth: this.contentWidth.current.clientWidth,
             sectionsHeights: [
                 this.theStoryBehindRef.current.getBoundingClientRect().top,
                 this.v1Ref.current.getBoundingClientRect().top,
