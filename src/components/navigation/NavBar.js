@@ -88,9 +88,9 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
             // anchor on same page doen't render NavBar Component
             // TODO: think about a better mechanizem (redux)
             closeMenu()
-            navigate(item.slug, { state: { activeItem: item } })
+            navigate(item.slug)
         } else {
-            navigate(item.slug, { state: { activeItem: item } })
+            navigate(item.slug)
         }
     }
 

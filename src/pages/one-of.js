@@ -1,9 +1,7 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
-
+import { graphql } from 'gatsby'
 // style
 import pageStyle from '../styles/one-of.module.scss'
-
 // components
 import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
@@ -11,14 +9,14 @@ import TableOfContents from '../components/TableOfContents'
 // HOC
 import { withScrollLocation } from '../components/hoc/withScrollLocation'
 // Constants
-import { getOneOfSubMenu } from '../constants/one-of.constants'
-
+import { getOneOfSubMenu, ONE_OF } from '../constants/one-of.constants'
 // import { imageQuery } from '../constants/one-of.constants'
 
 // images
 import v1_0_gif from '../assets/one-of/v1.0/v1.gif'
 import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
 var v1Gif, v2Gif
+
 class OneOfPage extends React.Component {
     constructor(props) {
         super(props)
@@ -489,12 +487,7 @@ class OneOfPage extends React.Component {
 
     render() {
         return (
-            <Layout
-                activeItem={
-                    this.props.location.state &&
-                    this.props.location.state.activeItem
-                }
-            >
+            <Layout activeItem={ONE_OF}>
                 <a className={pageStyle.sectionAnchor} id="story_behind">
                     &nbsp;
                 </a>

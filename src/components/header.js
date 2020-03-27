@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import NavBar from '../components/navigation/NavBar'
-import { OPEN_MENU, getMenuItems } from '../constants/one-of.constants'
+import { OPEN_MENU, getMenuItemsList } from '../constants/one-of.constants'
 
 // style
 import headerStyles from '../styles/header.module.scss'
 import logo from '../assets/logos/logo 18.3.20.png'
 
-const items = getMenuItems()
+const items = getMenuItemsList()
 class Header extends React.Component {
     constructor(props) {
         super(props)

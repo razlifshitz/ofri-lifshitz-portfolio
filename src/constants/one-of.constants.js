@@ -45,23 +45,23 @@ const INDUSTRIAL_ONE_OF_1_0_SPECIAL = {
     parentId: 'INDUSTRIAL_ONE_OF',
 }
 
-const ABOUT = {
+export const ABOUT = {
     id: 'ABOUT',
     name: 'About',
     slug: '/about',
 }
-const ONE_OF = {
+export const ONE_OF = {
     id: 'INDUSTRIAL_ONE_OF',
     name: 'Industrial One Of',
     slug: '/one-of',
     children: getOneOfSubMenuList(),
 }
-const PRESS = {
+export const PRESS = {
     id: 'PRESS',
     name: 'Press',
     slug: '/press',
 }
-const CONTACT = {
+export const CONTACT = {
     id: 'CONTACT',
     name: 'Contact',
     slug: '/contact',
@@ -77,7 +77,7 @@ function getOneOfSubMenuList() {
     ]
 }
 
-export const getMenuItems = () => {
+export const getMenuItemsList = () => {
     return [{ ...ABOUT }, { ...ONE_OF }, { ...PRESS }, { ...CONTACT }]
 }
 export const getOneOfSubMenu = () => {

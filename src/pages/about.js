@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
+// style
 import style from '../styles/about.module.scss'
-
+// components
 import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
+// constants
+import { ABOUT } from '../constants/one-of.constants'
 
 const education = [
     '2013-2017 / B. Design, HIT (Holon Institute of Technology) - graduated with honor',
@@ -20,11 +22,11 @@ const awardsAndExhibitions = [
     '2017 / Design Department Dean’s first prize in excellence for Graduation Project',
 ]
 
-const AboutPage = ({ data, location }) => {
+const AboutPage = ({ data }) => {
     const ofriImage = data.ofriImage.childImageSharp.fluid
 
     return (
-        <Layout activeItem={location.state && location.state.activeItem}>
+        <Layout activeItem={ABOUT}>
             <NoStretchImage
                 fluid={ofriImage}
                 style={{

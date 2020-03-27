@@ -1,15 +1,12 @@
 import React from 'react'
-
 // style
 import style from '../styles/contact.module.scss'
-
 // components
 import Layout from '../components/layout'
 import { withPlatesImages } from '../components/hoc/withPlatesImages'
 import RotatingPlateDialog from '../components/RotatingPlateDialog'
-
 // constants
-import { getRandIndex } from '../constants/one-of.constants'
+import { getRandIndex, CONTACT } from '../constants/one-of.constants'
 
 class ContactPage extends React.Component {
     constructor(props) {
@@ -41,12 +38,7 @@ class ContactPage extends React.Component {
 
     render() {
         return (
-            <Layout
-                activeItem={
-                    this.props.location.state &&
-                    this.props.location.state.activeItem
-                }
-            >
+            <Layout activeItem={CONTACT}>
                 <RotatingPlateDialog
                     title="Let's Talk!"
                     images={this.props.images}

@@ -1,11 +1,13 @@
 import React from 'react'
-import NoStretchImage from '../components/noStretchImage'
-
+// style
 import style from '../styles/press.module.scss'
-
+// components
 import Layout from '../components/layout'
+import NoStretchImage from '../components/noStretchImage'
+//constants
+import { PRESS } from '../constants/one-of.constants'
 
-const PressPage = ({ data, location }) => {
+const PressPage = ({ data }) => {
     // images
     const designZoom = data.designZoom.childImageSharp.fluid
     const coolHunting = data.coolHunting.childImageSharp.fluid
@@ -65,7 +67,7 @@ const PressPage = ({ data, location }) => {
     ]
 
     return (
-        <Layout activeItem={location.state && location.state.activeItem}>
+        <Layout activeItem={PRESS}>
             <ul className={style.container}>
                 {pressList.map(pressData => (
                     <li className={style.card} key={pressData.url}>
