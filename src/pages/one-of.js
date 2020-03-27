@@ -28,14 +28,14 @@ class OneOfPage extends React.Component {
         this.contentWidth = React.createRef()
 
         // gifs data
-        let Im = new Image()
-        Im.src = v1_0_gif
-        let imgWrapper = document.getElementById('gif1')
-        imgWrapper.appendChild(Im)
-        Im = new Image()
-        Im.src = v2_0_gif
-        imgWrapper = document.getElementById('gif2')
-        imgWrapper.appendChild(Im)
+        // let Im = new Image()
+        // Im.src = v1_0_gif
+        // let imgWrapper = document.getElementById('gif1')
+        // imgWrapper.appendChild(Im)
+        // Im = new Image()
+        // Im.src = v2_0_gif
+        // imgWrapper = document.getElementById('gif2')
+        // imgWrapper.appendChild(Im)
 
         // data for table of contents
         this.theStoryBehindRef = React.createRef()
@@ -305,14 +305,14 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.image11} />
                         <NoStretchImage fluid={this.image8} />{' '}
                         <NoStretchImage fluid={this.image7} />
-                        <div id="gif1"></div>
-                        {/* <img
+                        {/* <div id="gif1"></div> */}
+                        <img
                             src={v1_0_gif}
                             width={this.state.contentWidth}
                             rel="preload"
                             loading="eager"
                             alt=""
-                        ></img> */}
+                        ></img>
                         <div
                             className={`${pageStyle.divider} ${pageStyle.gif}`}
                         ></div>{' '}
