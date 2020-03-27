@@ -94,6 +94,9 @@
 }
 
 @media (min-width: 1200px) {
+    .smooth-scroll {
+        scroll-behavior: smooth;
+    }
     // html:not([data-scroll='0'])
     .table-of-contents.active {
         top: 9.35rem;

@@ -51,6 +51,7 @@ function TableOfContents(props) {
 
     useEffect(() => {
         if (!props.sectionsHeights) return
+
         for (let i = 0; i < props.sectionsHeights.length; i++) {
             const sectionHeight = props.sectionsHeights[i]
             const nextSectionHeight = props.sectionsHeights[i + 1]
@@ -91,6 +92,7 @@ function TableOfContents(props) {
                                 isActiveItem(item) ? style.activeItem : ''
                             }
                             to={item.slug}
+                            state={{ activeItem: list[0] }}
                         >
                             {item.name}
                         </Link>

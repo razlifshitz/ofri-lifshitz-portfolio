@@ -5,11 +5,11 @@ export const withScrollLocation = Component => {
         const [scroll, setScroll] = useState()
 
         useEffect(() => {
+            // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+            let frame
+
             // The debounce function receives our function as a parameter
             const debounce = fn => {
-                // This holds the requestAnimationFrame reference, so we can cancel it if we wish
-                let frame
-
                 // The debounce function returns a new function that can receive a variable number of arguments
                 return (...params) => {
                     // If the frame variable has been defined, clear it now, and queue for next frame
@@ -31,8 +31,21 @@ export const withScrollLocation = Component => {
                 // document.documentElement.dataset.scroll = window.scrollY
                 setScroll(window.scrollY)
             }
+
+            let ticking = false
+            const test = () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        storeScroll()
+                        ticking = false
+                    })
+
+                    ticking = true
+                }
+            }
+
             // Listen for new scroll events, here we debounce our `storeScroll` function
-            document.addEventListener('scroll', debounce(storeScroll), {
+            document.addEventListener('scroll', test, {
                 passive: true,
             })
 
@@ -40,7 +53,13 @@ export const withScrollLocation = Component => {
             storeScroll()
 
             return () => {
-                document.removeEventListener('scroll', debounce(storeScroll))
+                // if (frame) {
+                //     cancelAnimationFrame(frame)
+                // }
+
+                document.removeEventListener('scroll', test, {
+                    passive: true,
+                })
             }
         }, [scroll])
 
