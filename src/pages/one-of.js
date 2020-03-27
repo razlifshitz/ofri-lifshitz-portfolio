@@ -8,14 +8,17 @@ import pageStyle from '../styles/one-of.module.scss'
 import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
 import TableOfContents from '../components/TableOfContents'
+// HOC
 import { withScrollLocation } from '../components/hoc/withScrollLocation'
+// Constants
+import { getOneOfSubMenu } from '../constants/one-of.constants'
 
 // import { imageQuery } from '../constants/one-of.constants'
 
 // images
 import v1_0_gif from '../assets/one-of/v1.0/v1.gif'
 import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
-
+var v1Gif, v2Gif
 class OneOfPage extends React.Component {
     constructor(props) {
         super(props)
@@ -28,14 +31,16 @@ class OneOfPage extends React.Component {
         this.contentWidth = React.createRef()
 
         // gifs data
-        // let Im = new Image()
-        // Im.src = v1_0_gif
-        // let imgWrapper = document.getElementById('gif1')
-        // imgWrapper.appendChild(Im)
-        // Im = new Image()
-        // Im.src = v2_0_gif
-        // imgWrapper = document.getElementById('gif2')
-        // imgWrapper.appendChild(Im)
+        // 1
+        v1Gif = new Image()
+        v1Gif.src = v1_0_gif
+        v1Gif.style.display = 'none'
+        document.body.appendChild(v1Gif)
+        // 2
+        v2Gif = new Image()
+        v2Gif.src = v2_0_gif
+        v2Gif.style.display = 'none'
+        document.body.appendChild(v2Gif)
 
         // data for table of contents
         this.theStoryBehindRef = React.createRef()
@@ -95,17 +100,32 @@ class OneOfPage extends React.Component {
         const htmlElem = document.getElementsByTagName('html')[0]
         htmlElem.classList.add(`${pageStyle.smoothScroll}`)
 
+        // gif data
+        // v1
+        let imgWrapper = document.getElementById('gif1')
+        v1Gif.style.display = 'block'
+        imgWrapper.appendChild(v1Gif)
+        // v2
+        imgWrapper = document.getElementById('gif2')
+        v2Gif.style.display = 'block'
+        imgWrapper.appendChild(v2Gif)
+
         // data for table of contents
+        const setTableOfContentsHeights = () => {
+            const tableOfContents = getOneOfSubMenu()
+            tableOfContents.INDUSTRIAL_ONE_OF.height = this.theStoryBehindRef.current.getBoundingClientRect().top
+            tableOfContents.INDUSTRIAL_ONE_OF_1_0.height = this.v1Ref.current.getBoundingClientRect().top
+            tableOfContents.INDUSTRIAL_ONE_OF_2_0.height = this.v2Ref.current.getBoundingClientRect().top
+            tableOfContents.INDUSTRIAL_ONE_OF_3_0.height = this.v3Ref.current.getBoundingClientRect().top
+            tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL.height = this.v1JeruRef.current.getBoundingClientRect().top
+
+            return Object.values(tableOfContents)
+        }
+
         this.setState({
             ...this.state,
             contentWidth: this.contentWidth.current.clientWidth,
-            sectionsHeights: [
-                this.theStoryBehindRef.current.getBoundingClientRect().top,
-                this.v1Ref.current.getBoundingClientRect().top,
-                this.v2Ref.current.getBoundingClientRect().top,
-                this.v3Ref.current.getBoundingClientRect().top,
-                this.v1JeruRef.current.getBoundingClientRect().top,
-            ],
+            tableOfContents: setTableOfContentsHeights(),
         })
     }
 
@@ -305,17 +325,17 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.image11} />
                         <NoStretchImage fluid={this.image8} />{' '}
                         <NoStretchImage fluid={this.image7} />
-                        {/* <div id="gif1"></div> */}
-                        <img
+                        <div id="gif1"></div>
+                        {/* <img
                             src={v1_0_gif}
                             width={this.state.contentWidth}
                             rel="preload"
                             loading="eager"
                             alt=""
-                        ></img>
-                        <div
+                        ></img> */}
+                        {/* <div
                             className={`${pageStyle.divider} ${pageStyle.gif}`}
-                        ></div>{' '}
+                        ></div>{' '} */}
                     </div>
                 </section>
                 {/* 2.0 */}
@@ -351,13 +371,14 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.v2_0_1} />
                         <NoStretchImage fluid={this.v2_0_2} />
                         <NoStretchImage fluid={this.v2_0_3} />
-                        <img
+                        <div id="gif2"></div>
+                        {/* <img
                             src={v2_0_gif}
                             width={this.state.contentWidth}
                             alt=""
                             rel="preload"
                             loading="eager"
-                        ></img>
+                        ></img> */}
                     </div>
                 </section>
                 {/* 3.0 */}
@@ -480,7 +501,7 @@ class OneOfPage extends React.Component {
                 <h1 className={pageStyle.title}>Industrial One Of</h1>
                 <TableOfContents
                     scroll={this.props.scroll}
-                    sectionsHeights={this.state.sectionsHeights}
+                    contentsList={this.state.tableOfContents}
                 ></TableOfContents>
                 {/* <div style={{ display: 'flex', maxWidth: '1400px' }}> */}
                 <div>{this.getPageJsx()}</div>
