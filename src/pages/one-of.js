@@ -33,20 +33,6 @@ class OneOfPage extends React.Component {
 
         this.contentWidth = React.createRef()
 
-        // gifs data
-        // 1
-        v1Gif = new Image()
-        v1Gif.src = v1_0_gif
-        v1Gif.style.display = 'none'
-        v1Gif.style.width = '100%'
-        document.body.appendChild(v1Gif)
-        // 2
-        v2Gif = new Image()
-        v2Gif.src = v2_0_gif
-        v2Gif.style.display = 'none'
-        v2Gif.style.width = '100%'
-        document.body.appendChild(v2Gif)
-
         // data for table of contents
         this.theStoryBehindRef = React.createRef()
         this.v1Ref = React.createRef()
@@ -103,14 +89,20 @@ class OneOfPage extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', this.setContentWidth)
 
-        // gif data
-        // v1
-        let imgWrapper = document.getElementById('gif1')
+        // gifs data
+        // 1
+        v1Gif = new Image()
+        v1Gif.src = v1_0_gif
         v1Gif.style.display = 'block'
+        v1Gif.style.width = '100%'
+        let imgWrapper = document.getElementById('gif1')
         imgWrapper.appendChild(v1Gif)
-        // v2
+        // 2
+        v2Gif = new Image()
+        v2Gif.src = v2_0_gif
+        v2Gif.style.display = 'none'
+        v2Gif.style.width = '100%'
         imgWrapper = document.getElementById('gif2')
-        v2Gif.style.display = 'block'
         imgWrapper.appendChild(v2Gif)
 
         this.setState({
