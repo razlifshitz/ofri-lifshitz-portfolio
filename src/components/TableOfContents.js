@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import style from '../styles/one-of.module.scss'
+import { SCROLL_SHOW_TABLE_OF_CONTENTS } from '../constants/one-of.constants'
 
 function TableOfContents(props) {
     const [activeContent, setActiveContent] = useState()
@@ -21,10 +22,10 @@ function TableOfContents(props) {
                 setActiveContent(props.contentsList[i])
             }
         }
-    }, [props.scroll])
+    }, [props.scroll, props.contentsList])
 
     const wasScrolled = () => {
-        return props.scroll > 80
+        return props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS
     }
 
     const isActiveItem = item => {

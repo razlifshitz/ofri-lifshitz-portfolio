@@ -9,7 +9,11 @@ import TableOfContents from '../components/TableOfContents'
 // HOC
 import { withScrollLocation } from '../components/hoc/withScrollLocation'
 // Constants
-import { getOneOfSubMenu, ONE_OF } from '../constants/one-of.constants'
+import {
+    getOneOfSubMenu,
+    ONE_OF,
+    SCROLL_SHOW_TABLE_OF_CONTENTS,
+} from '../constants/one-of.constants'
 // import { imageQuery } from '../constants/one-of.constants'
 
 // images
@@ -24,6 +28,7 @@ class OneOfPage extends React.Component {
         this.state = {
             contentWidth: 0,
             readMore: false,
+            tableOfContents: [],
         }
 
         this.contentWidth = React.createRef()
@@ -33,11 +38,13 @@ class OneOfPage extends React.Component {
         v1Gif = new Image()
         v1Gif.src = v1_0_gif
         v1Gif.style.display = 'none'
+        v1Gif.style.width = '100%'
         document.body.appendChild(v1Gif)
         // 2
         v2Gif = new Image()
         v2Gif.src = v2_0_gif
         v2Gif.style.display = 'none'
+        v2Gif.style.width = '100%'
         document.body.appendChild(v2Gif)
 
         // data for table of contents
@@ -95,8 +102,6 @@ class OneOfPage extends React.Component {
 
     componentDidMount() {
         window.addEventListener('resize', this.setContentWidth)
-        const htmlElem = document.getElementsByTagName('html')[0]
-        htmlElem.classList.add(`${pageStyle.smoothScroll}`)
 
         // gif data
         // v1
@@ -108,23 +113,53 @@ class OneOfPage extends React.Component {
         v2Gif.style.display = 'block'
         imgWrapper.appendChild(v2Gif)
 
-        // data for table of contents
-        const setTableOfContentsHeights = () => {
-            const tableOfContents = getOneOfSubMenu()
-            tableOfContents.INDUSTRIAL_ONE_OF.height = this.theStoryBehindRef.current.getBoundingClientRect().top
-            tableOfContents.INDUSTRIAL_ONE_OF_1_0.height = this.v1Ref.current.getBoundingClientRect().top
-            tableOfContents.INDUSTRIAL_ONE_OF_2_0.height = this.v2Ref.current.getBoundingClientRect().top
-            tableOfContents.INDUSTRIAL_ONE_OF_3_0.height = this.v3Ref.current.getBoundingClientRect().top
-            tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL.height = this.v1JeruRef.current.getBoundingClientRect().top
-
-            return Object.values(tableOfContents)
-        }
-
         this.setState({
             ...this.state,
             contentWidth: this.contentWidth.current.clientWidth,
-            tableOfContents: setTableOfContentsHeights(),
+            tableOfContents: this.getTableOfContentsHeights(),
         })
+    }
+
+    // data for table of contents
+    getTableOfContentsHeights = () => {
+        const tableOfContents = getOneOfSubMenu()
+        const scroll = this.props.scroll ? this.props.scroll : 0
+        tableOfContents.INDUSTRIAL_ONE_OF.height =
+            this.theStoryBehindRef.current.getBoundingClientRect().top + scroll
+        tableOfContents.INDUSTRIAL_ONE_OF_1_0.height =
+            this.v1Ref.current.getBoundingClientRect().top + scroll
+        tableOfContents.INDUSTRIAL_ONE_OF_2_0.height =
+            this.v2Ref.current.getBoundingClientRect().top + scroll
+        tableOfContents.INDUSTRIAL_ONE_OF_3_0.height =
+            this.v3Ref.current.getBoundingClientRect().top + scroll
+        tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL.height =
+            this.v1JeruRef.current.getBoundingClientRect().top + scroll
+
+        return Object.values(tableOfContents)
+    }
+
+    onReadMoreClick = () => {
+        this.setState({
+            ...this.state,
+            readMore: true,
+        })
+    }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        // add smooth scrolling to html only when table of
+        // contents is visible
+        if (this.props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS) {
+            const htmlElem = document.getElementsByTagName('html')[0]
+            htmlElem.classList.add(`${pageStyle.smoothScroll}`)
+        }
+
+        // updating sections heights after 'read more' was pressed
+        if (prevState.readMore !== this.state.readMore) {
+            this.setState({
+                ...this.state,
+                tableOfContents: this.getTableOfContentsHeights(),
+            })
+        }
     }
 
     componentWillUnmount() {
@@ -158,7 +193,7 @@ class OneOfPage extends React.Component {
                     display: this.state.readMore ? 'none' : 'inline-block',
                 }}
                 className={pageStyle.greyLink}
-                onClick={() => this.setState({ ...this.state, readMore: true })}
+                onClick={this.onReadMoreClick}
             >
                 Continue reading..
             </span>

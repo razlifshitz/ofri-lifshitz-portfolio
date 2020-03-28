@@ -89,6 +89,8 @@ export const getOneOfSubMenu = () => {
         INDUSTRIAL_ONE_OF_1_0_SPECIAL: { ...INDUSTRIAL_ONE_OF_1_0_SPECIAL },
     }
 }
+// scroll value
+export const SCROLL_SHOW_TABLE_OF_CONTENTS = 80
 
 // export const imageQuery = graphql`
 //     query {
