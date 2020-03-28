@@ -19,7 +19,21 @@ import {
 // images
 import v1_0_gif from '../assets/one-of/v1.0/v1.gif'
 import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
-var v1Gif, v2Gif
+
+const placeholderSrc = (width, height) =>
+    `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`
+
+const LazyImage = ({ url, width, height, alt }) => {
+    return (
+        <img
+            src={placeholderSrc(width, height)}
+            width="1"
+            height="1"
+            data-gif-src={url}
+            alt={alt || ''}
+        />
+    )
+}
 
 class OneOfPage extends React.Component {
     constructor(props) {
@@ -89,21 +103,44 @@ class OneOfPage extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', this.setContentWidth)
 
+        // on gifs loaded
+        const gifsOnLoadHandle = [
+            ...document.querySelectorAll('[data-gif-src]'),
+        ].map(img => {
+            const onGifLoad = () => {
+                img.removeEventListener('load', onGifLoad)
+
+                img.src = img.dataset.gifSrc
+                img.style.width = '100%'
+                img.style.height = 'auto'
+
+                // updating sections heights
+                this.setState({
+                    ...this.state,
+                    tableOfContents: this.getTableOfContentsHeights(),
+                })
+            }
+
+            img.addEventListener('load', onGifLoad)
+        })
+
         // gifs data
         // 1
-        v1Gif = new Image()
-        v1Gif.src = v1_0_gif
-        v1Gif.style.display = 'block'
-        v1Gif.style.width = '100%'
-        let imgWrapper = document.getElementById('gif1')
-        imgWrapper.appendChild(v1Gif)
+        // v1Gif = new Image()
+        // v1Gif.src = v1_0_gif
+        // v1Gif.style.display = 'block'
+        // v1Gif.width = '100%'
+        // v1Gif.height = 'auto'
+        // let imgWrapper = document.getElementById('gif1')
+        // imgWrapper.appendChild(v1Gif)
         // 2
-        v2Gif = new Image()
-        v2Gif.src = v2_0_gif
-        v2Gif.style.display = 'none'
-        v2Gif.style.width = '100%'
-        imgWrapper = document.getElementById('gif2')
-        imgWrapper.appendChild(v2Gif)
+        // v2Gif = new Image()
+        // v2Gif.src = v2_0_gif
+        // v2Gif.style.display = 'block'
+        // v2Gif.width = '100%'
+        // v2Gif.height = 'auto'
+        // imgWrapper = document.getElementById('gif2')
+        // imgWrapper.appendChild(v2Gif)
 
         this.setState({
             ...this.state,
@@ -350,7 +387,12 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.image11} />
                         <NoStretchImage fluid={this.image8} />{' '}
                         <NoStretchImage fluid={this.image7} />
-                        <div id="gif1"></div>
+                        <LazyImage
+                            url={v1_0_gif}
+                            height={1}
+                            width={1}
+                        ></LazyImage>
+                        {/* <div id="gif1"></div> */}
                         {/* <img
                             src={v1_0_gif}
                             width={this.state.contentWidth}
@@ -396,7 +438,12 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.v2_0_1} />
                         <NoStretchImage fluid={this.v2_0_2} />
                         <NoStretchImage fluid={this.v2_0_3} />
-                        <div id="gif2"></div>
+                        {/* <div id="gif2"></div> */}
+                        <LazyImage
+                            url={v2_0_gif}
+                            height={1}
+                            width={1.04}
+                        ></LazyImage>
                         {/* <img
                             src={v2_0_gif}
                             width={this.state.contentWidth}
