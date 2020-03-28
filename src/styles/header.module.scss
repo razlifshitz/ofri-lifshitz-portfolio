@@ -92,10 +92,18 @@ header {
         margin-right: 7px;
     }
 }
-
-@media (max-width: $media-large) {
+@media (max-width: $media-medium-desktop) {
+    header {
+        padding: 0 50px;
+    }
+}
+@media (max-width: $media-small-desktop) {
     header {
         padding: 0 20px;
+    }
+}
+@media (max-width: $media-large) {
+    header {
         position: absolute;
 
         nav {

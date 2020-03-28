@@ -47,14 +47,14 @@
     max-width: 18rem;
     // position: -webkit-sticky;
     // position: sticky;
-    top: 7rem;
-    max-height: 12rem;
+    // top: 7rem;
+    // max-height: 12rem;
     overflow: auto;
 
     // new start
     display: block;
     top: 7.2rem;
-    left: 1.58rem;
+    left: 51px;
     position: fixed;
     visibility: hidden;
     opacity: 0;
@@ -63,22 +63,26 @@
     );
     // new end
 
-    li {
-        // margin-bottom: 0;
-        list-style-type: none;
-        text-align: left;
+    ul {
+        margin-left: 0;
 
-        a {
-            // color: #262626;
-            color: grey;
-            text-decoration: none;
-            cursor: pointer;
-            font-weight: lighter;
-        }
-        a:hover,
-        a.active-item {
-            color: #606060;
-            font-weight: normal;
+        li {
+            // margin-bottom: 0;
+            list-style-type: none;
+            text-align: left;
+
+            a {
+                // color: #262626;
+                color: grey;
+                text-decoration: none;
+                cursor: pointer;
+                font-weight: lighter;
+            }
+            a:hover,
+            a.active-item {
+                color: #606060;
+                font-weight: normal;
+            }
         }
     }
 }
@@ -86,21 +90,24 @@
 .table-of-contents-title {
     font-size: 1rem;
     top: 7rem;
-    left: 8rem;
+    // left: 8rem;
     position: fixed;
-    max-height: 12rem;
+    // max-height: 12rem;
     color: #606060;
     // font-weight: 500;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1210px) {
+    .table-of-contents {
+        left: -29px;
+    }
+
     .smooth-scroll {
         scroll-behavior: smooth;
     }
     // html:not([data-scroll='0'])
     .table-of-contents.active {
         top: 9.35rem;
-        left: 1.58rem;
         opacity: 1;
         visibility: visible;
         // transition: all 0.4s 0.15s;
@@ -110,6 +117,16 @@
     .table-of-contents.active {
         display: block;
         animation: fade-in 0.5s;
+    }
+}
+@media (min-width: $media-small-desktop) {
+    .table-of-contents {
+        left: 1px;
+    }
+}
+@media (min-width: $media-medium-desktop) {
+    .table-of-contents {
+        left: 51px;
     }
 }
 

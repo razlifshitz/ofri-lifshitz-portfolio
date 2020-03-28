@@ -106,7 +106,8 @@ class OneOfPage extends React.Component {
         // on gifs loaded
         const gifsOnLoadHandle = [
             ...document.querySelectorAll('[data-gif-src]'),
-        ].map(img => {
+        ]
+        gifsOnLoadHandle.map(img => {
             const onGifLoad = () => {
                 img.removeEventListener('load', onGifLoad)
 
@@ -123,24 +124,6 @@ class OneOfPage extends React.Component {
 
             img.addEventListener('load', onGifLoad)
         })
-
-        // gifs data
-        // 1
-        // v1Gif = new Image()
-        // v1Gif.src = v1_0_gif
-        // v1Gif.style.display = 'block'
-        // v1Gif.width = '100%'
-        // v1Gif.height = 'auto'
-        // let imgWrapper = document.getElementById('gif1')
-        // imgWrapper.appendChild(v1Gif)
-        // 2
-        // v2Gif = new Image()
-        // v2Gif.src = v2_0_gif
-        // v2Gif.style.display = 'block'
-        // v2Gif.width = '100%'
-        // v2Gif.height = 'auto'
-        // imgWrapper = document.getElementById('gif2')
-        // imgWrapper.appendChild(v2Gif)
 
         this.setState({
             ...this.state,
@@ -208,15 +191,6 @@ class OneOfPage extends React.Component {
 
     getReadMoreJsx = () => {
         return (
-            // <span
-            //     style={
-            //         {
-            //             display: 'flex',
-            //             justifyContent: 'center',
-            //             marginBottom: '1.45rem',
-            //         }
-            //     }
-            // >
             <span
                 style={{
                     display: this.state.readMore ? 'none' : 'inline-block',
@@ -226,7 +200,6 @@ class OneOfPage extends React.Component {
             >
                 Continue reading..
             </span>
-            // </span>
         )
     }
 
@@ -392,17 +365,6 @@ class OneOfPage extends React.Component {
                             height={1}
                             width={1}
                         ></LazyImage>
-                        {/* <div id="gif1"></div> */}
-                        {/* <img
-                            src={v1_0_gif}
-                            width={this.state.contentWidth}
-                            rel="preload"
-                            loading="eager"
-                            alt=""
-                        ></img> */}
-                        {/* <div
-                            className={`${pageStyle.divider} ${pageStyle.gif}`}
-                        ></div>{' '} */}
                     </div>
                 </section>
                 {/* 2.0 */}
@@ -438,19 +400,11 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.v2_0_1} />
                         <NoStretchImage fluid={this.v2_0_2} />
                         <NoStretchImage fluid={this.v2_0_3} />
-                        {/* <div id="gif2"></div> */}
                         <LazyImage
                             url={v2_0_gif}
                             height={1}
                             width={1.04}
                         ></LazyImage>
-                        {/* <img
-                            src={v2_0_gif}
-                            width={this.state.contentWidth}
-                            alt=""
-                            rel="preload"
-                            loading="eager"
-                        ></img> */}
                     </div>
                 </section>
                 {/* 3.0 */}
@@ -570,7 +524,6 @@ class OneOfPage extends React.Component {
                     scroll={this.props.scroll}
                     contentsList={this.state.tableOfContents}
                 ></TableOfContents>
-                {/* <div style={{ display: 'flex', maxWidth: '1400px' }}> */}
                 <div>{this.getPageJsx()}</div>
             </Layout>
         )
