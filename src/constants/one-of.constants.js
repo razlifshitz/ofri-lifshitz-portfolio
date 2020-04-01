@@ -90,7 +90,16 @@ export const getOneOfSubMenu = () => {
     }
 }
 // scroll value
-export const SCROLL_SHOW_TABLE_OF_CONTENTS = 80
+export const SCROLL_SHOW_TABLE_OF_CONTENTS = 90
+export const ACTIVE_SECTION_PADDING = 90
+
+export const preloadImage = src => {
+    return new Promise(resolve => {
+        const img = document.createElement('img')
+        img.src = src
+        img.onload = () => resolve(src)
+    })
+}
 
 // export const imageQuery = graphql`
 //     query {

@@ -6,6 +6,7 @@ import pageStyle from '../styles/one-of.module.scss'
 import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
 import TableOfContents from '../components/TableOfContents'
+import RatioImage from '../components/RatioImage'
 // HOC
 import { withScrollLocation } from '../components/hoc/withScrollLocation'
 // Constants
@@ -13,27 +14,11 @@ import {
     getOneOfSubMenu,
     ONE_OF,
     SCROLL_SHOW_TABLE_OF_CONTENTS,
+    ACTIVE_SECTION_PADDING,
 } from '../constants/one-of.constants'
-// import { imageQuery } from '../constants/one-of.constants'
-
-// images
+// gifs
 import v1_0_gif from '../assets/one-of/v1.0/v1.gif'
 import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
-
-const placeholderSrc = (width, height) =>
-    `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`
-
-const LazyImage = ({ url, width, height, alt }) => {
-    return (
-        <img
-            src={placeholderSrc(width, height)}
-            width="1"
-            height="1"
-            data-gif-src={url}
-            alt={alt || ''}
-        />
-    )
-}
 
 class OneOfPage extends React.Component {
     constructor(props) {
@@ -42,17 +27,42 @@ class OneOfPage extends React.Component {
         this.state = {
             contentWidth: 0,
             readMore: false,
-            tableOfContents: [],
+            activeSection: null,
         }
 
         this.contentWidth = React.createRef()
 
         // data for table of contents
+        const tableOfContents = getOneOfSubMenu()
+        // refs
         this.theStoryBehindRef = React.createRef()
         this.v1Ref = React.createRef()
         this.v2Ref = React.createRef()
         this.v3Ref = React.createRef()
         this.v1JeruRef = React.createRef()
+        // section data
+        this.sectionsData = [
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF,
+                ref: this.theStoryBehindRef,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0,
+                ref: this.v1Ref,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_2_0,
+                ref: this.v2Ref,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_3_0,
+                ref: this.v3Ref,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
+                ref: this.v1JeruRef,
+            },
+        ]
     }
 
     data = this.props.data
@@ -103,51 +113,27 @@ class OneOfPage extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', this.setContentWidth)
 
-        // on gifs loaded
-        const gifsOnLoadHandle = [
-            ...document.querySelectorAll('[data-gif-src]'),
-        ]
-        gifsOnLoadHandle.map(img => {
-            const onGifLoad = () => {
-                img.removeEventListener('load', onGifLoad)
-
-                img.src = img.dataset.gifSrc
-                img.style.width = '100%'
-                img.style.height = 'auto'
-
-                // updating sections heights
-                this.setState({
-                    ...this.state,
-                    tableOfContents: this.getTableOfContentsHeights(),
-                })
-            }
-
-            img.addEventListener('load', onGifLoad)
-        })
-
         this.setState({
             ...this.state,
             contentWidth: this.contentWidth.current.clientWidth,
-            tableOfContents: this.getTableOfContentsHeights(),
+            activeSection: this.getActiveSection(),
         })
     }
 
     // data for table of contents
-    getTableOfContentsHeights = () => {
-        const tableOfContents = getOneOfSubMenu()
-        const scroll = this.props.scroll ? this.props.scroll : 0
-        tableOfContents.INDUSTRIAL_ONE_OF.height =
-            this.theStoryBehindRef.current.getBoundingClientRect().top + scroll
-        tableOfContents.INDUSTRIAL_ONE_OF_1_0.height =
-            this.v1Ref.current.getBoundingClientRect().top + scroll
-        tableOfContents.INDUSTRIAL_ONE_OF_2_0.height =
-            this.v2Ref.current.getBoundingClientRect().top + scroll
-        tableOfContents.INDUSTRIAL_ONE_OF_3_0.height =
-            this.v3Ref.current.getBoundingClientRect().top + scroll
-        tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL.height =
-            this.v1JeruRef.current.getBoundingClientRect().top + scroll
+    getActiveSection = () => {
+        let activeSection = null
 
-        return Object.values(tableOfContents)
+        this.sectionsData.forEach(section => {
+            if (
+                ACTIVE_SECTION_PADDING >
+                section.ref.current.getBoundingClientRect().top
+            ) {
+                activeSection = section.item
+            }
+        })
+
+        return activeSection
     }
 
     onReadMoreClick = () => {
@@ -157,19 +143,18 @@ class OneOfPage extends React.Component {
         })
     }
 
-    componentDidUpdate = (prevProps, prevState) => {
-        // add smooth scrolling to html only when table of
-        // contents is visible
-        if (this.props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS) {
-            const htmlElem = document.getElementsByTagName('html')[0]
-            htmlElem.classList.add(`${pageStyle.smoothScroll}`)
-        }
+    componentDidUpdate = prevProps => {
+        if (this.props.scroll != prevProps.scroll) {
+            // add smooth scrolling to html only when table of
+            // contents is visible
+            if (this.props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS) {
+                const htmlElem = document.getElementsByTagName('html')[0]
+                htmlElem.classList.add(`${pageStyle.smoothScroll}`)
+            }
 
-        // updating sections heights after 'read more' was pressed
-        if (prevState.readMore !== this.state.readMore) {
             this.setState({
                 ...this.state,
-                tableOfContents: this.getTableOfContentsHeights(),
+                activeSection: this.getActiveSection(),
             })
         }
     }
@@ -360,11 +345,11 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.image11} />
                         <NoStretchImage fluid={this.image8} />{' '}
                         <NoStretchImage fluid={this.image7} />
-                        <LazyImage
+                        <RatioImage
                             url={v1_0_gif}
                             height={1}
                             width={1}
-                        ></LazyImage>
+                        ></RatioImage>
                     </div>
                 </section>
                 {/* 2.0 */}
@@ -400,11 +385,11 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.v2_0_1} />
                         <NoStretchImage fluid={this.v2_0_2} />
                         <NoStretchImage fluid={this.v2_0_3} />
-                        <LazyImage
+                        <RatioImage
                             url={v2_0_gif}
                             height={1}
                             width={1.04}
-                        ></LazyImage>
+                        ></RatioImage>
                     </div>
                 </section>
                 {/* 3.0 */}
@@ -522,7 +507,10 @@ class OneOfPage extends React.Component {
                 <h1 className={pageStyle.title}>Industrial One Of</h1>
                 <TableOfContents
                     scroll={this.props.scroll}
-                    contentsList={this.state.tableOfContents}
+                    contentsList={this.sectionsData.map(
+                        section => section.item
+                    )}
+                    activeSection={this.state.activeSection}
                 ></TableOfContents>
                 <div>{this.getPageJsx()}</div>
             </Layout>

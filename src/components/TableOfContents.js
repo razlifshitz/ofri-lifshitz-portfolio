@@ -4,32 +4,12 @@ import style from '../styles/one-of.module.scss'
 import { SCROLL_SHOW_TABLE_OF_CONTENTS } from '../constants/one-of.constants'
 
 function TableOfContents(props) {
-    const [activeContent, setActiveContent] = useState()
-
-    useEffect(() => {
-        if (!props.contentsList) return
-
-        // searching for active content by the scroll location and contents
-        // heights
-        for (let i = 0; i < props.contentsList.length; i++) {
-            const sectionHeight = props.contentsList[i].height
-            const nextSectionHeight =
-                props.contentsList[i + 1] && props.contentsList[i + 1].height
-            if (
-                props.scroll + 100 > sectionHeight &&
-                (!nextSectionHeight || props.scroll < nextSectionHeight)
-            ) {
-                setActiveContent(props.contentsList[i])
-            }
-        }
-    }, [props.scroll, props.contentsList])
-
     const wasScrolled = () => {
         return props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS
     }
 
     const isActiveItem = item => {
-        return activeContent && activeContent.id === item.id
+        return props.activeSection && props.activeSection.id === item.id
     }
 
     return !props.contentsList ? null : (
