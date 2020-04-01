@@ -350,16 +350,19 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.image11} />
                         <NoStretchImage fluid={this.image8} />{' '}
                         <NoStretchImage fluid={this.image7} />
-                        <video
-                            style={{ width: '100%', height: 'auto' }}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            poster={v1VideoPoster}
-                        >
-                            <source src={v1Video} type="video/mp4"></source>
-                        </video>
+                        {/* v1 Video */}
+                        <div className={pageStyle.aspectRatioBox}>
+                            <video
+                                style={{ width: '100%', height: 'auto' }}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                poster={v1VideoPoster}
+                            >
+                                <source src={v1Video} type="video/mp4"></source>
+                            </video>
+                        </div>
                     </div>
                 </section>
                 {/* 2.0 */}
