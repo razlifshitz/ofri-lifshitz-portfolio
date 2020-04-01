@@ -28,6 +28,7 @@ class OneOfPage extends React.Component {
             contentWidth: 0,
             readMore: false,
             activeSection: null,
+            showTableOfContents: false,
         }
 
         this.contentWidth = React.createRef()
@@ -144,10 +145,12 @@ class OneOfPage extends React.Component {
     }
 
     componentDidUpdate = prevProps => {
-        if (this.props.scroll != prevProps.scroll) {
+        if (this.props.scroll !== prevProps.scroll) {
             // add smooth scrolling to html only when table of
             // contents is visible
-            if (this.props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS) {
+            const showTableOfContents =
+                this.props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS
+            if (showTableOfContents) {
                 const htmlElem = document.getElementsByTagName('html')[0]
                 htmlElem.classList.add(`${pageStyle.smoothScroll}`)
             }
@@ -155,6 +158,7 @@ class OneOfPage extends React.Component {
             this.setState({
                 ...this.state,
                 activeSection: this.getActiveSection(),
+                showTableOfContents: showTableOfContents,
             })
         }
     }
@@ -510,7 +514,8 @@ class OneOfPage extends React.Component {
                     contentsList={this.sectionsData.map(
                         section => section.item
                     )}
-                    activeSection={this.state.activeSection}
+                    activeItem={this.state.activeSection}
+                    showTableOfContents={this.state.showTableOfContents}
                 ></TableOfContents>
                 <div>{this.getPageJsx()}</div>
             </Layout>

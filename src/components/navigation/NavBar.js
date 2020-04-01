@@ -73,23 +73,10 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
             !activeParentItem || activeParentItem.id != item.id
                 ? setActiveParentItem(item)
                 : setActiveParentItem(null)
-        }
-        // Click on current active item OR
-        // move to another child of same parent OR
-        // moved from parent to one of his children (can happen only
-        // if starting from web view and transforming to mobile in the middle)
-        else if (
-            activeItem &&
-            ((activeItem && item.id === activeItem.id) ||
-                item.parentId === activeItem.id ||
-                item.parentId === activeItem.parentId)
-        ) {
-            // we should close memu ourself becuse navigation to other
-            // anchor on same page doen't render NavBar Component
-            // TODO: think about a better mechanizem (redux)
-            closeMenu()
-            navigate(item.slug)
         } else {
+            // for slow networks
+            // todo: animtaion on change pages
+            setTimeout(closeMenu, 500)
             navigate(item.slug)
         }
     }
