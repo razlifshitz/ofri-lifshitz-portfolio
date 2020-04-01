@@ -17,8 +17,9 @@ import {
     ACTIVE_SECTION_PADDING,
 } from '../constants/one-of.constants'
 // gifs
-import v1_0_gif from '../assets/one-of/v1.0/v1.gif'
-import v2_0_gif from '../assets/one-of/v2.0/Industrial one of.gif'
+import v1Video from '../assets/one-of/v1.0/v1Video480p.mp4'
+import v1VideoPoster from '../assets/one-of/v1.0/v1VideoPoster.jpg'
+import v2Gif from '../assets/one-of/v2.0/Industrial one of.gif'
 
 class OneOfPage extends React.Component {
     constructor(props) {
@@ -349,11 +350,16 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.image11} />
                         <NoStretchImage fluid={this.image8} />{' '}
                         <NoStretchImage fluid={this.image7} />
-                        <RatioImage
-                            url={v1_0_gif}
-                            height={1}
-                            width={1}
-                        ></RatioImage>
+                        <video
+                            style={{ width: '100%', height: 'auto' }}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            poster={v1VideoPoster}
+                        >
+                            <source src={v1Video} type="video/mp4"></source>
+                        </video>
                     </div>
                 </section>
                 {/* 2.0 */}
@@ -390,7 +396,7 @@ class OneOfPage extends React.Component {
                         <NoStretchImage fluid={this.v2_0_2} />
                         <NoStretchImage fluid={this.v2_0_3} />
                         <RatioImage
-                            url={v2_0_gif}
+                            url={v2Gif}
                             height={1}
                             width={1.04}
                         ></RatioImage>

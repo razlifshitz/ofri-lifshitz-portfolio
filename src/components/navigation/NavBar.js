@@ -74,10 +74,11 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
                 ? setActiveParentItem(item)
                 : setActiveParentItem(null)
         } else {
-            // for slow networks
-            // todo: animtaion on change pages
-            setTimeout(closeMenu, 500)
-            navigate(item.slug)
+            closeMenu()
+
+            setTimeout(() => {
+                navigate(item.slug)
+            }, 500)
         }
     }
 
