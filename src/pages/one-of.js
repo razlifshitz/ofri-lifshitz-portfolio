@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { graphql } from 'gatsby'
 // style
 import pageStyle from '../styles/one-of.module.scss'
@@ -21,193 +21,169 @@ import v1Video from '../assets/one-of/v1.0/v1Video480p.mp4'
 import v1VideoPoster from '../assets/one-of/v1.0/v1VideoPoster.jpg'
 import v2Gif from '../assets/one-of/v2.0/Industrial one of.gif'
 
-class OneOfPage extends React.Component {
-    constructor(props) {
-        super(props)
+function OneOfPage({ data, scroll }) {
+    /** CONSTANTS */
+    const tableOfContents = getOneOfSubMenu()
+    const images = {
+        machine: data.machine.childImageSharp.fluid,
 
-        this.state = {
-            contentWidth: 0,
-            readMore: false,
-            activeSection: null,
-            showTableOfContents: false,
+        // v1.0
+        v1_0_dark: data.v1_0_dark.childImageSharp.fluid,
+        v1_0_white: data.v1_0_white.childImageSharp.fluid,
+        image3: data.image3.childImageSharp.fluid,
+        image4: data.image4.childImageSharp.fluid,
+        image11: data.image11.childImageSharp.fluid,
+        image8: data.image8.childImageSharp.fluid,
+        image7: data.image7.childImageSharp.fluid,
+
+        // v2.0
+        v2_0_1: data.v2_0_1.childImageSharp.fluid,
+        v2_0_2: data.v2_0_2.childImageSharp.fluid,
+        v2_0_3: data.v2_0_3.childImageSharp.fluid,
+
+        // v3.0
+        v3_0_1: data.v3_0_1.childImageSharp.fluid,
+        v3_0_2: data.v3_0_2.childImageSharp.fluid,
+        v3_0_3: data.v3_0_3.childImageSharp.fluid,
+        v3_0_4: data.v3_0_4.childImageSharp.fluid,
+        v3_0_5: data.v3_0_5.childImageSharp.fluid,
+        v3_0_6: data.v3_0_6.childImageSharp.fluid,
+        v3_0_7: data.v3_0_7.childImageSharp.fluid,
+        v3_0_8: data.v3_0_8.childImageSharp.fluid,
+        v3_0_9: data.v3_0_9.childImageSharp.fluid,
+        v3_0_10: data.v3_0_10.childImageSharp.fluid,
+        v3_0_11: data.v3_0_11.childImageSharp.fluid,
+        v3_0_12: data.v3_0_12.childImageSharp.fluid,
+
+        // vJeru
+        vJeru1: data.vJeru1.childImageSharp.fluid,
+        vJeru2: data.vJeru2.childImageSharp.fluid,
+        vJeru3: data.vJeru3.childImageSharp.fluid,
+        vJeru4: data.vJeru4.childImageSharp.fluid,
+        vJeru5: data.vJeru5.childImageSharp.fluid,
+        vJeru6: data.vJeru6.childImageSharp.fluid,
+        vJeru7: data.vJeru7.childImageSharp.fluid,
+        vJeru8: data.vJeru8.childImageSharp.fluid,
+        vJeru9: data.vJeru9.childImageSharp.fluid,
+        vJeru10: data.vJeru10.childImageSharp.fluid,
+        vJeru11: data.vJeru11.childImageSharp.fluid,
+    }
+
+    // REFS
+    // content ref
+    const contentRef = useRef()
+    // sections refs
+    const theStoryBehindRef = useRef()
+    const v1Ref = useRef()
+    const v2Ref = useRef()
+    const v3Ref = useRef()
+    const v1JeruRef = useRef()
+
+    /** STATE */
+    const [contentWidth, setContentWidth] = useState(0)
+    const [readMore, setReadMore] = useState(false)
+    const [activeSection, setActiveSection] = useState(null)
+    const [showTableOfContents, setShowTableOfContents] = useState(false)
+
+    /** CONTENT WIDTH */
+    useLayoutEffect(() => {
+        const onResize = () => setContentWidth(contentRef.current.clientWidth)
+
+        window.addEventListener('resize', onResize)
+        onResize()
+
+        return () => {
+            window.removeEventListener('resize', onResize)
+        }
+    }, [])
+
+    // ON SCROLL EVENT
+    useEffect(() => {
+        const getActiveSection = () => {
+            let activeSection = null
+            const sectionsData = [
+                {
+                    item: tableOfContents.INDUSTRIAL_ONE_OF,
+                    ref: theStoryBehindRef,
+                },
+                {
+                    item: tableOfContents.INDUSTRIAL_ONE_OF_1_0,
+                    ref: v1Ref,
+                },
+                {
+                    item: tableOfContents.INDUSTRIAL_ONE_OF_2_0,
+                    ref: v2Ref,
+                },
+                {
+                    item: tableOfContents.INDUSTRIAL_ONE_OF_3_0,
+                    ref: v3Ref,
+                },
+                {
+                    item: tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
+                    ref: v1JeruRef,
+                },
+            ]
+
+            sectionsData.forEach(section => {
+                if (
+                    ACTIVE_SECTION_PADDING >
+                    section.ref.current.getBoundingClientRect().top
+                ) {
+                    activeSection = section.item
+                }
+            })
+
+            return activeSection
         }
 
-        this.contentWidth = React.createRef()
+        setActiveSection(getActiveSection())
 
-        // data for table of contents
-        const tableOfContents = getOneOfSubMenu()
-        // refs
-        this.theStoryBehindRef = React.createRef()
-        this.v1Ref = React.createRef()
-        this.v2Ref = React.createRef()
-        this.v3Ref = React.createRef()
-        this.v1JeruRef = React.createRef()
-        // section data
-        this.sectionsData = [
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF,
-                ref: this.theStoryBehindRef,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0,
-                ref: this.v1Ref,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_2_0,
-                ref: this.v2Ref,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_3_0,
-                ref: this.v3Ref,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
-                ref: this.v1JeruRef,
-            },
-        ]
-    }
-
-    data = this.props.data
-
-    machine = this.data.machine.childImageSharp.fluid
-
-    // v1.0
-    v1_0_dark = this.data.v1_0_dark.childImageSharp.fluid
-    v1_0_white = this.data.v1_0_white.childImageSharp.fluid
-    image3 = this.data.image3.childImageSharp.fluid
-    image4 = this.data.image4.childImageSharp.fluid
-    image11 = this.data.image11.childImageSharp.fluid
-    image8 = this.data.image8.childImageSharp.fluid
-    image7 = this.data.image7.childImageSharp.fluid
-
-    // v2.0
-    v2_0_1 = this.data.v2_0_1.childImageSharp.fluid
-    v2_0_2 = this.data.v2_0_2.childImageSharp.fluid
-    v2_0_3 = this.data.v2_0_3.childImageSharp.fluid
-
-    // v3.0
-    v3_0_1 = this.data.v3_0_1.childImageSharp.fluid
-    v3_0_2 = this.data.v3_0_2.childImageSharp.fluid
-    v3_0_3 = this.data.v3_0_3.childImageSharp.fluid
-    v3_0_4 = this.data.v3_0_4.childImageSharp.fluid
-    v3_0_5 = this.data.v3_0_5.childImageSharp.fluid
-    v3_0_6 = this.data.v3_0_6.childImageSharp.fluid
-    v3_0_7 = this.data.v3_0_7.childImageSharp.fluid
-    v3_0_8 = this.data.v3_0_8.childImageSharp.fluid
-    v3_0_9 = this.data.v3_0_9.childImageSharp.fluid
-    v3_0_10 = this.data.v3_0_10.childImageSharp.fluid
-    v3_0_11 = this.data.v3_0_11.childImageSharp.fluid
-    v3_0_12 = this.data.v3_0_12.childImageSharp.fluid
-
-    // vJeru
-    vJeru1 = this.data.vJeru1.childImageSharp.fluid
-    vJeru2 = this.data.vJeru2.childImageSharp.fluid
-    vJeru3 = this.data.vJeru3.childImageSharp.fluid
-    vJeru4 = this.data.vJeru4.childImageSharp.fluid
-    vJeru5 = this.data.vJeru5.childImageSharp.fluid
-    vJeru6 = this.data.vJeru6.childImageSharp.fluid
-    vJeru7 = this.data.vJeru7.childImageSharp.fluid
-    vJeru8 = this.data.vJeru8.childImageSharp.fluid
-    vJeru9 = this.data.vJeru9.childImageSharp.fluid
-    vJeru10 = this.data.vJeru10.childImageSharp.fluid
-    vJeru11 = this.data.vJeru11.childImageSharp.fluid
-
-    componentDidMount() {
-        window.addEventListener('resize', this.setContentWidth)
-
-        this.setState({
-            ...this.state,
-            contentWidth: this.contentWidth.current.clientWidth,
-            activeSection: this.getActiveSection(),
-        })
-    }
-
-    // data for table of contents
-    getActiveSection = () => {
-        let activeSection = null
-
-        this.sectionsData.forEach(section => {
-            if (
-                ACTIVE_SECTION_PADDING >
-                section.ref.current.getBoundingClientRect().top
-            ) {
-                activeSection = section.item
-            }
-        })
-
-        return activeSection
-    }
-
-    onReadMoreClick = () => {
-        this.setState({
-            ...this.state,
-            readMore: true,
-        })
-    }
-
-    componentDidUpdate = prevProps => {
-        if (this.props.scroll !== prevProps.scroll) {
+        const htmlElem = document.getElementsByTagName('html')[0]
+        if (scroll > SCROLL_SHOW_TABLE_OF_CONTENTS) {
             // add smooth scrolling to html only when table of
             // contents is visible
-            const showTableOfContents =
-                this.props.scroll > SCROLL_SHOW_TABLE_OF_CONTENTS
-            if (showTableOfContents) {
-                const htmlElem = document.getElementsByTagName('html')[0]
-                htmlElem.classList.add(`${pageStyle.smoothScroll}`)
-            }
+            htmlElem.classList.add(`${pageStyle.smoothScroll}`)
 
-            this.setState({
-                ...this.state,
-                activeSection: this.getActiveSection(),
-                showTableOfContents: showTableOfContents,
-            })
+            setShowTableOfContents(true)
+        } else {
+            setShowTableOfContents(false)
         }
-    }
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.setContentWidth)
-        const htmlElem = document.getElementsByTagName('html')[0]
-        htmlElem.classList.remove(`${pageStyle.smoothScroll}`)
-    }
-
-    setContentWidth = () => {
-        const contentWidth = this.contentWidth.current.clientWidth
-        this.setState({ ...this.state, contentWidth: contentWidth })
-    }
+        return () => {
+            htmlElem.classList.remove(`${pageStyle.smoothScroll}`)
+        }
+    }, [scroll])
 
     /**
      * JSX getters
      */
 
-    getReadMoreJsx = () => {
+    const getReadMoreJsx = () => {
         return (
             <span
                 style={{
-                    display: this.state.readMore ? 'none' : 'inline-block',
+                    display: readMore ? 'none' : 'inline-block',
                 }}
                 className={pageStyle.greyLink}
-                onClick={this.onReadMoreClick}
+                onClick={() => setReadMore(true)}
             >
                 Continue reading..
             </span>
         )
     }
 
-    getPageJsx = () => {
+    const getPageJsx = () => {
         return (
-            <div ref={this.contentWidth} className={pageStyle.content}>
+            <div ref={contentRef} className={pageStyle.content}>
                 {/* The Story Behind */}
-                <section
-                    ref={this.theStoryBehindRef}
-                    className={pageStyle.section}
-                >
+                <section ref={theStoryBehindRef} className={pageStyle.section}>
                     <div className={pageStyle.sectionContent}>
                         <h4>
                             A machine that manufactures one of a kind pottery
                             ware, by leaving its unique handprint on each
                             creation.
                         </h4>
-                        <NoStretchImage fluid={this.image3} />
+                        <NoStretchImage fluid={images.image3} />
                         <div className={pageStyle.caption}>
                             Industrial One Of v1.0
                         </div>
@@ -233,12 +209,11 @@ class OneOfPage extends React.Component {
                             the technology, and the machinery. When combined
                             together, they create a new manufacturing method
                             that is very characteristic of our time period –
-                            innovation alongside uniqueness.{' '}
-                            {this.getReadMoreJsx()}
+                            innovation alongside uniqueness. {getReadMoreJsx()}
                         </p>
                         <p
                             style={{
-                                display: this.state.readMore ? 'block' : 'none',
+                                display: readMore ? 'block' : 'none',
                             }}
                             className={pageStyle.fade}
                         >
@@ -249,11 +224,11 @@ class OneOfPage extends React.Component {
                             analysis of the industrial production of ceramic
                             tableware.
                         </p>
-                        <NoStretchImage fluid={this.machine} />
+                        <NoStretchImage fluid={images.machine} />
                         {/* <div className={pageStyle.caption}>The machine</div> */}
                         <p
                             style={{
-                                display: this.state.readMore ? 'block' : 'none',
+                                display: readMore ? 'block' : 'none',
                             }}
                             className={pageStyle.fade}
                         >
@@ -269,13 +244,13 @@ class OneOfPage extends React.Component {
                             one of a kind shape is created that can never be
                             replicated.
                         </p>
-                        <NoStretchImage fluid={this.image4} />
+                        <NoStretchImage fluid={images.image4} />
                         <div className={pageStyle.caption}>
                             Industrial One Of v1.0
                         </div>
                         <p
                             style={{
-                                display: this.state.readMore ? 'block' : 'none',
+                                display: readMore ? 'block' : 'none',
                             }}
                         >
                             The machine is programmed to insert its own
@@ -286,7 +261,7 @@ class OneOfPage extends React.Component {
                     </div>
                 </section>
                 {/* 1.0 */}
-                <section ref={this.v1Ref} className={pageStyle.section}>
+                <section ref={v1Ref} className={pageStyle.section}>
                     <a className={pageStyle.sectionAnchor} id="ioo_1_0">
                         &nbsp;
                     </a>
@@ -297,8 +272,8 @@ class OneOfPage extends React.Component {
                     <iframe
                         title="Indusrial One Of v1.0 video"
                         src="https://player.vimeo.com/video/225211213"
-                        width={this.state.contentWidth}
-                        height={this.state.contentWidth / 1.778}
+                        width={contentWidth}
+                        height={contentWidth / 1.778}
                         frameBorder="0"
                         allow="autoplay; fullscreen"
                         allowFullScreen
@@ -321,12 +296,12 @@ class OneOfPage extends React.Component {
                             distinguishable. Every piece produced is one of a
                             kind.
                         </p>
-                        <NoStretchImage fluid={this.v1_0_white} />
+                        <NoStretchImage fluid={images.v1_0_white} />
                         <div className={pageStyle.caption}>
                             This group of pottery was created with the same
                             exact code, yet each piece is unique.
                         </div>
-                        <NoStretchImage fluid={this.v1_0_dark} />
+                        <NoStretchImage fluid={images.v1_0_dark} />
                         <div className={pageStyle.caption}>
                             This group of pottery was created with the same code
                             as the other group, but with a different set of
@@ -347,9 +322,9 @@ class OneOfPage extends React.Component {
                             Holon Institute of Technology, Industrial Design
                             Department.
                         </p>
-                        <NoStretchImage fluid={this.image11} />
-                        <NoStretchImage fluid={this.image8} />{' '}
-                        <NoStretchImage fluid={this.image7} />
+                        <NoStretchImage fluid={images.image11} />
+                        <NoStretchImage fluid={images.image8} />{' '}
+                        <NoStretchImage fluid={images.image7} />
                         {/* v1 Video */}
                         <div className={pageStyle.aspectRatioBox}>
                             <video
@@ -366,7 +341,7 @@ class OneOfPage extends React.Component {
                     </div>
                 </section>
                 {/* 2.0 */}
-                <section ref={this.v2Ref} className={pageStyle.section}>
+                <section ref={v2Ref} className={pageStyle.section}>
                     <a className={pageStyle.sectionAnchor} id="ioo_2_0">
                         &nbsp;
                     </a>
@@ -377,8 +352,8 @@ class OneOfPage extends React.Component {
                     <iframe
                         title="Indusrial One Of v2.0 video"
                         src="https://player.vimeo.com/video/308311075"
-                        width={this.state.contentWidth}
-                        height={this.state.contentWidth / 1.778}
+                        width={contentWidth}
+                        height={contentWidth / 1.778}
                         frameBorder="0"
                         allow="autoplay; fullscreen"
                         allowFullScreen
@@ -395,9 +370,9 @@ class OneOfPage extends React.Component {
                             the clay’s surface, revealing a one of a kind
                             ornament each time.
                         </p>
-                        <NoStretchImage fluid={this.v2_0_1} />
-                        <NoStretchImage fluid={this.v2_0_2} />
-                        <NoStretchImage fluid={this.v2_0_3} />
+                        <NoStretchImage fluid={images.v2_0_1} />
+                        <NoStretchImage fluid={images.v2_0_2} />
+                        <NoStretchImage fluid={images.v2_0_3} />
                         <RatioImage
                             url={v2Gif}
                             height={1}
@@ -406,7 +381,7 @@ class OneOfPage extends React.Component {
                     </div>
                 </section>
                 {/* 3.0 */}
-                <section ref={this.v3Ref} className={pageStyle.section}>
+                <section ref={v3Ref} className={pageStyle.section}>
                     <a className={pageStyle.sectionAnchor} id="ioo_3_0">
                         &nbsp;
                     </a>
@@ -417,8 +392,8 @@ class OneOfPage extends React.Component {
                     <iframe
                         title="Indusrial One Of v3.0 video"
                         src="https://player.vimeo.com/video/393245651"
-                        width={this.state.contentWidth}
-                        height={this.state.contentWidth / 1.778}
+                        width={contentWidth}
+                        height={contentWidth / 1.778}
                         frameBorder="0"
                         allow="autoplay; fullscreen"
                         allowFullScreen
@@ -441,35 +416,35 @@ class OneOfPage extends React.Component {
                             world, and what will the new meaning of art and
                             design be in the post-industrial age?
                         </p>
-                        <NoStretchImage fluid={this.v3_0_1} />
+                        <NoStretchImage fluid={images.v3_0_1} />
                         {/* <div className={pageStyle.caption}>
                         Half & Half - Wedgwood
                         </div> */}
-                        <NoStretchImage fluid={this.v3_0_2} />
+                        <NoStretchImage fluid={images.v3_0_2} />
                         {/* <div className={pageStyle.caption}>
                         Half & Half - Villeroy & boch
                         </div> */}
-                        <NoStretchImage fluid={this.v3_0_3} />
+                        <NoStretchImage fluid={images.v3_0_3} />
                         {/* <div className={pageStyle.caption}>
                         Half & Half - Rosenthal
                         </div> */}
-                        <NoStretchImage fluid={this.v3_0_4} />
+                        <NoStretchImage fluid={images.v3_0_4} />
                         {/* <div className={pageStyle.caption}>
                         Half & Half - Herend
                         </div> */}
-                        <NoStretchImage fluid={this.v3_0_5} />
+                        <NoStretchImage fluid={images.v3_0_5} />
                         {/* <div className={pageStyle.caption}>Half & Half - IKEA</div> */}
-                        <NoStretchImage fluid={this.v3_0_6} />
-                        <NoStretchImage fluid={this.v3_0_7} />
-                        <NoStretchImage fluid={this.v3_0_8} />
-                        <NoStretchImage fluid={this.v3_0_9} />
-                        <NoStretchImage fluid={this.v3_0_10} />
-                        <NoStretchImage fluid={this.v3_0_11} />
-                        <NoStretchImage fluid={this.v3_0_12} />
+                        <NoStretchImage fluid={images.v3_0_6} />
+                        <NoStretchImage fluid={images.v3_0_7} />
+                        <NoStretchImage fluid={images.v3_0_8} />
+                        <NoStretchImage fluid={images.v3_0_9} />
+                        <NoStretchImage fluid={images.v3_0_10} />
+                        <NoStretchImage fluid={images.v3_0_11} />
+                        <NoStretchImage fluid={images.v3_0_12} />
                     </div>
                 </section>
                 {/* Jerusalem Special Edition */}
-                <section ref={this.v1JeruRef} className={pageStyle.section}>
+                <section ref={v1JeruRef} className={pageStyle.section}>
                     <a className={pageStyle.sectionAnchor} id="ioo_1_0_special">
                         &nbsp;
                     </a>
@@ -480,7 +455,7 @@ class OneOfPage extends React.Component {
                         </div>
                     </div>
                     <div className={pageStyle.sectionContent}>
-                        <NoStretchImage fluid={this.vJeru10} />
+                        <NoStretchImage fluid={images.vJeru10} />
                         <p>
                             V.JERU.002 is a series made for the Jerusalem Design
                             week 2018, with the use of “local material”- symbols
@@ -496,40 +471,36 @@ class OneOfPage extends React.Component {
                             process assured that the ornament, like the shape of
                             the plate, will be one of a kind.
                         </p>
-                        <NoStretchImage fluid={this.vJeru1} />
-                        <NoStretchImage fluid={this.vJeru2} />
-                        <NoStretchImage fluid={this.vJeru3} />
-                        <NoStretchImage fluid={this.vJeru5} />
-                        <NoStretchImage fluid={this.vJeru6} />
-                        <NoStretchImage fluid={this.vJeru7} />
-                        <NoStretchImage fluid={this.vJeru8} />
-                        <NoStretchImage fluid={this.vJeru9} />
-                        <NoStretchImage fluid={this.vJeru11} />
+                        <NoStretchImage fluid={images.vJeru1} />
+                        <NoStretchImage fluid={images.vJeru2} />
+                        <NoStretchImage fluid={images.vJeru3} />
+                        <NoStretchImage fluid={images.vJeru5} />
+                        <NoStretchImage fluid={images.vJeru6} />
+                        <NoStretchImage fluid={images.vJeru7} />
+                        <NoStretchImage fluid={images.vJeru8} />
+                        <NoStretchImage fluid={images.vJeru9} />
+                        <NoStretchImage fluid={images.vJeru11} />
                     </div>
                 </section>
             </div>
         )
     }
 
-    render() {
-        return (
-            <Layout activeItem={ONE_OF}>
-                <a className={pageStyle.sectionAnchor} id="story_behind">
-                    &nbsp;
-                </a>
-                <h1 className={pageStyle.title}>Industrial One Of</h1>
-                <TableOfContents
-                    scroll={this.props.scroll}
-                    contentsList={this.sectionsData.map(
-                        section => section.item
-                    )}
-                    activeItem={this.state.activeSection}
-                    showTableOfContents={this.state.showTableOfContents}
-                ></TableOfContents>
-                <div>{this.getPageJsx()}</div>
-            </Layout>
-        )
-    }
+    return (
+        <Layout activeItem={ONE_OF}>
+            <a className={pageStyle.sectionAnchor} id="story_behind">
+                &nbsp;
+            </a>
+            <h1 className={pageStyle.title}>Industrial One Of</h1>
+            <TableOfContents
+                scroll={scroll}
+                contentsList={Object.values(tableOfContents)}
+                activeItem={activeSection}
+                showTableOfContents={showTableOfContents}
+            ></TableOfContents>
+            <div>{getPageJsx()}</div>
+        </Layout>
+    )
 }
 
 export default withScrollLocation(OneOfPage)
