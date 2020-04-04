@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 
 export const withScrollLocation = Component => {
     return function(props) {
         const [scroll, setScroll] = useState()
 
-        useEffect(() => {
+        useLayoutEffect(() => {
             // This holds the requestAnimationFrame reference, so we can cancel it if we wish
             let frame
 
@@ -32,20 +32,22 @@ export const withScrollLocation = Component => {
                 setScroll(window.scrollY)
             }
 
-            let ticking = false
-            const test = () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        storeScroll()
-                        ticking = false
-                    })
+            const debouncedStoreScroll = debounce(storeScroll)
 
-                    ticking = true
-                }
-            }
+            // let ticking = false
+            // const test = () => {
+            //     if (!ticking) {
+            //         window.requestAnimationFrame(function() {
+            //             storeScroll()
+            //             ticking = false
+            //         })
+
+            //         ticking = true
+            //     }
+            // }
 
             // Listen for new scroll events, here we debounce our `storeScroll` function
-            document.addEventListener('scroll', test, {
+            document.addEventListener('scroll', debouncedStoreScroll, {
                 passive: true,
             })
 
@@ -53,15 +55,15 @@ export const withScrollLocation = Component => {
             storeScroll()
 
             return () => {
-                // if (frame) {
-                //     cancelAnimationFrame(frame)
-                // }
+                if (frame) {
+                    cancelAnimationFrame(frame)
+                }
 
-                document.removeEventListener('scroll', test, {
+                document.removeEventListener('scroll', debouncedStoreScroll, {
                     passive: true,
                 })
             }
-        }, [scroll])
+        }, [])
 
         return <Component scroll={scroll} {...props}></Component>
     }
