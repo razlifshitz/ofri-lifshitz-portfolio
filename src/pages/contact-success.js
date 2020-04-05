@@ -6,19 +6,21 @@ import style from '../styles/contact.module.scss'
 
 // componentes
 import Layout from '../components/layout'
-import { withPlatesImages } from '../components/hoc/withPlatesImages'
+import { usePlatesImages } from '../hooks/graphql/usePlatesImages'
 import RotatingPlateDialog from '../components/RotatingPlateDialog'
 
 // constants
 import { getRandIndex } from '../constants/one-of.constants'
 
-const ContactSuccessPage = props => {
+const ContactSuccessPage = () => {
+    const images = usePlatesImages()
+
     return (
         <Layout>
             <RotatingPlateDialog
                 title="Thank you!"
-                images={props.images}
-                activeIndex={getRandIndex(props.images.length)}
+                images={images}
+                activeIndex={getRandIndex(images.length)}
             >
                 <div className={style.successMessage}>
                     <h3 style={{ marginBottom: '7rem' }}>
@@ -34,4 +36,4 @@ const ContactSuccessPage = props => {
     )
 }
 
-export default withPlatesImages(ContactSuccessPage)
+export default ContactSuccessPage

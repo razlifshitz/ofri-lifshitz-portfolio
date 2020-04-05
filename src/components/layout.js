@@ -5,14 +5,13 @@ import '../styles/index.scss'
 import layoutStyle from '../styles/layout.module.scss'
 import Header from './header'
 import Footer from './footer'
-const Layout = props => {
-    const { activeItem } = props
 
+const Layout = ({ activeItem, children }) => {
     return (
         <div className={layoutStyle.container}>
             <div className={layoutStyle.content}>
                 <Header activeItem={activeItem} />
-                {props.children}
+                {children}
             </div>
 
             <Footer />
