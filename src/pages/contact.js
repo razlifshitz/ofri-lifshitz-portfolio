@@ -9,8 +9,16 @@ import RotatingPlateDialog from '../components/RotatingPlateDialog'
 import { getRandIndex, CONTACT } from '../constants/one-of.constants'
 
 function ContactPage() {
-    // helper
-    const getRandImageIndex = limit => {
+    const images = usePlatesImages()
+    const [activeIndex, setActiveIndex] = useState(
+        getRandImageIndex(images.length, -1)
+    )
+
+    function onFieldFocus() {
+        setActiveIndex(getRandImageIndex(images.length, activeIndex))
+    }
+
+    function getRandImageIndex(limit, activeIndex) {
         let result = getRandIndex(limit)
 
         while (result === activeIndex) {
@@ -18,15 +26,6 @@ function ContactPage() {
         }
 
         return result
-    }
-
-    const images = usePlatesImages()
-    const [activeIndex, setActiveIndex] = useState(
-        getRandImageIndex(images.length)
-    )
-
-    const onFieldFocus = () => {
-        setActiveIndex(getRandImageIndex(images.length))
     }
 
     return (
