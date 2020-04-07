@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
 import TableOfContents from '../components/TableOfContents'
 import RatioImage from '../components/RatioImage'
+import BackToTop from '../components/BackToTop'
 // HOOKS
 import { useScroll } from '../hooks'
 import { useOneOfImages } from '../hooks/graphql/useOneOfImages'
@@ -41,7 +42,7 @@ function OneOfPage() {
     const [readMore, setReadMore] = useState(false)
     const [activeSection, setActiveSection] = useState(null)
     const [showTableOfContents, setShowTableOfContents] = useState(false)
-    const scroll = useScroll()
+    const [scroll] = useScroll()
 
     /** CONTENT WIDTH */
     useLayoutEffect(() => {
@@ -446,6 +447,7 @@ function OneOfPage() {
 
     return (
         <Layout activeItem={ONE_OF}>
+            <BackToTop></BackToTop>
             <a className={pageStyle.sectionAnchor} id="story_behind">
                 &nbsp;
             </a>

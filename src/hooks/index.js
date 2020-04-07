@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react'
 
 export const useScroll = () => {
-    const [scroll, setScroll] = useState()
+    const [scroll, setScroll] = useState(0)
 
     useLayoutEffect(() => {
         // This holds the requestAnimationFrame reference, so we can cancel it if we wish
@@ -28,7 +28,13 @@ export const useScroll = () => {
         // so we can use it in our stylesheets
         const storeScroll = () => {
             // document.documentElement.dataset.scroll = window.scrollY
-            setScroll(window.scrollY)
+            // setScroll(window.scrollY)
+            const value =
+                window.pageYOffset ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop ||
+                0
+            setScroll(value)
         }
 
         const debouncedStoreScroll = debounce(storeScroll)
@@ -64,5 +70,12 @@ export const useScroll = () => {
         }
     }, [])
 
-    return scroll
+    return [
+        scroll,
+        value => {
+            window.pageYOffset = value
+            document.body.scrollTop = value
+            document.documentElement.scrollTop = value
+        },
+    ]
 }

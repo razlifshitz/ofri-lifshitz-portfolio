@@ -5,6 +5,8 @@ import style from '../styles/about.module.scss'
 // components
 import Layout from '../components/layout'
 import NoStretchImage from '../components/noStretchImage'
+import BackToTop from '../components/BackToTop'
+
 // constants
 import { ABOUT } from '../constants/one-of.constants'
 
@@ -27,6 +29,7 @@ const AboutPage = ({ data }) => {
 
     return (
         <Layout activeItem={ABOUT}>
+            <BackToTop></BackToTop>
             <NoStretchImage
                 fluid={ofriImage}
                 style={{
