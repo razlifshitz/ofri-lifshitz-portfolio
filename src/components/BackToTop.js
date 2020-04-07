@@ -64,8 +64,8 @@ const ScrollToTopIconContainer = styled.div`
 const Button = styled.div`
     background: black;
     color: white;
-    font-size: 1.5rem;
-    line-height: 30px;
+    font-size: 1.6rem;
+    // line-height: 30px;
     border-radius: 50%;
     width: 35px;
     padding-top: 4px;
