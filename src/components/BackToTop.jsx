@@ -15,7 +15,7 @@ const ScrollToTopIconContainer = styled.div`
     bottom: 20px;
     right: 225px;
     z-index: 2;
-    cursor: pointer;
+    // cursor: pointer;
     opacity: 0.4;
     text-align: center;
     animation: back-to-top-fade-in 0.5s;
