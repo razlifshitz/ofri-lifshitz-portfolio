@@ -2,8 +2,8 @@ import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 // style
 import pageStyle from '../styles/one-of.module.scss'
 // components
-import Layout from '../components/layout'
-import NoStretchImage from '../components/noStretchImage'
+import Layout from '../components/Layout'
+import NoStretchImage from '../components/NoStretchImage'
 import TableOfContents from '../components/TableOfContents'
 import RatioImage from '../components/RatioImage'
 import BackToTop from '../components/BackToTop'

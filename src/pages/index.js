@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import style from '../styles/home.module.scss'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 // import NoStretchImage from '../components/noStretchImage'
-import Carousel from '../components/carousel'
+import Carousel from '../components/Carousel'
 
 class IndexPage extends React.Component {
     constructor(props) {

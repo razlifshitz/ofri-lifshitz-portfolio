@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import NavBar from '../components/navigation/NavBar'
+import NavBar from './navigation/NavBar'
 import { OPEN_MENU, getMenuItemsList } from '../constants/one-of.constants'
 
 // style

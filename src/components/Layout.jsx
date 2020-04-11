@@ -3,8 +3,8 @@ import React from 'react'
 import '../styles/index.scss'
 // components
 import layoutStyle from '../styles/layout.module.scss'
-import Header from './header'
-import Footer from './footer'
+import Header from './Header'
+import Footer from './Footer'
 
 const Layout = ({ activeItem, children }) => {
     return (

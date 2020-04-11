@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import style from '../styles/carousel.module.scss'
-import NoStretchImage from './noStretchImage'
+import NoStretchImage from './NoStretchImage'
 
 class Carousel extends React.Component {
     constructor(props) {

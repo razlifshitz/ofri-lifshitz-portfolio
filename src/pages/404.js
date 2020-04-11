@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import style from '../styles/contact.module.scss'
 
 // components
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { usePlatesImages } from '../hooks/graphql/usePlatesImages'
 import RotatingPlateDialog from '../components/RotatingPlateDialog'
 

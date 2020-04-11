@@ -1,6 +1,6 @@
 import React from 'react'
 import style from '../styles/contact.module.scss'
-import Carousel from '../components/carousel'
+import Carousel from './Carousel'
 
 class RotatingPlateDialog extends React.Component {
     constructor(props) {
