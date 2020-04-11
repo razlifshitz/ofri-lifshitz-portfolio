@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import style from '../styles/about.module.scss'
 // components
 import Layout from '../components/Layout'
-import NoStretchImage from '../components/noStretchImage'
+import NoStretchImage from '../components/NoStretchImage'
 import BackToTop from '../components/BackToTop'
 
 // constants

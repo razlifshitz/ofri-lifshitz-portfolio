@@ -3,12 +3,6 @@ import React, { useEffect } from 'react'
 import { useScroll } from '../hooks'
 import icon from '../assets/back-to-top.png'
 import baseStyle from '../styles/base.module.scss'
-// const ScrollingWrapperContainer = styled.div`
-//     overflow-y: scroll;
-//     -webkit-overflow-scrolling: touch;
-//     height: 100%;
-//     position: relative;
-// `
 
 function BackToTop() {
     const [scroll, setScroll] = useScroll()

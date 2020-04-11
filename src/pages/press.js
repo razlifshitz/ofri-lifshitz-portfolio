@@ -3,7 +3,7 @@ import React from 'react'
 import style from '../styles/press.module.scss'
 // components
 import Layout from '../components/Layout'
-import NoStretchImage from '../components/noStretchImage'
+import NoStretchImage from '../components/NoStretchImage'
 //constants
 import { PRESS } from '../constants/one-of.constants'
 
