@@ -1,4 +1,4 @@
-@import 'base';
+@import 'base.module';
 
 .aspect-ratio-box {
     background: white;
@@ -120,9 +120,6 @@
         left: -29px;
     }
 
-    .smooth-scroll {
-        scroll-behavior: smooth;
-    }
     // html:not([data-scroll='0'])
     .table-of-contents.active {
         top: 9.35rem;

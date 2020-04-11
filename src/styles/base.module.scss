@@ -8,6 +8,8 @@ $media-medium-desktop: 1400px;
     mediaSmall: $media-small;
     mediaMedium: $media-medium;
     mediaLarge: $media-large;
+    mediaSmallDesktop: $media-small-desktop;
+    mediaMediumDesktop: $media-medium-desktop;
 }
 
 @mixin keyframes($animationName) {
@@ -143,6 +145,10 @@ $media-medium-desktop: 1400px;
 .button:hover {
     color: #6d6e71;
     opacity: 0.6;
+}
+
+.smooth-scroll {
+    scroll-behavior: smooth;
 }
 
 @media (max-width: $media-large) {

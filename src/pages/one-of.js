@@ -94,23 +94,8 @@ function OneOfPage() {
 
             return activeSection
         }
-
         setActiveSection(getActiveSection())
-
-        const htmlElem = document.getElementsByTagName('html')[0]
-        if (scroll > SCROLL_SHOW_TABLE_OF_CONTENTS) {
-            // add smooth scrolling to html only when table of
-            // contents is visible
-            htmlElem.classList.add(`${pageStyle.smoothScroll}`)
-
-            setShowTableOfContents(true)
-        } else {
-            setShowTableOfContents(false)
-        }
-
-        return () => {
-            htmlElem.classList.remove(`${pageStyle.smoothScroll}`)
-        }
+        setShowTableOfContents(scroll > SCROLL_SHOW_TABLE_OF_CONTENTS)
     }, [scroll])
 
     /**

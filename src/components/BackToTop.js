@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useScroll } from '../hooks'
-
+import icon from '../assets/back-to-top.png'
+import baseStyle from '../styles/base.module.scss'
 // const ScrollingWrapperContainer = styled.div`
 //     overflow-y: scroll;
 //     -webkit-overflow-scrolling: touch;
@@ -50,25 +51,25 @@ const ScrollToTopIconContainer = styled.div`
             transform: translateY(0);
         }
     }
-    @media (max-width: 1400px) {
+    @media (max-width: ${baseStyle.mediaMediumDesktop}) {
         right: 175px;
     }
-    @media (max-width: 1300px) {
+    @media (max-width: ${baseStyle.mediaSmallDesktop}) {
         right: 145px;
     }
     @media (max-width: 1208px) {
-        right: 20px;
+        right: 25px;
     }
 `
 
-const Button = styled.div`
-    background: black;
-    color: white;
-    font-size: 1.6rem;
+const Icon = styled.img`
+    // background: black;
+    // color: white;
+    // font-size: 1.6rem;
     // line-height: 30px;
-    border-radius: 50%;
-    width: 35px;
-    padding-top: 4px;
+    // border-radius: 50%;
+    width: 24px;
+    // padding-top: 4px;
 `
 
 function BackToTop() {
@@ -78,11 +79,21 @@ function BackToTop() {
         setScroll(0)
     }
 
+    // Adding smooth scroll to html
+    useEffect(() => {
+        const htmlElem = document.getElementsByTagName('html')[0]
+        htmlElem.classList.add(`${baseStyle.smoothScroll}`)
+
+        return () => {
+            htmlElem.classList.remove(`${baseStyle.smoothScroll}`)
+        }
+    }, [])
+
     return (
         <>
             {scroll > 100 && (
                 <ScrollToTopIconContainer onClick={scrollToTop}>
-                    <Button>^</Button>
+                    <Icon src={icon}></Icon>
                 </ScrollToTopIconContainer>
             )}
         </>
