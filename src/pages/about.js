@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 // style
 import style from '../styles/about.module.scss'
 // components
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import NoStretchImage from '../components/noStretchImage'
 import BackToTop from '../components/BackToTop'
 

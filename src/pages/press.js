@@ -2,7 +2,7 @@ import React from 'react'
 // style
 import style from '../styles/press.module.scss'
 // components
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import NoStretchImage from '../components/noStretchImage'
 //constants
 import { PRESS } from '../constants/one-of.constants'
