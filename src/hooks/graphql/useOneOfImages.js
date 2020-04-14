@@ -82,6 +82,33 @@ export const useOneOfImages = () => {
                     }
                 }
             }
+            v2_0_exhibition1: file(
+                relativePath: { eq: "one-of/v2.0/exhibition/a.jpg" }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            v2_0_exhibition2: file(
+                relativePath: { eq: "one-of/v2.0/exhibition/b.jpg" }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            v2_0_exhibition3: file(
+                relativePath: { eq: "one-of/v2.0/exhibition/c.jpg" }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
             v3_0_1: file(relativePath: { eq: "one-of/v3.0/v3.0 (13).jpg" }) {
                 childImageSharp {
                     fluid(maxWidth: 750) {
@@ -160,6 +187,50 @@ export const useOneOfImages = () => {
                 }
             }
             v3_0_12: file(relativePath: { eq: "one-of/v3.0/v3.0 (7).jpg" }) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            v3_0_exhibition1: file(
+                relativePath: {
+                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (1).jpg"
+                }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            v3_0_exhibition2: file(
+                relativePath: {
+                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (4).jpg"
+                }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            v3_0_exhibition3: file(
+                relativePath: {
+                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (5).jpg"
+                }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            v3_0_exhibition4: file(
+                relativePath: {
+                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (6).jpg"
+                }
+            ) {
                 childImageSharp {
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
@@ -265,6 +336,39 @@ export const useOneOfImages = () => {
                     }
                 }
             }
+            vJeru_exhibition1: file(
+                relativePath: {
+                    eq: "one-of/jeru/exhibition/v1.0-jeru-exibition (1).jpg"
+                }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            vJeru_exhibition2: file(
+                relativePath: {
+                    eq: "one-of/jeru/exhibition/v1.0-jeru-exibition (2).jpg"
+                }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            vJeru_exhibition3: file(
+                relativePath: {
+                    eq: "one-of/jeru/exhibition/v1.0-jeru-exibition (3).jpg"
+                }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
         }
     `)
 
@@ -284,6 +388,10 @@ export const useOneOfImages = () => {
         v2_0_1: data.v2_0_1.childImageSharp.fluid,
         v2_0_2: data.v2_0_2.childImageSharp.fluid,
         v2_0_3: data.v2_0_3.childImageSharp.fluid,
+        // exhibition
+        v2_0_exbit1: data.v2_0_exhibition1.childImageSharp.fluid,
+        v2_0_exbit2: data.v2_0_exhibition2.childImageSharp.fluid,
+        v2_0_exbit3: data.v2_0_exhibition3.childImageSharp.fluid,
 
         // v3.0
         v3_0_1: data.v3_0_1.childImageSharp.fluid,
@@ -298,6 +406,12 @@ export const useOneOfImages = () => {
         v3_0_10: data.v3_0_10.childImageSharp.fluid,
         v3_0_11: data.v3_0_11.childImageSharp.fluid,
         v3_0_12: data.v3_0_12.childImageSharp.fluid,
+        // exhibition
+        v3_0_exbit1: data.v3_0_exhibition1.childImageSharp.fluid,
+        v3_0_exbit2: data.v3_0_exhibition2.childImageSharp.fluid,
+        v3_0_exbit3: data.v3_0_exhibition3.childImageSharp.fluid,
+        v3_0_exbit4: data.v3_0_exhibition4.childImageSharp.fluid,
+        // v3_0_exhibiti5: data.v3_0_exhibition5.childImageSharp.fluid,
 
         // vJeru
         vJeru1: data.vJeru1.childImageSharp.fluid,
@@ -311,5 +425,9 @@ export const useOneOfImages = () => {
         vJeru9: data.vJeru9.childImageSharp.fluid,
         vJeru10: data.vJeru10.childImageSharp.fluid,
         vJeru11: data.vJeru11.childImageSharp.fluid,
+        // exhibition
+        vJeru_exbit1: data.vJeru_exhibition1.childImageSharp.fluid,
+        vJeru_exbit2: data.vJeru_exhibition2.childImageSharp.fluid,
+        vJeru_exbit3: data.vJeru_exhibition3.childImageSharp.fluid,
     }
 }
