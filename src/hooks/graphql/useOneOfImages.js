@@ -206,7 +206,7 @@ export const useOneOfImages = () => {
             }
             v3_0_exhibition2: file(
                 relativePath: {
-                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (4).jpg"
+                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (7).jpg"
                 }
             ) {
                 childImageSharp {
@@ -217,7 +217,7 @@ export const useOneOfImages = () => {
             }
             v3_0_exhibition3: file(
                 relativePath: {
-                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (5).jpg"
+                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (4).jpg"
                 }
             ) {
                 childImageSharp {
@@ -227,6 +227,17 @@ export const useOneOfImages = () => {
                 }
             }
             v3_0_exhibition4: file(
+                relativePath: {
+                    eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (5).jpg"
+                }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 750) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            v3_0_exhibition5: file(
                 relativePath: {
                     eq: "one-of/v3.0/exhibition/I.O.O 3.0_opening (6).jpg"
                 }
@@ -411,7 +422,7 @@ export const useOneOfImages = () => {
         v3_0_exbit2: data.v3_0_exhibition2.childImageSharp.fluid,
         v3_0_exbit3: data.v3_0_exhibition3.childImageSharp.fluid,
         v3_0_exbit4: data.v3_0_exhibition4.childImageSharp.fluid,
-        // v3_0_exhibiti5: data.v3_0_exhibition5.childImageSharp.fluid,
+        v3_0_exbit5: data.v3_0_exhibition5.childImageSharp.fluid,
 
         // vJeru
         vJeru1: data.vJeru1.childImageSharp.fluid,

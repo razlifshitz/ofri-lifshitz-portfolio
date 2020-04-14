@@ -8,6 +8,7 @@ import TableOfContents from '../components/TableOfContents'
 import RatioImage from '../components/RatioImage'
 import BackToTop from '../components/BackToTop'
 import Collapse from '../components/Collapse'
+import { VimeoPlayer, VideoGifPlayer } from '../components/VideoPlayer'
 import { GreyLink } from '../styled-components'
 // HOOKS
 import { useScroll } from '../hooks'
@@ -41,23 +42,10 @@ function OneOfPage() {
     const v1JeruRef = useRef()
 
     /** STATE */
-    const [contentWidth, setContentWidth] = useState(0)
     const [readMore, setReadMore] = useState(false)
     const [activeSection, setActiveSection] = useState(null)
     const [showTableOfContents, setShowTableOfContents] = useState(false)
     const [scroll] = useScroll()
-
-    /** CONTENT WIDTH */
-    useLayoutEffect(() => {
-        const onResize = () => setContentWidth(contentRef.current.clientWidth)
-
-        window.addEventListener('resize', onResize)
-        onResize()
-
-        return () => {
-            window.removeEventListener('resize', onResize)
-        }
-    }, [])
 
     // ON SCROLL EVENT
     useEffect(() => {
@@ -214,15 +202,10 @@ function OneOfPage() {
                         <h2>Industrial One Of 1.0</h2>
                         <div className={pageStyle.caption}>2017</div>
                     </div>
-                    <iframe
+                    <VimeoPlayer
                         title="Indusrial One Of v1.0 video"
                         src="https://player.vimeo.com/video/225211213"
-                        width={contentWidth}
-                        height={contentWidth / 1.778}
-                        frameBorder="0"
-                        allow="autoplay; fullscreen"
-                        allowFullScreen
-                    ></iframe>
+                    ></VimeoPlayer>
                     <div className={pageStyle.sectionContent}>
                         <p>
                             The first presented series of Industrial one of,
@@ -270,22 +253,11 @@ function OneOfPage() {
                         <NoStretchImage fluid={images.image11} />
                         <NoStretchImage fluid={images.image8} />{' '}
                         <NoStretchImage fluid={images.image7} />
-                        {/* v1 Video */}
-                        <div
-                            style={{ marginBottom: '0.8rem' }}
-                            className={pageStyle.aspectRatioBox}
-                        >
-                            <video
-                                style={{ width: '100%', height: 'auto' }}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                poster={v1VideoPoster}
-                            >
-                                <source src={v1Video} type="video/mp4"></source>
-                            </video>
-                        </div>
+                        {/* v1 gif-Video */}
+                        <VideoGifPlayer
+                            poster={v1VideoPoster}
+                            src={v1Video}
+                        ></VideoGifPlayer>
                     </div>
                 </section>
                 {/* 2.0 */}
@@ -297,15 +269,10 @@ function OneOfPage() {
                         <h2>Industrial One Of 2.0</h2>
                         <div className={pageStyle.caption}>2018</div>
                     </div>
-                    <iframe
+                    <VimeoPlayer
                         title="Indusrial One Of v2.0 video"
                         src="https://player.vimeo.com/video/308311075"
-                        width={contentWidth}
-                        height={contentWidth / 1.778}
-                        frameBorder="0"
-                        allow="autoplay; fullscreen"
-                        allowFullScreen
-                    ></iframe>
+                    ></VimeoPlayer>
                     <div className={pageStyle.sectionContent}>
                         <p>
                             Industrial one of 2.0 explores the ceramic ornament.
@@ -348,15 +315,10 @@ function OneOfPage() {
                         <h2>Industrial One Of 3.0</h2>
                         <div className={pageStyle.caption}>2019-2020</div>
                     </div>
-                    <iframe
+                    <VimeoPlayer
                         title="Indusrial One Of v3.0 video"
                         src="https://player.vimeo.com/video/393245651"
-                        width={contentWidth}
-                        height={contentWidth / 1.778}
-                        frameBorder="0"
-                        allow="autoplay; fullscreen"
-                        allowFullScreen
-                    ></iframe>
+                    ></VimeoPlayer>
                     <div className={pageStyle.sectionContent}>
                         <p>
                             Industrial one of 3.0 explores the post-industrial,
@@ -410,7 +372,7 @@ function OneOfPage() {
                                 <NoStretchImage fluid={images.v3_0_exbit2} />
                                 <NoStretchImage fluid={images.v3_0_exbit3} />
                                 <NoStretchImage fluid={images.v3_0_exbit4} />
-                                {/* <NoStretchImage fluid={images.v3_0_exbit5} /> */}
+                                <NoStretchImage fluid={images.v3_0_exbit5} />
                             </>
                         </Collapse>
                     </div>
