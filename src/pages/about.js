@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { GreyLink } from '../styled-components'
 // style
 import style from '../styles/about.module.scss'
 // components
@@ -58,11 +58,9 @@ const AboutPage = ({ data }) => {
                 developing process, and manufacturing process. Having often been
                 drawn to objects that tell their own manufacturing story, it’s
                 therefore no coincidence that her current main project,{' '}
-                <Link to="/one-of" className={style.greyLink}>
-                    Industrial one-of
-                </Link>
-                , is one that centers on observing and also interfering with
-                manufacturing processes and methods.
+                <GreyLink to="/one-of">Industrial one-of</GreyLink>, is one that
+                centers on observing and also interfering with manufacturing
+                processes and methods.
             </p>
             <p>
                 She hopes to always challenge herself and approach a creative

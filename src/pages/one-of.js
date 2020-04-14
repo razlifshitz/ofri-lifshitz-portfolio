@@ -7,6 +7,8 @@ import NoStretchImage from '../components/NoStretchImage'
 import TableOfContents from '../components/TableOfContents'
 import RatioImage from '../components/RatioImage'
 import BackToTop from '../components/BackToTop'
+import Collapse from '../components/Collapse'
+import { GreyLink } from '../styled-components'
 // HOOKS
 import { useScroll } from '../hooks'
 import { useOneOfImages } from '../hooks/graphql/useOneOfImages'
@@ -21,6 +23,7 @@ import {
 import v1Video from '../assets/one-of/v1.0/v1Video480p.mp4'
 import v1VideoPoster from '../assets/one-of/v1.0/v1VideoPoster.jpg'
 import v2Gif from '../assets/one-of/v2.0/Industrial one of.gif'
+import styled from 'styled-components'
 
 function OneOfPage() {
     /** CONSTANTS */
@@ -59,7 +62,7 @@ function OneOfPage() {
     // ON SCROLL EVENT
     useEffect(() => {
         const getActiveSection = () => {
-            let activeSection = null
+            let result = null
             const sectionsData = [
                 {
                     item: tableOfContents.INDUSTRIAL_ONE_OF,
@@ -88,11 +91,11 @@ function OneOfPage() {
                     ACTIVE_SECTION_PADDING >
                     section.ref.current.getBoundingClientRect().top
                 ) {
-                    activeSection = section.item
+                    result = section.item
                 }
             })
 
-            return activeSection
+            return result
         }
         setActiveSection(getActiveSection())
         setShowTableOfContents(scroll > SCROLL_SHOW_TABLE_OF_CONTENTS)
@@ -104,15 +107,13 @@ function OneOfPage() {
 
     const getReadMoreJsx = () => {
         return (
-            <span
-                style={{
-                    display: readMore ? 'none' : 'inline-block',
-                }}
-                className={pageStyle.greyLink}
+            <ReadMoreLink
+                as="span"
+                show={!readMore}
                 onClick={() => setReadMore(true)}
             >
                 Continue reading..
-            </span>
+            </ReadMoreLink>
         )
     }
 
@@ -211,7 +212,7 @@ function OneOfPage() {
                     </a>
                     <div className={pageStyle.title}>
                         <h2>Industrial One Of 1.0</h2>
-                        <div className={pageStyle.caption}>2017-2018</div>
+                        <div className={pageStyle.caption}>2017</div>
                     </div>
                     <iframe
                         title="Indusrial One Of v1.0 video"
@@ -270,7 +271,10 @@ function OneOfPage() {
                         <NoStretchImage fluid={images.image8} />{' '}
                         <NoStretchImage fluid={images.image7} />
                         {/* v1 Video */}
-                        <div className={pageStyle.aspectRatioBox}>
+                        <div
+                            style={{ marginBottom: '0.8rem' }}
+                            className={pageStyle.aspectRatioBox}
+                        >
                             <video
                                 style={{ width: '100%', height: 'auto' }}
                                 autoPlay
@@ -317,11 +321,22 @@ function OneOfPage() {
                         <NoStretchImage fluid={images.v2_0_1} />
                         <NoStretchImage fluid={images.v2_0_2} />
                         <NoStretchImage fluid={images.v2_0_3} />
-                        <RatioImage
+                        <LastSectionRatioImage
                             url={v2Gif}
                             height={1}
                             width={1.04}
-                        ></RatioImage>
+                        ></LastSectionRatioImage>
+                        <PBeforeCollapse>
+                            First presented in "Shibush" Exhibition - "Vitrina"
+                            gallery Holon, 2018.
+                        </PBeforeCollapse>
+                        <Collapse header="Show Exhibition photos">
+                            <>
+                                <NoStretchImage fluid={images.v2_0_exbit1} />
+                                <NoStretchImage fluid={images.v2_0_exbit2} />
+                                <NoStretchImage fluid={images.v2_0_exbit3} />
+                            </>
+                        </Collapse>
                     </div>
                 </section>
                 {/* 3.0 */}
@@ -384,7 +399,20 @@ function OneOfPage() {
                         <NoStretchImage fluid={images.v3_0_9} />
                         <NoStretchImage fluid={images.v3_0_10} />
                         <NoStretchImage fluid={images.v3_0_11} />
-                        <NoStretchImage fluid={images.v3_0_12} />
+                        <LastSectionImage fluid={images.v3_0_12} />
+                        <PBeforeCollapse>
+                            First presented in Industrial One Of 3.0 - Jerusalem
+                            Artists’ House, 2020
+                        </PBeforeCollapse>
+                        <Collapse header="Show Exhibition photos">
+                            <>
+                                <NoStretchImage fluid={images.v3_0_exbit1} />
+                                <NoStretchImage fluid={images.v3_0_exbit2} />
+                                <NoStretchImage fluid={images.v3_0_exbit3} />
+                                <NoStretchImage fluid={images.v3_0_exbit4} />
+                                {/* <NoStretchImage fluid={images.v3_0_exbit5} /> */}
+                            </>
+                        </Collapse>
                     </div>
                 </section>
                 {/* Jerusalem Special Edition */}
@@ -423,7 +451,18 @@ function OneOfPage() {
                         <NoStretchImage fluid={images.vJeru7} />
                         <NoStretchImage fluid={images.vJeru8} />
                         <NoStretchImage fluid={images.vJeru9} />
-                        <NoStretchImage fluid={images.vJeru11} />
+                        <LastSectionImage fluid={images.vJeru11} />
+                        <PBeforeCollapse>
+                            First presented in "Pro Jerusalem" - Jerusalem
+                            Design week, 2018.
+                        </PBeforeCollapse>
+                        <Collapse header="Show Exhibition photos">
+                            <>
+                                <NoStretchImage fluid={images.vJeru_exbit1} />
+                                <NoStretchImage fluid={images.vJeru_exbit2} />
+                                <NoStretchImage fluid={images.vJeru_exbit3} />
+                            </>
+                        </Collapse>
                     </div>
                 </section>
             </div>
@@ -449,3 +488,19 @@ function OneOfPage() {
 }
 
 export default OneOfPage
+
+const PBeforeCollapse = styled.p`
+    margin-bottom: 0.4rem;
+`
+
+const ReadMoreLink = styled(GreyLink)`
+    display: ${props => (props.show ? 'inline-block' : 'none')};
+`
+
+const LastSectionRatioImage = styled(RatioImage)`
+    margin-bottom: 1.7rem;
+`
+
+const LastSectionImage = styled(NoStretchImage)`
+    margin-bottom: 1.7rem !important;
+`

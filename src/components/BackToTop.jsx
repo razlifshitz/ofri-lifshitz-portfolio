@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import React, { useEffect } from 'react'
 import { useScroll } from '../hooks'
 import icon from '../assets/back-to-top.png'
+// import icon from '../assets/icons/expand_less-black-24dp.svg'
 import baseStyle from '../styles/base.module.scss'
 
 function BackToTop() {
@@ -37,12 +38,13 @@ const ScrollToTopIconContainer = styled.div`
     bottom: 20px;
     right: 225px;
     z-index: 2;
-    opacity: 0.4;
+    border-radius: 50%;
+    height: 35px;
+    width: 32px;
+    padding-top: 3px;
+    padding-left: 2px;
     text-align: center;
     animation: back-to-top-fade-in 0.5s;
-    &:hover {
-        opacity: 1;
-    }
     @keyframes back-to-top-fade-in {
         from {
             opacity: 0;
@@ -66,6 +68,11 @@ const ScrollToTopIconContainer = styled.div`
 
 const Icon = styled.img`
     width: 24px;
+    margin-bottom: 0;
+    opacity: 0.4;
+    &:hover {
+        opacity: 1;
+    }
 `
 
 export default BackToTop

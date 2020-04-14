@@ -49,7 +49,7 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
         return () => {
             window.removeEventListener('resize', onScreenSizeChange)
         }
-    }, [mobileDisplay])
+    }, [mobileDisplay, isNavbarActive])
 
     /**
      * Methods
@@ -70,7 +70,7 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
     const onItemClick = item => {
         // Click on parent item - mobile
         if (item.children && mobileDisplay) {
-            !activeParentItem || activeParentItem.id != item.id
+            !activeParentItem || activeParentItem.id !== item.id
                 ? setActiveParentItem(item)
                 : setActiveParentItem(null)
         } else {

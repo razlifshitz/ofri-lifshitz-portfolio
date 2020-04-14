@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
+import styled from 'styled-components'
+// style
 import style from '../styles/home.module.scss'
+// Components
+import { GreyLink } from '../styled-components'
 import Layout from '../components/Layout'
 import Carousel from '../components/Carousel'
 
@@ -51,18 +53,9 @@ class IndexPage extends React.Component {
                 <div className={style.container}>
                     <p className={style.homeDescription}>
                         Hi! I'm Ofri, an Israeli designer and creator of{' '}
-                        <Link
-                            to="/one-of"
-                            ref={this.textRef}
-                            style={{
-                                transition: '2s',
-                                color: '#4BA1CC',
-                                cursor: 'pointer',
-                            }}
-                            className={style.greyLink}
-                        >
+                        <MultiColorLink to="/one-of" ref={this.textRef}>
                             industrial one-of
-                        </Link>{' '}
+                        </MultiColorLink>{' '}
                         a kind pieces. I specialize in digital craft, conceptual
                         design along with manufacturing methods.
                     </p>
@@ -78,6 +71,12 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
+
+const MultiColorLink = styled(GreyLink)`
+    transition: 2s;
+    color: #4ba1cc;
+    cursor: pointer;
+`
 
 export const query = graphql`
     query {
