@@ -8,7 +8,7 @@ import { GreyLink } from '../../styled-components'
 import chevron_right from '../../assets/icons/chevron_right-black-24dp.svg'
 import expand_more from '../../assets/icons/expand_more-black-24dp.svg'
 
-function Collapse({ isOpen, header, children, text }) {
+function Collapse({ isOpen, header, children }) {
     const [open, setIsOpen] = useState(isOpen)
     const headerRef = useRef()
     const contentRef = useRef()
@@ -33,7 +33,7 @@ function Collapse({ isOpen, header, children, text }) {
             <Header as="span" onClick={toggle}>
                 {header}
             </Header>
-            <Content ref={contentRef}>{children || text}</Content>
+            <Content ref={contentRef}>{children}</Content>
         </Wrapper>
     )
 }
@@ -65,7 +65,7 @@ const Header = styled(GreyLink)`
         content: url(${chevron_right});
         font-weight: bold;
         float: left;
-        margin-right: 5px;
+        margin: 2px 5px 0 0;
         transition: 0.3s;
     }
     .active &::before {
