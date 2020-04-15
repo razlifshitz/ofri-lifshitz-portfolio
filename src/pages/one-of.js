@@ -251,7 +251,7 @@ function OneOfPage() {
                             Department.
                         </p>
                         <NoStretchImage fluid={images.image11} />
-                        <NoStretchImage fluid={images.image8} />{' '}
+                        <NoStretchImage fluid={images.image8} />
                         <NoStretchImage fluid={images.image7} />
                         {/* v1 gif-Video */}
                         <VideoGifPlayer
@@ -297,7 +297,7 @@ function OneOfPage() {
                             First presented in "Shibush" Exhibition - "Vitrina"
                             gallery Holon, 2018.
                         </PBeforeCollapse>
-                        <Collapse header="Show Exhibition photos">
+                        <Collapse header="Show exhibition photos">
                             <>
                                 <NoStretchImage fluid={images.v2_0_exbit1} />
                                 <NoStretchImage fluid={images.v2_0_exbit2} />
@@ -366,7 +366,7 @@ function OneOfPage() {
                             First presented in Industrial One Of 3.0 - Jerusalem
                             Artists’ House, 2020
                         </PBeforeCollapse>
-                        <Collapse header="Show Exhibition photos">
+                        <Collapse header="Show exhibition photos">
                             <>
                                 <NoStretchImage fluid={images.v3_0_exbit1} />
                                 <NoStretchImage fluid={images.v3_0_exbit2} />
@@ -418,7 +418,7 @@ function OneOfPage() {
                             First presented in "Pro Jerusalem" - Jerusalem
                             Design week, 2018.
                         </PBeforeCollapse>
-                        <Collapse header="Show Exhibition photos">
+                        <Collapse header="Show exhibition photos">
                             <>
                                 <NoStretchImage fluid={images.vJeru_exbit1} />
                                 <NoStretchImage fluid={images.vJeru_exbit2} />

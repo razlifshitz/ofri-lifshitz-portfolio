@@ -74,7 +74,6 @@ class Carousel extends React.Component {
     getImageJsx = (image, index) => {
         return index === this.state.activeIndex ? (
             <div
-                key={index}
                 style={{ display: 'block' }}
                 className={style.mySlides + ' ' + style.fade}
             >
@@ -86,7 +85,6 @@ class Carousel extends React.Component {
             </div>
         ) : (
             <div
-                key={index}
                 style={{ display: 'none' }}
                 className={style.mySlides + ' ' + style.fade}
             >
@@ -102,9 +100,9 @@ class Carousel extends React.Component {
     render() {
         return (
             <div className={style.slideshowContainer}>
-                {this.state.images.map((image, index) =>
-                    this.getImageJsx(image, index)
-                )}
+                {this.state.images.map((image, index) => (
+                    <div key={index}>{this.getImageJsx(image, index)}</div>
+                ))}
                 {/* <button onClick={this.next}>Next</button>
                 <button onClick={this.previous}>Previous</button> */}
             </div>

@@ -47,7 +47,7 @@ export const useOneOfImages = () => {
                     }
                 }
             }
-            image8: file(relativePath: { eq: "one-of/v1.0/v1.0 (8).jpg" }) {
+            image8: file(relativePath: { eq: "carousel/4.jpg" }) {
                 childImageSharp {
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
