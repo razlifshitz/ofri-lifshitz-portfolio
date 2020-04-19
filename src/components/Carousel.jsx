@@ -1,85 +1,75 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import style from '../styles/carousel.module.scss'
 import NoStretchImage from './NoStretchImage'
 
-class Carousel extends React.Component {
-    constructor(props) {
-        super(props)
-        // Interval
-        if (this.props.interval) {
-            this.intervalKey = setInterval(this.next, this.props.interval)
+function Carousel(props) {
+    const [activeIndex, setActiveIndex] = useState(props.activeIndex || 0)
+
+    // ON INIT
+    useEffect(() => {
+        let intervalKey = null
+        if (props.interval) {
+            intervalKey = setInterval(next, props.interval)
         }
 
-        // classes from parent
-        this.wrapperClass = this.props.wrapperClass
+        // notify about intialization of first image
+        onImageChange(activeIndex)
 
-        this.state = {
-            activeIndex: this.props.activeIndex ? this.props.activeIndex : 0,
-            images: props.images,
+        // ON DESTROY
+        return () => {
+            if (intervalKey) {
+                clearInterval(intervalKey)
+            }
         }
+    }, [])
+
+    // useEffect(() => {
+    //     setActiveIndex(props.activeIndex)
+    // }, [props.activeIndex])
+
+    function next() {
+        let newIndex = null
+
+        setActiveIndex(prevIndex => {
+            newIndex = prevIndex === props.images.length - 1 ? 0 : prevIndex + 1
+            return newIndex
+        })
+
+        onImageChange(newIndex)
     }
 
-    componentDidMount() {
-        this.onImageChange(this.state.activeIndex)
-    }
+    function previous() {
+        let newIndex = null
 
-    componentDidUpdate(prevProps) {
-        // if receiving new active index from parent
-        if (this.props.activeIndex !== prevProps.activeIndex) {
-            this.setState({
-                ...this.state,
-                activeIndex: this.props.activeIndex,
-            })
-        }
-    }
+        setActiveIndex(prevIndex => {
+            newIndex = prevIndex === 0 ? props.images.length - 1 : prevIndex - 1
+            return newIndex
+        })
 
-    componentWillUnmount() {
-        if (this.intervalKey) {
-            clearInterval(this.intervalKey)
-        }
-    }
-
-    next = () => {
-        const { activeIndex } = this.state
-        const newIndex =
-            activeIndex === this.state.images.length - 1 ? 0 : activeIndex + 1
-
-        this.setState({ ...this.state, activeIndex: newIndex })
-
-        this.onImageChange(newIndex)
-    }
-
-    previous = () => {
-        const { activeIndex } = this.state
-        const newIndex =
-            activeIndex === 0 ? this.state.images.length - 1 : activeIndex - 1
-
-        this.setState({ ...this.state, activeIndex: newIndex })
-
-        this.onImageChange(newIndex)
+        onImageChange(newIndex)
     }
 
     /**
      * Updating dominant color
      */
-    onImageChange = newIndex => {
-        if (this.props.onImageChange) {
-            this.props.onImageChange(this.state.images[newIndex].dominantColor)
+    function onImageChange(newIndex) {
+        if (props.onImageChange) {
+            props.onImageChange(props.images[newIndex].dominantColor)
         }
     }
 
     /**
      * Getting Image JSX
      */
-    getImageJsx = (image, index) => {
-        return index === this.state.activeIndex ? (
+    function getImageJsx(image, index) {
+        return index === activeIndex ? (
             <div
                 style={{ display: 'block' }}
                 className={style.mySlides + ' ' + style.fade}
             >
                 <NoStretchImage
                     fluid={image.src}
-                    className={this.wrapperClass}
+                    className={props.wrapperClass}
                     imgStyle={{ width: '100%' }}
                 ></NoStretchImage>
             </div>
@@ -97,16 +87,15 @@ class Carousel extends React.Component {
         )
     }
 
-    render() {
-        return (
-            <div className={style.slideshowContainer}>
-                {this.state.images.map((image, index) => (
-                    <div key={index}>{this.getImageJsx(image, index)}</div>
-                ))}
-                {/* <button onClick={this.next}>Next</button>
-                <button onClick={this.previous}>Previous</button> */}
-            </div>
-        )
-    }
+    return (
+        <div className={style.slideshowContainer}>
+            {props.images.map((image, index) => (
+                <div key={index}>{getImageJsx(image, index)}</div>
+            ))}
+            {/* <button onClick={next}>Next</button>
+            <button onClick={previous}>Previous</button> */}
+        </div>
+    )
 }
+
 export default Carousel

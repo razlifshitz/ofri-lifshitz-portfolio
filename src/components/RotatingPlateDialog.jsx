@@ -49,6 +49,7 @@ class RotatingPlateDialog extends React.Component {
         return (
             <div className={style.plateWrapper}>
                 <Carousel
+                    key={this.props.activeIndex}
                     activeIndex={this.props.activeIndex}
                     images={this.props.images}
                     wrapperClass={style.rotatingImage}
