@@ -5,6 +5,7 @@ export const usePlatesImages = () => {
         query {
             top_1: file(relativePath: { eq: "plates/top_1.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -12,6 +13,7 @@ export const usePlatesImages = () => {
             }
             top_1b: file(relativePath: { eq: "plates/top_1b.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -19,6 +21,7 @@ export const usePlatesImages = () => {
             }
             top_2: file(relativePath: { eq: "plates/top_2.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -26,6 +29,7 @@ export const usePlatesImages = () => {
             }
             top_3: file(relativePath: { eq: "plates/top_3.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -33,6 +37,7 @@ export const usePlatesImages = () => {
             }
             top_3a: file(relativePath: { eq: "plates/top_3a.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -40,6 +45,7 @@ export const usePlatesImages = () => {
             }
             top_3b: file(relativePath: { eq: "plates/top_3b.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -47,6 +53,7 @@ export const usePlatesImages = () => {
             }
             top_3c: file(relativePath: { eq: "plates/top_3c.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -54,6 +61,7 @@ export const usePlatesImages = () => {
             }
             top_all_4: file(relativePath: { eq: "plates/top_all_4.png" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 250) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
@@ -63,14 +71,14 @@ export const usePlatesImages = () => {
     `)
 
     const images = [
-        { src: data.top_1.childImageSharp.fluid },
-        { src: data.top_1b.childImageSharp.fluid },
-        { src: data.top_2.childImageSharp.fluid },
-        { src: data.top_3.childImageSharp.fluid },
-        { src: data.top_3a.childImageSharp.fluid },
-        { src: data.top_3b.childImageSharp.fluid },
-        { src: data.top_3c.childImageSharp.fluid },
-        { src: data.top_all_4.childImageSharp.fluid },
+        { id: data.top_1.id, src: data.top_1.childImageSharp.fluid },
+        { id: data.top_1b.id, src: data.top_1b.childImageSharp.fluid },
+        { id: data.top_2.id, src: data.top_2.childImageSharp.fluid },
+        { id: data.top_3.id, src: data.top_3.childImageSharp.fluid },
+        { id: data.top_3a.id, src: data.top_3a.childImageSharp.fluid },
+        { id: data.top_3b.id, src: data.top_3b.childImageSharp.fluid },
+        { id: data.top_3c.id, src: data.top_3c.childImageSharp.fluid },
+        { id: data.top_all_4.id, src: data.top_all_4.childImageSharp.fluid },
     ]
 
     return images

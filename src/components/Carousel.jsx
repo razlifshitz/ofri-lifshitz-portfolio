@@ -100,7 +100,7 @@ function Carousel(props) {
     return (
         <div className={style.slideshowContainer}>
             {props.images.map((image, index) => (
-                <div key={index}>{getImageJsx(image, index)}</div>
+                <div key={image.id}>{getImageJsx(image, index)}</div>
             ))}
             {/* <button onClick={next}>Next</button>
             <button onClick={previous}>Previous</button> */}
