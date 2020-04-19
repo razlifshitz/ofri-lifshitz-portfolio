@@ -71,14 +71,38 @@ export const usePlatesImages = () => {
     `)
 
     const images = [
-        { id: data.top_1.id, src: data.top_1.childImageSharp.fluid },
-        { id: data.top_1b.id, src: data.top_1b.childImageSharp.fluid },
-        { id: data.top_2.id, src: data.top_2.childImageSharp.fluid },
-        { id: data.top_3.id, src: data.top_3.childImageSharp.fluid },
-        { id: data.top_3a.id, src: data.top_3a.childImageSharp.fluid },
-        { id: data.top_3b.id, src: data.top_3b.childImageSharp.fluid },
-        { id: data.top_3c.id, src: data.top_3c.childImageSharp.fluid },
-        { id: data.top_all_4.id, src: data.top_all_4.childImageSharp.fluid },
+        {
+            id: data.top_1.childImageSharp.id,
+            src: data.top_1.childImageSharp.fluid,
+        },
+        {
+            id: data.top_1b.childImageSharp.id,
+            src: data.top_1b.childImageSharp.fluid,
+        },
+        {
+            id: data.top_2.childImageSharp.id,
+            src: data.top_2.childImageSharp.fluid,
+        },
+        {
+            id: data.top_3.childImageSharp.id,
+            src: data.top_3.childImageSharp.fluid,
+        },
+        {
+            id: data.top_3a.childImageSharp.id,
+            src: data.top_3a.childImageSharp.fluid,
+        },
+        {
+            id: data.top_3b.childImageSharp.id,
+            src: data.top_3b.childImageSharp.fluid,
+        },
+        {
+            id: data.top_3c.childImageSharp.id,
+            src: data.top_3c.childImageSharp.fluid,
+        },
+        {
+            id: data.top_all_4.childImageSharp.id,
+            src: data.top_all_4.childImageSharp.fluid,
+        },
     ]
 
     return images
