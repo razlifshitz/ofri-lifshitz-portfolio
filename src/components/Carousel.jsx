@@ -59,10 +59,10 @@ function Carousel(props) {
     }
 
     /**
-     * Getting Image JSX
+     * JSX gettrers
      */
-    function getImageJsx(image, index) {
-        return index === activeIndex ? (
+    function getActiveImageJsx(image) {
+        return (
             <div
                 style={{ display: 'block' }}
                 className={style.mySlides + ' ' + style.fade}
@@ -73,7 +73,11 @@ function Carousel(props) {
                     imgStyle={{ width: '100%' }}
                 ></NoStretchImage>
             </div>
-        ) : (
+        )
+    }
+
+    function getHiddenImageJsx(image) {
+        return (
             <div
                 style={{ display: 'none' }}
                 className={style.mySlides + ' ' + style.fade}
@@ -85,6 +89,12 @@ function Carousel(props) {
                 ></NoStretchImage>
             </div>
         )
+    }
+
+    function getImageJsx(image, index) {
+        return index === activeIndex
+            ? getActiveImageJsx(image)
+            : getHiddenImageJsx(image)
     }
 
     return (
