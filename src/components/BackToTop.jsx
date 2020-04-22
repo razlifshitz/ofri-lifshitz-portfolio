@@ -45,6 +45,10 @@ const ScrollToTopIconContainer = styled.div`
     padding-left: 2px;
     text-align: center;
     animation: back-to-top-fade-in 0.5s;
+    opacity: 0.4;
+    &:hover {
+        opacity: 1;
+    }
     @keyframes back-to-top-fade-in {
         from {
             opacity: 0;
@@ -69,10 +73,6 @@ const ScrollToTopIconContainer = styled.div`
 const Icon = styled.img`
     width: 24px;
     margin-bottom: 0;
-    opacity: 0.4;
-    &:hover {
-        opacity: 1;
-    }
 `
 
 export default BackToTop

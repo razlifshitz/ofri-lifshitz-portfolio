@@ -460,6 +460,7 @@ const ReadMoreLink = styled(GreyLink)`
 `
 
 const LastSectionRatioImage = styled(RatioImage)`
+    pointer-events: none;
     margin-bottom: 1.7rem;
 `
 

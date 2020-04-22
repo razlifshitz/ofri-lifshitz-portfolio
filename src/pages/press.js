@@ -225,6 +225,8 @@ const PressList = styled.div`
     grid-template-rows: auto;
     justify-items: center;
 
+    animation: fade-in 1s;
+
     // web
     margin-top: ${props => (props.isMobileView ? 'inherit' : '35px')};
     grid-auto-rows: ${props => (props.isMobileView ? 'inherit' : '150px')};

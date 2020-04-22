@@ -103,6 +103,15 @@
     // font-weight: 500;
 }
 
+@include keyframes(fade-in-084) {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.84;
+    }
+}
+
 @media (min-width: 1210px) {
     .table-of-contents {
         left: -29px;
@@ -111,7 +120,7 @@
     // html:not([data-scroll='0'])
     .table-of-contents.active {
         top: 9.35rem;
-        opacity: 1;
+        opacity: 0.84;
         visibility: visible;
         // transition: all 0.4s 0.15s;
         transition: all 0.5s;
@@ -119,7 +128,7 @@
     .table-of-contents-title.active,
     .table-of-contents.active {
         display: block;
-        animation: fade-in 0.5s;
+        animation: fade-in-084 0.5s;
     }
 }
 @media (min-width: $media-small-desktop) {

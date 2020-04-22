@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 export const GreyLink = styled(Link)`
     color: black;
     font-weight: bold;
-    opacity: 1;
+    opacity: 0.84;
     transition: 0.3s;
     cursor: pointer;
     user-select: none;

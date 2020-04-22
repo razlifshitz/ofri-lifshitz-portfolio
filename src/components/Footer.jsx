@@ -33,7 +33,7 @@ const Footer = () => {
                     verticalAlign: 'top',
                     display: 'inline-block',
                     textDecoration: 'none',
-                    fontSize: '1.2rem',
+                    fontSize: '1.3rem',
                 }}
             >
                 <a
@@ -52,14 +52,14 @@ const Footer = () => {
                 >
                     <i className="instagram icon"></i>
                 </a>
-                <a
+                {/* <a
                     href="mailto:ofri.lif@gmail.com"
                     style={{ color: 'inherit' }}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <i className="envelope icon"></i>
-                </a>
+                </a> */}
             </div>
         </div>
     )

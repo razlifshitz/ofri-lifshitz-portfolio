@@ -27,6 +27,7 @@ const VideoWrapper = styled.div`
     height: 0;
 `
 const Video = styled.video`
+    pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
