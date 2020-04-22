@@ -4,9 +4,12 @@ import NoStretchImage from './NoStretchImage'
 
 function Carousel(props) {
     const [activeIndex, setActiveIndex] = useState(props.activeIndex || 0)
+    const [hasMounted, setHasMounted] = useState(false)
 
     // ON INIT
     useEffect(() => {
+        setHasMounted(true)
+
         let intervalKey = null
         if (props.interval) {
             intervalKey = setInterval(next, props.interval)
@@ -61,46 +64,59 @@ function Carousel(props) {
     /**
      * JSX gettrers
      */
-    function getActiveImageJsx(image) {
-        return (
-            <div
-                style={{ display: 'block' }}
-                className={style.mySlides + ' ' + style.fade}
-            >
-                <NoStretchImage
-                    fluid={image.src}
-                    className={props.wrapperClass}
-                    imgStyle={{ width: '100%' }}
-                ></NoStretchImage>
-            </div>
-        )
-    }
+    // function getActiveImageJsx(image) {
+    //     return (
+    //         <div
+    //             style={{ display: 'block' }}
+    //             className={style.mySlides + ' ' + style.fade}
+    //         >
+    //             <NoStretchImage
+    //                 fluid={image.src}
+    //                 className={props.wrapperClass}
+    //             ></NoStretchImage>
+    //         </div>
+    //     )
+    // }
 
-    function getHiddenImageJsx(image) {
-        return (
-            <div
-                style={{ display: 'none' }}
-                className={style.mySlides + ' ' + style.fade}
-            >
-                <NoStretchImage
-                    fluid={image.src}
-                    imgStyle={{ width: '100%' }}
-                    loading="eager"
-                ></NoStretchImage>
-            </div>
-        )
-    }
+    // function getHiddenImageJsx(image) {
+    //     return (
+    //         <div
+    //             style={{ display: 'none' }}
+    //             className={style.mySlides + ' ' + style.fade}
+    //         >
+    //             <NoStretchImage
+    //                 fluid={image.src}
+    //                 loading="eager"
+    //             ></NoStretchImage>
+    //         </div>
+    //     )
+    // }
 
-    function getImageJsx(image, index) {
-        return index === activeIndex
-            ? getActiveImageJsx(image)
-            : getHiddenImageJsx(image)
-    }
+    // function getImageJsx(image, index) {
+    //     return index === activeIndex
+    //         ? getActiveImageJsx(image)
+    //         : getHiddenImageJsx(image)
+    // }
 
     return (
         <div className={style.slideshowContainer}>
             {props.images.map((image, index) => (
-                <div key={image.id}>{getImageJsx(image, index)}</div>
+                <div
+                    key={image.id}
+                    style={{
+                        display:
+                            hasMounted && index === activeIndex
+                                ? 'block'
+                                : 'hidden',
+                    }}
+                    className={style.mySlides + ' ' + style.fade}
+                >
+                    <NoStretchImage
+                        fluid={image.src}
+                        className={props.wrapperClass}
+                        loading="eager"
+                    ></NoStretchImage>
+                </div>
             ))}
             {/* <button onClick={next}>Next</button>
             <button onClick={previous}>Previous</button> */}
