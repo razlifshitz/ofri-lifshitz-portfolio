@@ -5,6 +5,7 @@ export const useOneOfImages = () => {
         query {
             machine: file(relativePath: { eq: "one-of/oneof (1).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -12,6 +13,7 @@ export const useOneOfImages = () => {
             }
             v1_0_dark: file(relativePath: { eq: "one-of/v1.0/v1.0 (2).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -21,6 +23,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/v1.0/v1.0 (10).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -28,6 +31,7 @@ export const useOneOfImages = () => {
             }
             image3: file(relativePath: { eq: "one-of/v1.0/v1.0 (3).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -35,6 +39,7 @@ export const useOneOfImages = () => {
             }
             image4: file(relativePath: { eq: "one-of/v1.0/v1.0 (4).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -42,6 +47,7 @@ export const useOneOfImages = () => {
             }
             image11: file(relativePath: { eq: "one-of/v1.0/v1.0 (11).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -49,6 +55,7 @@ export const useOneOfImages = () => {
             }
             image8: file(relativePath: { eq: "carousel/4.jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -56,6 +63,7 @@ export const useOneOfImages = () => {
             }
             image7: file(relativePath: { eq: "one-of/v1.0/v1.0 (7).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -63,6 +71,7 @@ export const useOneOfImages = () => {
             }
             v2_0_1: file(relativePath: { eq: "one-of/v2.0/SHIBUSH 3.jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -70,6 +79,7 @@ export const useOneOfImages = () => {
             }
             v2_0_2: file(relativePath: { eq: "one-of/v2.0/SHIBUSH 1.jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -77,6 +87,7 @@ export const useOneOfImages = () => {
             }
             v2_0_3: file(relativePath: { eq: "one-of/v2.0/SHIBUSH 2.jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -86,6 +97,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/v2.0/exhibition/a.jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -95,6 +107,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/v2.0/exhibition/b.jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -104,6 +117,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/v2.0/exhibition/c.jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -111,6 +125,7 @@ export const useOneOfImages = () => {
             }
             v3_0_1: file(relativePath: { eq: "one-of/v3.0/v3.0 (13).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -118,6 +133,7 @@ export const useOneOfImages = () => {
             }
             v3_0_2: file(relativePath: { eq: "one-of/v3.0/v3.0 (12).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -125,6 +141,7 @@ export const useOneOfImages = () => {
             }
             v3_0_3: file(relativePath: { eq: "one-of/v3.0/v3.0 (11).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -132,6 +149,7 @@ export const useOneOfImages = () => {
             }
             v3_0_4: file(relativePath: { eq: "one-of/v3.0/v3.0 (9).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -139,6 +157,7 @@ export const useOneOfImages = () => {
             }
             v3_0_5: file(relativePath: { eq: "one-of/v3.0/v3.0 (10).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -146,6 +165,7 @@ export const useOneOfImages = () => {
             }
             v3_0_6: file(relativePath: { eq: "one-of/v3.0/v3.0 (14).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -153,6 +173,7 @@ export const useOneOfImages = () => {
             }
             v3_0_7: file(relativePath: { eq: "one-of/v3.0/v3.0 (15).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -160,6 +181,7 @@ export const useOneOfImages = () => {
             }
             v3_0_8: file(relativePath: { eq: "one-of/v3.0/v3.0 (3).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -167,6 +189,7 @@ export const useOneOfImages = () => {
             }
             v3_0_9: file(relativePath: { eq: "one-of/v3.0/v3.0 (4).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -174,6 +197,7 @@ export const useOneOfImages = () => {
             }
             v3_0_10: file(relativePath: { eq: "one-of/v3.0/v3.0 (8).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -181,6 +205,7 @@ export const useOneOfImages = () => {
             }
             v3_0_11: file(relativePath: { eq: "one-of/v3.0/v3.0 (5).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -188,6 +213,7 @@ export const useOneOfImages = () => {
             }
             v3_0_12: file(relativePath: { eq: "one-of/v3.0/v3.0 (7).jpg" }) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -199,6 +225,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -210,6 +237,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -221,6 +249,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -232,6 +261,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -243,6 +273,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -252,6 +283,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (1).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -261,6 +293,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (2).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -270,6 +303,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (3).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -279,6 +313,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (4).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -288,6 +323,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (5).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -297,6 +333,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (6).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -306,6 +343,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (7).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -315,6 +353,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (8).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -324,6 +363,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (9).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -333,6 +373,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (10).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -342,6 +383,7 @@ export const useOneOfImages = () => {
                 relativePath: { eq: "one-of/jeru/v1.0-jeru (11).jpg" }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -353,6 +395,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -364,6 +407,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }
@@ -375,6 +419,7 @@ export const useOneOfImages = () => {
                 }
             ) {
                 childImageSharp {
+                    id
                     fluid(maxWidth: 750) {
                         ...GatsbyImageSharpFluid
                     }

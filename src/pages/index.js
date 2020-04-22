@@ -1,73 +1,45 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 // style
 import style from '../styles/home.module.scss'
+// constants
+import { HOME } from '../constants/one-of.constants'
+// hooks
+import { useCarouselImages } from '../hooks/graphql/useCarouselImages'
 // Components
 import { GreyLink } from '../styled-components'
 import Layout from '../components/Layout'
 import Carousel from '../components/Carousel'
 
-class IndexPage extends React.Component {
-    constructor(props) {
-        super(props)
-        //const invitation = data.invitation.childImageSharp.fluid
+function IndexPage() {
+    const textRef = useRef()
+    const carouselImages = useCarouselImages()
 
-        const data = this.props.data
-
-        const image1 = data.image1.childImageSharp.fluid
-        const image2 = data.image2.childImageSharp.fluid
-        const image3 = data.image3.childImageSharp.fluid
-        const image4 = data.image4.childImageSharp.fluid
-        const image5 = data.image5.childImageSharp.fluid
-        const image6 = data.image6.childImageSharp.fluid
-        const image7 = data.image7.childImageSharp.fluid
-
-        this.carouselImages = [
-            { src: image2, dominantColor: '#4BA1CC' },
-            { src: image1, dominantColor: '#A09590' },
-            { src: image3, dominantColor: '#F7855B' },
-            { src: image4, dominantColor: '#B79679' },
-            { src: image7, dominantColor: '#4BA1CC' },
-            { src: image5, dominantColor: '#A19FA8' },
-            { src: image6, dominantColor: '#0818A8' },
-        ]
-
-        this.textRef = React.createRef()
-    }
-
-    onColorChange = color => {
-        if (this.textRef.current) {
-            this.textRef.current.style.color = color
+    function onColorChange(color) {
+        if (textRef.current) {
+            textRef.current.style.color = color
         }
     }
 
-    render() {
-        return (
-            <Layout
-                activeItem={
-                    this.props.location.state &&
-                    this.props.location.state.activeItem
-                }
-            >
-                {/* <NoStretchImage fluid={invitation} /> */}
-                <div className={style.container}>
-                    <p className={style.homeDescription}>
-                        Hi! I'm Ofri, an Israeli designer and creator of{' '}
-                        <MultiColorLink to="/one-of" ref={this.textRef}>
-                            industrial one-of
-                        </MultiColorLink>{' '}
-                        a kind pieces. I specialize in digital craft, conceptual
-                        design along with manufacturing methods.
-                    </p>
-                    <Carousel
-                        images={this.carouselImages}
-                        interval="4000"
-                        onImageChange={this.onColorChange}
-                    ></Carousel>
-                </div>
-            </Layout>
-        )
-    }
+    return (
+        <Layout activeItem={HOME}>
+            <div className={style.container}>
+                <p className={style.homeDescription}>
+                    Hi! I'm Ofri, an Israeli designer and creator of{' '}
+                    <MultiColorLink to="/one-of" ref={textRef}>
+                        industrial one-of
+                    </MultiColorLink>{' '}
+                    a kind pieces. I specialize in digital craft, conceptual
+                    design along with manufacturing methods.
+                </p>
+                <Carousel
+                    images={carouselImages}
+                    interval="4000"
+                    onImageChange={onColorChange}
+                ></Carousel>
+            </div>
+        </Layout>
+    )
 }
 
 export default IndexPage
@@ -76,67 +48,4 @@ const MultiColorLink = styled(GreyLink)`
     transition: 2s;
     color: #4ba1cc;
     cursor: pointer;
-`
-
-export const query = graphql`
-    query {
-        invitation: file(
-            relativePath: { eq: "Industrial one of 3.0 invitation.jpg" }
-        ) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        image1: file(relativePath: { eq: "carousel/1.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        image2: file(relativePath: { eq: "carousel/2.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        image3: file(relativePath: { eq: "carousel/3.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        image4: file(relativePath: { eq: "carousel/4.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        image5: file(relativePath: { eq: "carousel/5.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        image6: file(relativePath: { eq: "carousel/6.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        image7: file(relativePath: { eq: "carousel/7.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-    }
 `

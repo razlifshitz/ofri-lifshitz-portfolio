@@ -45,6 +45,11 @@ const INDUSTRIAL_ONE_OF_1_0_SPECIAL = {
     parentId: 'INDUSTRIAL_ONE_OF',
 }
 
+export const HOME = {
+    id: 'HOME',
+    name: 'Home',
+    slug: '/',
+}
 export const ABOUT = {
     id: 'ABOUT',
     name: 'About',

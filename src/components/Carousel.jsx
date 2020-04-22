@@ -107,7 +107,7 @@ function Carousel(props) {
                         display:
                             hasMounted && index === activeIndex
                                 ? 'block'
-                                : 'hidden',
+                                : 'none',
                     }}
                     className={style.mySlides + ' ' + style.fade}
                 >
