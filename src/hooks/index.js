@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useLayoutEffect, useEffect } from 'react'
 
 export const useScroll = () => {
     const [scroll, setScroll] = useState(0)
@@ -78,4 +78,14 @@ export const useScroll = () => {
             document.documentElement.scrollTop = value
         },
     ]
+}
+
+export const useResize = fn => {
+    useEffect(() => {
+        window.addEventListener('resize', fn)
+        fn()
+        return () => {
+            window.removeEventListener('resize', fn)
+        }
+    }, [])
 }
