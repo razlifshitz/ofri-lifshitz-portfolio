@@ -9,7 +9,7 @@ header {
     font-family: Segoe UI;
     font-style: normal;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 18px;
     position: fixed;
     top: 0;
     left: 0;
@@ -35,13 +35,13 @@ header {
             li {
                 margin-bottom: 0;
                 list-style-type: none;
-                text-align: left;
+                text-align: center;
                 position: relative;
 
                 a {
                     height: 60px;
                     line-height: 60px;
-                    padding: 0 20px;
+                    padding: 0 20px 0 0;
                     color: #353535;
                     text-decoration: none;
                     display: block;
@@ -72,6 +72,20 @@ header {
                         }
                     }
                 }
+            }
+            // li size = text on hover
+            li:nth-child(1) a {
+                width: 73px;
+            }
+            li:nth-child(2) a {
+                width: 166px;
+            }
+            li:nth-child(3) a {
+                width: 64px;
+            }
+            li:nth-child(4) a {
+                width: 66px;
+                padding: 0;
             }
         }
     }
@@ -105,6 +119,7 @@ header {
 @media (max-width: $media-large) {
     header {
         position: absolute;
+        font-size: 1rem;
 
         nav {
             // display: none;
@@ -127,6 +142,7 @@ header {
                 padding-left: 60px;
 
                 li {
+                    text-align: left;
                     a {
                         opacity: 0;
                         height: 55px;
@@ -202,6 +218,7 @@ header {
             li:nth-child(3) a,
             li:nth-child(4) a {
                 // li:nth-child(5) a {
+                width: 100%;
                 opacity: 1;
                 @include transition(opacity 0s 0.5s);
             }
