@@ -36,7 +36,6 @@ function BackToTop() {
 const ScrollToTopIconContainer = styled.div`
     position: fixed;
     bottom: 20px;
-    right: 225px;
     z-index: 2;
     border-radius: 50%;
     height: 35px;
@@ -46,6 +45,12 @@ const ScrollToTopIconContainer = styled.div`
     text-align: center;
     animation: back-to-top-fade-in 0.5s;
     opacity: 0.4;
+
+    cursor: pointer;
+    @media (max-width: 1200px) {
+        cursor: default;
+    }
+
     &:hover {
         opacity: 1;
     }
@@ -59,6 +64,8 @@ const ScrollToTopIconContainer = styled.div`
             transform: translateY(0);
         }
     }
+
+    right: 225px;
     @media (max-width: ${baseStyle.mediaMediumDesktop}) {
         right: 175px;
     }
