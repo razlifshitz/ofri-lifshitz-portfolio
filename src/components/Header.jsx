@@ -28,6 +28,7 @@ function Header({ activeItem }) {
                     <img
                         src={logo}
                         onClick={() => dispatchMenuAction(false)}
+                        alt="Ofri Lifshitz Design Logo"
                     ></img>
                 </Link>
             </div>

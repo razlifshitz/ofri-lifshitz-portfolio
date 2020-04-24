@@ -24,6 +24,8 @@ function Carousel(props) {
                 clearInterval(intervalKey)
             }
         }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // useEffect(() => {
@@ -41,16 +43,17 @@ function Carousel(props) {
         onImageChange(newIndex)
     }
 
-    function previous() {
-        let newIndex = null
+    // Not in use for now
+    // function previous() {
+    //     let newIndex = null
 
-        setActiveIndex(prevIndex => {
-            newIndex = prevIndex === 0 ? props.images.length - 1 : prevIndex - 1
-            return newIndex
-        })
+    //     setActiveIndex(prevIndex => {
+    //         newIndex = prevIndex === 0 ? props.images.length - 1 : prevIndex - 1
+    //         return newIndex
+    //     })
 
-        onImageChange(newIndex)
-    }
+    //     onImageChange(newIndex)
+    // }
 
     /**
      * Updating dominant color

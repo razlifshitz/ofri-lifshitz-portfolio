@@ -87,11 +87,11 @@ export const getMenuItemsList = () => {
 }
 export const getOneOfSubMenu = () => {
     return {
-        INDUSTRIAL_ONE_OF: { ...INDUSTRIAL_ONE_OF },
-        INDUSTRIAL_ONE_OF_1_0: { ...INDUSTRIAL_ONE_OF_1_0 },
-        INDUSTRIAL_ONE_OF_2_0: { ...INDUSTRIAL_ONE_OF_2_0 },
-        INDUSTRIAL_ONE_OF_3_0: { ...INDUSTRIAL_ONE_OF_3_0 },
-        INDUSTRIAL_ONE_OF_1_0_SPECIAL: { ...INDUSTRIAL_ONE_OF_1_0_SPECIAL },
+        INDUSTRIAL_ONE_OF,
+        INDUSTRIAL_ONE_OF_1_0,
+        INDUSTRIAL_ONE_OF_2_0,
+        INDUSTRIAL_ONE_OF_3_0,
+        INDUSTRIAL_ONE_OF_1_0_SPECIAL,
     }
 }
 // scroll value

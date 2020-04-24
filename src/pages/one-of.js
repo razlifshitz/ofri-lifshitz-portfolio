@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
 // style
 import pageStyle from '../styles/one-of.module.scss'
 // components
@@ -28,8 +28,40 @@ import styled from 'styled-components'
 
 function OneOfPage() {
     /** CONSTANTS */
-    const tableOfContents = getOneOfSubMenu()
     const images = useOneOfImages()
+    // table of contents constants
+    const tableOfContents = useMemo(() => getOneOfSubMenu(), [])
+    const sectionsData = useMemo(
+        () => [
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF,
+                ref: null,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0,
+                ref: null,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_2_0,
+                ref: null,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_3_0,
+                ref: null,
+            },
+            {
+                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
+                ref: null,
+            },
+        ],
+        [
+            tableOfContents.INDUSTRIAL_ONE_OF,
+            tableOfContents.INDUSTRIAL_ONE_OF_1_0,
+            tableOfContents.INDUSTRIAL_ONE_OF_2_0,
+            tableOfContents.INDUSTRIAL_ONE_OF_3_0,
+            tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
+        ]
+    )
 
     // REFS
     // content ref
@@ -47,32 +79,19 @@ function OneOfPage() {
     const [showTableOfContents, setShowTableOfContents] = useState(false)
     const [scroll] = useScroll()
 
+    // updating refs (occuring only once)
+    useEffect(() => {
+        sectionsData[0].ref = theStoryBehindRef
+        sectionsData[1].ref = v1Ref
+        sectionsData[2].ref = v2Ref
+        sectionsData[3].ref = v3Ref
+        sectionsData[4].ref = v1JeruRef
+    }, [sectionsData])
+
     // ON SCROLL EVENT
     useEffect(() => {
         const getActiveSection = () => {
             let result = null
-            const sectionsData = [
-                {
-                    item: tableOfContents.INDUSTRIAL_ONE_OF,
-                    ref: theStoryBehindRef,
-                },
-                {
-                    item: tableOfContents.INDUSTRIAL_ONE_OF_1_0,
-                    ref: v1Ref,
-                },
-                {
-                    item: tableOfContents.INDUSTRIAL_ONE_OF_2_0,
-                    ref: v2Ref,
-                },
-                {
-                    item: tableOfContents.INDUSTRIAL_ONE_OF_3_0,
-                    ref: v3Ref,
-                },
-                {
-                    item: tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
-                    ref: v1JeruRef,
-                },
-            ]
 
             sectionsData.forEach(section => {
                 if (
@@ -87,7 +106,7 @@ function OneOfPage() {
         }
         setActiveSection(getActiveSection())
         setShowTableOfContents(scroll > SCROLL_SHOW_TABLE_OF_CONTENTS)
-    }, [scroll])
+    }, [scroll, sectionsData])
 
     /**
      * JSX getters

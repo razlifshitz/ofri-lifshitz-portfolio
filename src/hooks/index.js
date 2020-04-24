@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useEffect } from 'react'
+import { useState, useLayoutEffect, useEffect, useCallback } from 'react'
 
 export const useScroll = () => {
     const [scroll, setScroll] = useState(0)
@@ -80,12 +80,14 @@ export const useScroll = () => {
     ]
 }
 
-export const useResize = fn => {
+export const useResize = (fn, dependanciesList) => {
+    const memorizedFn = useCallback(fn, [...dependanciesList])
+
     useEffect(() => {
-        window.addEventListener('resize', fn)
-        fn()
+        window.addEventListener('resize', memorizedFn)
+        memorizedFn()
         return () => {
-            window.removeEventListener('resize', fn)
+            window.removeEventListener('resize', memorizedFn)
         }
-    }, [])
+    }, [memorizedFn])
 }

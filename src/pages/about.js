@@ -1,7 +1,5 @@
 import React from 'react'
 import { GreyLink } from '../styled-components'
-// style
-import style from '../styles/about.module.scss'
 // components
 import Layout from '../components/Layout'
 import NoStretchImage from '../components/NoStretchImage'

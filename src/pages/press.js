@@ -1,7 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
-// style
-import style from '../styles/press.module.scss'
 // components
 import Layout from '../components/Layout'
 import NoStretchImage from '../components/NoStretchImage'
@@ -90,7 +88,7 @@ const PressPage = ({ data }) => {
         )
 
         setContentHeight(visibleContentHeight)
-    })
+    }, [])
 
     return (
         <Layout activeItem={PRESS}>
