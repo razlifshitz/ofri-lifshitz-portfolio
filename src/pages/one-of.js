@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 // style
 import pageStyle from '../styles/one-of.module.scss'
 // components
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import NoStretchImage from '../components/NoStretchImage'
 import TableOfContents from '../components/TableOfContents'
 import RatioImage from '../components/RatioImage'
@@ -26,42 +27,35 @@ import v1VideoPoster from '../assets/one-of/v1.0/v1VideoPoster.jpg'
 import v2Gif from '../assets/one-of/v2.0/Industrial one of.gif'
 import styled from 'styled-components'
 
+/** CONSTANTS */
+const FIRST_P_TEXT = `Industrial one of is an ongoing project that examines the feasibility of “one of a kind” industrial manufacturing.`
+// table of contents constants
+const tableOfContents = getOneOfSubMenu()
+const sectionsData = [
+    {
+        item: tableOfContents.INDUSTRIAL_ONE_OF,
+        ref: null,
+    },
+    {
+        item: tableOfContents.INDUSTRIAL_ONE_OF_1_0,
+        ref: null,
+    },
+    {
+        item: tableOfContents.INDUSTRIAL_ONE_OF_2_0,
+        ref: null,
+    },
+    {
+        item: tableOfContents.INDUSTRIAL_ONE_OF_3_0,
+        ref: null,
+    },
+    {
+        item: tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
+        ref: null,
+    },
+]
+
 function OneOfPage() {
-    /** CONSTANTS */
     const images = useOneOfImages()
-    // table of contents constants
-    const tableOfContents = useMemo(() => getOneOfSubMenu(), [])
-    const sectionsData = useMemo(
-        () => [
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF,
-                ref: null,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0,
-                ref: null,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_2_0,
-                ref: null,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_3_0,
-                ref: null,
-            },
-            {
-                item: tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
-                ref: null,
-            },
-        ],
-        [
-            tableOfContents.INDUSTRIAL_ONE_OF,
-            tableOfContents.INDUSTRIAL_ONE_OF_1_0,
-            tableOfContents.INDUSTRIAL_ONE_OF_2_0,
-            tableOfContents.INDUSTRIAL_ONE_OF_3_0,
-            tableOfContents.INDUSTRIAL_ONE_OF_1_0_SPECIAL,
-        ]
-    )
 
     // REFS
     // content ref
@@ -79,14 +73,14 @@ function OneOfPage() {
     const [showTableOfContents, setShowTableOfContents] = useState(false)
     const [scroll] = useScroll()
 
-    // updating refs (occuring only once)
+    // updating refs
     useEffect(() => {
         sectionsData[0].ref = theStoryBehindRef
         sectionsData[1].ref = v1Ref
         sectionsData[2].ref = v2Ref
         sectionsData[3].ref = v3Ref
         sectionsData[4].ref = v1JeruRef
-    }, [sectionsData])
+    }, [])
 
     // ON SCROLL EVENT
     useEffect(() => {
@@ -106,7 +100,7 @@ function OneOfPage() {
         }
         setActiveSection(getActiveSection())
         setShowTableOfContents(scroll > SCROLL_SHOW_TABLE_OF_CONTENTS)
-    }, [scroll, sectionsData])
+    }, [scroll])
 
     /**
      * JSX getters
@@ -139,11 +133,7 @@ function OneOfPage() {
                         <div className={pageStyle.caption}>
                             Industrial One Of v1.0
                         </div>
-                        <p>
-                            Industrial one of is an ongoing project that
-                            examines the feasibility of “one of a kind”
-                            industrial manufacturing.
-                        </p>
+                        <p>{FIRST_P_TEXT}</p>
                         <p>
                             For me, the world of ceramics was fertile ground for
                             exploring this issue, since it contains the two
@@ -452,6 +442,12 @@ function OneOfPage() {
 
     return (
         <Layout activeItem={ONE_OF}>
+            <SEO
+                title="Industrial One Of"
+                pathname={ONE_OF.slug}
+                description={FIRST_P_TEXT}
+                article={true}
+            ></SEO>
             <BackToTop></BackToTop>
             <a className={pageStyle.sectionAnchor} id="story_behind">
                 &nbsp;

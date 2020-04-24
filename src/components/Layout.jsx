@@ -5,17 +5,21 @@ import '../styles/index.scss'
 import layoutStyle from '../styles/layout.module.scss'
 import Header from './Header'
 import Footer from './Footer'
+import SEO from './SEO'
 
 const Layout = ({ activeItem, children }) => {
     return (
-        <div className={layoutStyle.container}>
-            <div className={layoutStyle.content}>
-                <Header activeItem={activeItem} />
-                {children}
-            </div>
+        <>
+            <SEO></SEO>
+            <div className={layoutStyle.container}>
+                <div className={layoutStyle.content}>
+                    <Header activeItem={activeItem} />
+                    {children}
+                </div>
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
+        </>
     )
 }
 

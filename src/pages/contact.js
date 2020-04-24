@@ -5,6 +5,7 @@ import style from '../styles/contact.module.scss'
 import Layout from '../components/Layout'
 import { usePlatesImages } from '../hooks/graphql/usePlatesImages'
 import RotatingPlateDialog from '../components/RotatingPlateDialog'
+import SEO from '../components/SEO'
 // constants
 import { getRandIndex, CONTACT } from '../constants/one-of.constants'
 
@@ -30,6 +31,7 @@ function ContactPage() {
 
     return (
         <Layout activeItem={CONTACT}>
+            <SEO title="Contact" pathname={CONTACT.slug}></SEO>
             <RotatingPlateDialog
                 title="Let's Talk!"
                 images={images}
