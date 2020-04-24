@@ -20,5 +20,6 @@ module.exports = {
                 displayName: true,
             },
         },
+        'gatsby-plugin-react-helmet',
     ],
 }
