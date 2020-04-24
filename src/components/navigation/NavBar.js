@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { navigate } from 'gatsby'
 import NavItem from './NavItem'
 import style from '../../styles/header.module.scss'
@@ -13,6 +13,10 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
     // internal state
     const [activeParentItem, setActiveParentItem] = useState(null)
     const [mobileDisplay, setMobileDisplay] = useState(null)
+
+    const closeMenu = useCallback(() => {
+        onAction(CLOSE_MENU)
+    }, [onAction])
 
     /**
      * Effects
@@ -31,14 +35,14 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
     // if display changed to web and mobile menu was opened --> closes menu
     useEffect(() => {
         const mobileMachMedia = window.matchMedia(
-            `(max-width: ${style.mediaLarge}`
+            `(max-width: ${style.mediaLarge})`
         )
 
         function onScreenSizeChange() {
             setMobileDisplay(mobileMachMedia.matches)
         }
 
-        setMobileDisplay(mobileMachMedia.matches)
+        onScreenSizeChange()
         window.addEventListener('resize', onScreenSizeChange)
 
         // todo check if can use here mobileDisplay
@@ -49,7 +53,7 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
         return () => {
             window.removeEventListener('resize', onScreenSizeChange)
         }
-    }, [mobileDisplay, isNavbarActive])
+    }, [isNavbarActive, closeMenu])
 
     /**
      * Methods
@@ -61,10 +65,6 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
 
     function openMenu() {
         onAction(OPEN_MENU)
-    }
-
-    function closeMenu() {
-        onAction(CLOSE_MENU)
     }
 
     const onItemClick = item => {
