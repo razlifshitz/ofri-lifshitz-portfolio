@@ -1,6 +1,38 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import NonStretchedImage from './NoStretchImage'
 
 const Footer = () => {
+    const {
+        facebook: {
+            childImageSharp: { fixed: facebook },
+        },
+        instagram: {
+            childImageSharp: { fixed: instagram },
+        },
+    } = useStaticQuery(graphql`
+        query {
+            facebook: file(
+                relativePath: { eq: "icons/facebook_512x512_square.png" }
+            ) {
+                childImageSharp {
+                    fixed(width: 22, height: 22) {
+                        ...GatsbyImageSharpFixed_noBase64
+                    }
+                }
+            }
+            instagram: file(
+                relativePath: { eq: "icons/instagram_512x512.png" }
+            ) {
+                childImageSharp {
+                    fixed(width: 22, height: 22) {
+                        ...GatsbyImageSharpFixed_noBase64
+                    }
+                }
+            }
+        }
+    `)
+
     return (
         <div
             style={{
@@ -38,11 +70,11 @@ const Footer = () => {
             >
                 <a
                     href="https://www.facebook.com/ofri.lifshitz"
-                    style={{ color: 'inherit' }}
+                    style={{ marginRight: '5px' }}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <i className="facebook icon"></i>
+                    <NonStretchedImage fixed={facebook}></NonStretchedImage>
                 </a>
                 <a
                     href="https://www.instagram.com/ofrilifshitz_design/"
@@ -50,7 +82,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <i className="instagram icon"></i>
+                    <NonStretchedImage fixed={instagram}></NonStretchedImage>
                 </a>
                 {/* <a
                     href="mailto:ofri.lif@gmail.com"

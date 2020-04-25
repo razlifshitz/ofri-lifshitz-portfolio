@@ -11,14 +11,6 @@ export default function HTML(props) {
                     name="viewport"
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
                 />
-                <link
-                    href="https://fonts.googleapis.com/css?family=Dosis&display=swap"
-                    rel="stylesheet"
-                ></link>
-                <link
-                    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-                    rel="stylesheet"
-                ></link>
                 {props.headComponents}
             </head>
             <body {...props.bodyAttributes}>

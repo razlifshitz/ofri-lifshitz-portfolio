@@ -8,6 +8,7 @@ export const GreyLink = styled(Link)`
     opacity: 0.84;
     transition: 0.3s;
     cursor: pointer;
+    text-decoration: none;
     user-select: none;
     &:hover {
         color: #6d6e71;
