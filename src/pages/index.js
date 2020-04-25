@@ -7,7 +7,7 @@ import { HOME, ONE_OF } from '../constants/one-of.constants'
 // hooks
 import { useCarouselImages } from '../hooks/graphql/useCarouselImages'
 // Components
-import { GreyLink } from '../styled-components'
+import { GreyLink, AspectRatioBox } from '../styled-components'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Carousel from '../components/Carousel'
@@ -39,11 +39,13 @@ function IndexPage() {
                     a kind pieces. I specialize in digital craft, conceptual
                     design along with manufacturing methods.
                 </p>
-                <Carousel
-                    images={carouselImages}
-                    interval="4000"
-                    onImageChange={onColorChange}
-                ></Carousel>
+                <AspectRatioBox width={3} height={2}>
+                    <Carousel
+                        images={carouselImages}
+                        interval="4000"
+                        onImageChange={onColorChange}
+                    ></Carousel>
+                </AspectRatioBox>
             </div>
         </Layout>
     )

@@ -1,17 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { AspectRatioBox } from '../../styled-components'
 
 function VimeoPlayer(props) {
     return (
         <Wrapper>
-            <VideoWrapper>
+            <AspectRatioBox width={16} height={9}>
                 <VideoIframe
                     {...props}
                     frameBorder="0"
                     allow="autoplay; fullscreen"
                     allowFullScreen
                 ></VideoIframe>
-            </VideoWrapper>
+            </AspectRatioBox>
         </Wrapper>
     )
 }
@@ -22,11 +23,6 @@ const Wrapper = styled.div`
     padding-bottom: 1.45rem;
 `
 
-const VideoWrapper = styled.div`
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-`
 const VideoIframe = styled.iframe`
     position: absolute;
     top: 0;

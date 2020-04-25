@@ -18,3 +18,9 @@ export const GreyLink = styled(Link)`
         cursor: default;
     }
 `
+
+export const AspectRatioBox = styled.div`
+    position: relative;
+    height: 0;
+    padding-bottom: ${props => (props.height / props.width) * 100}%;
+`
