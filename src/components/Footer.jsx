@@ -41,7 +41,7 @@ const Footer = () => {
             <br />
             <div
                 style={{
-                    paddingTop: '0.3rem',
+                    paddingTop: '0.4rem',
                     verticalAlign: 'top',
                     display: 'inline-block',
                     textDecoration: 'none',
@@ -50,7 +50,7 @@ const Footer = () => {
             >
                 <a
                     href="https://www.facebook.com/ofri.lifshitz"
-                    style={{ margin: '5px' }}
+                    style={{ margin: '7px' }}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -87,14 +87,14 @@ const query = graphql`
             relativePath: { eq: "icons/facebook_512x512_square.png" }
         ) {
             childImageSharp {
-                fixed(width: 22, height: 22) {
+                fixed(width: 24, height: 24) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
         instagram: file(relativePath: { eq: "icons/instagram_512x512.png" }) {
             childImageSharp {
-                fixed(width: 22, height: 22) {
+                fixed(width: 24, height: 24) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
