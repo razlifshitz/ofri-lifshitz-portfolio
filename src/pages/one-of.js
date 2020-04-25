@@ -22,8 +22,9 @@ import {
 } from '../constants/one-of.constants'
 // gifs
 import v1Video from '../assets/one-of/v1.0/v1Video480p.mp4'
-import v1VideoPoster from '../assets/one-of/v1.0/v1VideoPoster.jpg'
-import v2Gif from '../assets/one-of/v2.0/Industrial one of.gif'
+import v1VideoPoster from '../assets/one-of/v1.0/v1VideoPoster.webp'
+import v2Video from '../assets/one-of/v2.0/v2Video.mp4'
+import v2VideoPoster from '../assets/one-of/v2.0/v2VideoPoster.webp'
 import styled from 'styled-components'
 
 function OneOfPage() {
@@ -307,11 +308,11 @@ function OneOfPage() {
                         <NoStretchImage fluid={images.v2_0_1} />
                         <NoStretchImage fluid={images.v2_0_2} />
                         <NoStretchImage fluid={images.v2_0_3} />
-                        <LastSectionRatioImage
-                            url={v2Gif}
-                            height={1}
-                            width={1.04}
-                        ></LastSectionRatioImage>
+                        {/* v2 gif-Video */}
+                        <VideoGifPlayer
+                            poster={v2VideoPoster}
+                            src={v2Video}
+                        ></VideoGifPlayer>
                         <PBeforeCollapse>
                             First presented in "Shibush" Exhibition - "Vitrina"
                             gallery Holon, 2018.
@@ -476,11 +477,6 @@ const PBeforeCollapse = styled.p`
 
 const ReadMoreLink = styled(GreyLink)`
     display: ${props => (props.show ? 'inline-block' : 'none')};
-`
-
-const LastSectionRatioImage = styled(RatioImage)`
-    pointer-events: none;
-    margin-bottom: 1.7rem;
 `
 
 const LastSectionImage = styled(NoStretchImage)`
