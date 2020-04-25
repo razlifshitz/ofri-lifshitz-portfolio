@@ -1,6 +1,7 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import NonStretchedImage from './NoStretchImage'
+import styled from 'styled-components'
+import { useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 
 const Footer = () => {
     const {
@@ -10,28 +11,7 @@ const Footer = () => {
         instagram: {
             childImageSharp: { fixed: instagram },
         },
-    } = useStaticQuery(graphql`
-        query {
-            facebook: file(
-                relativePath: { eq: "icons/facebook_512x512_square.png" }
-            ) {
-                childImageSharp {
-                    fixed(width: 22, height: 22) {
-                        ...GatsbyImageSharpFixed_noBase64
-                    }
-                }
-            }
-            instagram: file(
-                relativePath: { eq: "icons/instagram_512x512.png" }
-            ) {
-                childImageSharp {
-                    fixed(width: 22, height: 22) {
-                        ...GatsbyImageSharpFixed_noBase64
-                    }
-                }
-            }
-        }
-    `)
+    } = useStaticQuery(query)
 
     return (
         <div
@@ -70,11 +50,11 @@ const Footer = () => {
             >
                 <a
                     href="https://www.facebook.com/ofri.lifshitz"
-                    style={{ marginRight: '5px' }}
+                    style={{ margin: '5px' }}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <NonStretchedImage fixed={facebook}></NonStretchedImage>
+                    <Icon fixed={facebook}></Icon>
                 </a>
                 <a
                     href="https://www.instagram.com/ofrilifshitz_design/"
@@ -82,7 +62,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <NonStretchedImage fixed={instagram}></NonStretchedImage>
+                    <Icon fixed={instagram}></Icon>
                 </a>
                 {/* <a
                     href="mailto:ofri.lif@gmail.com"
@@ -98,3 +78,26 @@ const Footer = () => {
 }
 
 export default Footer
+
+const Icon = styled(Img)``
+
+const query = graphql`
+    query {
+        facebook: file(
+            relativePath: { eq: "icons/facebook_512x512_square.png" }
+        ) {
+            childImageSharp {
+                fixed(width: 22, height: 22) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+            }
+        }
+        instagram: file(relativePath: { eq: "icons/instagram_512x512.png" }) {
+            childImageSharp {
+                fixed(width: 22, height: 22) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+            }
+        }
+    }
+`

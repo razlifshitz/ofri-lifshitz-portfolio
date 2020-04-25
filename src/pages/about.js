@@ -82,12 +82,12 @@ const AboutPage = ({ data }) => {
 
 const FieldPresentation = props => {
     return (
-        <p>
+        <>
             <h3>{props.name}</h3>
-            {props.data.map(text => (
-                <p>{text}</p>
+            {props.data.map((text, index) => (
+                <p key={index}>{text}</p>
             ))}
-        </p>
+        </>
     )
 }
 

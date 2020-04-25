@@ -195,6 +195,7 @@ textarea {
     font: inherit;
 }
 html {
+    line-height: 1.15;
     font: georgia, serif;
     box-sizing: border-box;
 }
@@ -415,6 +416,7 @@ p {
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
+    line-height: 1.4285em;
     margin-bottom: 1.45rem;
     opacity: 0.8;
     @include user-select(none);
