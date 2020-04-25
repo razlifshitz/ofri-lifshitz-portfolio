@@ -1,6 +1,9 @@
 module.exports = {
     siteMetadata: {
-        title: '',
+        title: 'Ofri Lifshitz Design',
+        titleTemplate: '%s | Ofri Lifshitz Design',
+        description: '',
+        url: 'https://www.ofrilifshitz.com',
         author: '',
     },
     plugins: [
@@ -20,5 +23,6 @@ module.exports = {
                 displayName: true,
             },
         },
+        'gatsby-plugin-react-helmet',
     ],
 }

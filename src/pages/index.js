@@ -9,6 +9,7 @@ import { useCarouselImages } from '../hooks/graphql/useCarouselImages'
 // Components
 import { GreyLink } from '../styled-components'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import Carousel from '../components/Carousel'
 
 function IndexPage() {
@@ -23,6 +24,12 @@ function IndexPage() {
 
     return (
         <Layout activeItem={HOME}>
+            <SEO
+                pathname={HOME.slug}
+                description="Hi! I'm Ofri, an Israeli designer and creator
+                of industrial one-of a kind pieces. I specialize in digital
+                craft, conceptual design along with manufacturing methods."
+            ></SEO>
             <div className={style.container}>
                 <p className={style.homeDescription}>
                     Hi! I'm Ofri, an Israeli designer and creator of{' '}

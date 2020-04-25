@@ -2,6 +2,7 @@ import React from 'react'
 import { GreyLink } from '../styled-components'
 // components
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import NoStretchImage from '../components/NoStretchImage'
 import BackToTop from '../components/BackToTop'
 
@@ -22,11 +23,18 @@ const awardsAndExhibitions = [
     '2017 / Design Department Dean’s first prize in excellence for Graduation Project',
 ]
 
+const FIRST_P_TEXT = `Ofri is an Israeli designer (b. 1990) who graduated with honors from H.I.T, Holon Institute of Technology, Industrial design department (2017). Though she specializes in digital craft, conceptual design along with manufacturing methods, she is also passionate about material research, innovations and technology.`
+
 const AboutPage = ({ data }) => {
     const ofriImage = data.ofriImage.childImageSharp.fluid
 
     return (
         <Layout activeItem={ABOUT}>
+            <SEO
+                title="About"
+                pathname={ABOUT.slug}
+                description={FIRST_P_TEXT}
+            ></SEO>
             <BackToTop></BackToTop>
             <NoStretchImage
                 fluid={ofriImage}
@@ -42,13 +50,7 @@ const AboutPage = ({ data }) => {
                     // left: '8rem',
                 }}
             />
-            <p>
-                Ofri is an Israeli designer (b. 1990) who graduated with honors
-                from H.I.T, Holon Institute of Technology, Industrial design
-                department (2017). Though she specializes in digital craft,
-                conceptual design along with manufacturing methods, she is also
-                passionate about material research, innovations and technology.
-            </p>
+            <p>{FIRST_P_TEXT}</p>
             <p>
                 As a designer, she is interested in the interface between craft
                 and technology, and most of her body of work incorporates both

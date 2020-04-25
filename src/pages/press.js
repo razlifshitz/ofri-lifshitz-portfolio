@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 // components
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import NoStretchImage from '../components/NoStretchImage'
 //constants
 import { PRESS } from '../constants/one-of.constants'
@@ -92,6 +93,7 @@ const PressPage = ({ data }) => {
 
     return (
         <Layout activeItem={PRESS}>
+            <SEO title="Press" pathname={PRESS.slug}></SEO>
             <Wrapper>
                 <PressList
                     ref={contentRef}
