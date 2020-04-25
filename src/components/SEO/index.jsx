@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import favicon from '../../assets/plates/top_3a.png'
+import ol_logo_transparent from '../../assets/logos/ol-logo-transparent.png'
 
 const SEO = ({ title, description, image, pathname, article }) => {
     const data = useStaticQuery(graphql`
@@ -13,6 +13,7 @@ const SEO = ({ title, description, image, pathname, article }) => {
                     titleTemplate
                     defaultDescription: description
                     siteUrl: url
+                    defaultImage: image
                 }
             }
         }
@@ -42,14 +43,14 @@ const SEO = ({ title, description, image, pathname, article }) => {
         <>
             <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
                 <meta name="description" content={seo.description} />
-                <meta name="image" content={seo.image} />
+                {/* <meta name="image" content={seo.image} /> */}
                 {seo.url && <meta property="og:url" content={seo.url} />}
                 {article && <meta property="og:type" content="article" />}
                 {seo.title && <meta property="og:title" content={seo.title} />}
                 {seo.description && (
                     <meta property="og:description" content={seo.description} />
                 )}
-                {seo.image && <meta property="og:image" content={seo.image} />}
+                {/* {seo.image && <meta property="og:image" content={seo.image} />} */}
 
                 {/* twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
@@ -60,10 +61,15 @@ const SEO = ({ title, description, image, pathname, article }) => {
                         content={seo.description}
                     />
                 )}
-                {seo.image && <meta name="twitter:image" content={seo.image} />}
+                {/* {seo.image && <meta name="twitter:image" content={seo.image} />} */}
 
                 {/* favicon */}
-                <link rel="icon" href={favicon} type="image/x-icon" />
+                <link
+                    rel="icon"
+                    href={ol_logo_transparent}
+                    type="image/x-icon"
+                />
+
                 {/* <link rel="icon" type="image/png" href={} sizes="16x16"></link>
                 <link rel="icon" type="image/png" href={} sizes="32x32"></link>
                 <link rel="icon" type="image/png" href={} sizes="96x96"></link>

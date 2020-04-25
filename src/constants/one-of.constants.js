@@ -53,23 +53,23 @@ export const HOME = {
 export const ABOUT = {
     id: 'ABOUT',
     name: 'About',
-    slug: '/about',
+    slug: '/about/',
 }
 export const ONE_OF = {
     id: 'INDUSTRIAL_ONE_OF',
     name: 'Industrial One Of',
-    slug: '/one-of',
+    slug: '/one-of/',
     children: getOneOfSubMenuList(),
 }
 export const PRESS = {
     id: 'PRESS',
     name: 'Press',
-    slug: '/press',
+    slug: '/press/',
 }
 export const CONTACT = {
     id: 'CONTACT',
     name: 'Contact',
-    slug: '/contact',
+    slug: '/contact/',
 }
 
 function getOneOfSubMenuList() {

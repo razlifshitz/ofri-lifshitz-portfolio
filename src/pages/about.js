@@ -7,7 +7,7 @@ import NoStretchImage from '../components/NoStretchImage'
 import BackToTop from '../components/BackToTop'
 
 // constants
-import { ABOUT } from '../constants/one-of.constants'
+import { ABOUT, ONE_OF } from '../constants/one-of.constants'
 
 const education = [
     '2013-2017 / B. Design, HIT (Holon Institute of Technology) - graduated with honor',
@@ -58,9 +58,9 @@ const AboutPage = ({ data }) => {
                 developing process, and manufacturing process. Having often been
                 drawn to objects that tell their own manufacturing story, it’s
                 therefore no coincidence that her current main project,{' '}
-                <GreyLink to="/one-of">Industrial one-of</GreyLink>, is one that
-                centers on observing and also interfering with manufacturing
-                processes and methods.
+                <GreyLink to={ONE_OF.slug}>Industrial one-of</GreyLink>, is one
+                that centers on observing and also interfering with
+                manufacturing processes and methods.
             </p>
             <p>
                 She hopes to always challenge herself and approach a creative

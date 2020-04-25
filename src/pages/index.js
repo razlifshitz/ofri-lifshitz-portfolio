@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // style
 import style from '../styles/home.module.scss'
 // constants
-import { HOME } from '../constants/one-of.constants'
+import { HOME, ONE_OF } from '../constants/one-of.constants'
 // hooks
 import { useCarouselImages } from '../hooks/graphql/useCarouselImages'
 // Components
@@ -33,7 +33,7 @@ function IndexPage() {
             <div className={style.container}>
                 <p className={style.homeDescription}>
                     Hi! I'm Ofri, an Israeli designer and creator of{' '}
-                    <MultiColorLink to="/one-of" ref={textRef}>
+                    <MultiColorLink to={ONE_OF.slug} ref={textRef}>
                         industrial one-of
                     </MultiColorLink>{' '}
                     a kind pieces. I specialize in digital craft, conceptual

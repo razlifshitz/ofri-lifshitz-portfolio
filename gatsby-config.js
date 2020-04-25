@@ -3,8 +3,9 @@ module.exports = {
         title: 'Ofri Lifshitz Design',
         titleTemplate: '%s | Ofri Lifshitz Design',
         description: '',
-        url: 'https://www.ofrilifshitz.com',
+        url: 'https://www.ofri.netlify.app',
         author: '',
+        image: '',
     },
     plugins: [
         'gatsby-plugin-sass',
