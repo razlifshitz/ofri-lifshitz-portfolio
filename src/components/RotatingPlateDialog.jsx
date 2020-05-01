@@ -1,85 +1,92 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import style from '../styles/contact.module.scss'
+import NoStretchImage from './NoStretchImage'
 import Carousel from './Carousel'
+import { useResize } from '../hooks'
 
-class RotatingPlateDialog extends React.Component {
-    constructor(props) {
-        super(props)
-        this.wrapperRef = React.createRef()
-        this.formRef = React.createRef()
+function RotatingPlateDialog({
+    title,
+    children,
+    images,
+    activeIndex,
+    transitionLength,
+    isConstantImage,
+}) {
+    // ref
+    const wrapperRef = useRef()
+    const formRef = useRef()
+    // state
+    const [isMobileView, setIsMobileView] = useState(null)
+    const [hasMounted, setHasMounted] = useState(false)
 
-        this.state = {
-            isMobileView: null,
-        }
-    }
+    // ON INIT
+    useEffect(() => {
+        setHasMounted(true)
+    }, [])
 
-    componentDidMount() {
-        this.setIsMobileView()
-        window.addEventListener('resize', this.setIsMobileView)
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.setIsMobileView)
-    }
-
-    setIsMobileView = () => {
+    useResize(() => {
         const result = window.matchMedia(
             `(max-width: ${style.contactMobileDisplay}`
         )
-        this.setState({ ...this.state, isMobileView: result.matches })
-    }
+
+        setIsMobileView(result.matches)
+    }, [])
 
     /**
      * Jsx getters
      */
 
-    getImageJsx = () => {
+    function getImageJsx() {
         return (
             <div className={style.plateWrapper}>
-                <Carousel
-                    aspectRatio={{ width: 1, height: 1 }}
-                    activeIndex={this.props.activeIndex}
-                    transitionLength={this.props.transitionLength}
-                    images={this.props.images}
-                    wrapperClass={style.rotatingImage}
-                ></Carousel>
+                {isConstantImage ? (
+                    // 1. showing single constant image on
+                    //    contact-success & 404
+                    // 2. using hasMounted to prevent SSR cause activeIndex was
+                    //    generated randomly
+                    hasMounted && (
+                        <NoStretchImage
+                            fluid={images[activeIndex].src}
+                            className={style.rotatingImage}
+                        ></NoStretchImage>
+                    )
+                ) : (
+                    <Carousel
+                        aspectRatio={{ width: 1, height: 1 }}
+                        activeIndex={activeIndex}
+                        transitionLength={transitionLength}
+                        images={images}
+                        wrapperClass={style.rotatingImage}
+                    ></Carousel>
+                )}
             </div>
         )
     }
 
-    getContentJsx = () => {
-        if (this.state.isMobileView === null) {
+    function getContentJsx() {
+        if (isMobileView === null) {
             return null
-        } else if (this.state.isMobileView) {
+        } else if (isMobileView) {
             return (
                 <div>
-                    {this.getImageJsx()}
-                    {this.props.children}
+                    {getImageJsx()}
+                    {children}
                 </div>
             )
         } else {
-            return this.props.children
+            return children
         }
     }
 
-    render() {
-        return (
-            <div ref={this.wrapperRef} className={style.wrapper}>
-                <div ref={this.formRef} className={style.form}>
-                    <h1 className={style.title}>{this.props.title}</h1>
-                    {this.getContentJsx()}
-                </div>
-                {!this.state.isMobileView ? this.getImageJsx() : null}
+    return (
+        <div ref={wrapperRef} className={style.wrapper}>
+            <div ref={formRef} className={style.form}>
+                <h1 className={style.title}>{title}</h1>
+                {getContentJsx()}
             </div>
-        )
-    }
+            {!isMobileView ? getImageJsx() : null}
+        </div>
+    )
 }
 
 export default RotatingPlateDialog
-
-// export default props => (
-//     <StaticQuery
-//         query={}
-//         render={data => <RotatingPlateDialog data={data} {...props} />}
-//     />
-// )

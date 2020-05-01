@@ -42,11 +42,7 @@ function IndexPage() {
             <div className={style.container}>
                 <p className={style.homeDescription}>
                     Hi! I'm Ofri, an Israeli designer and creator of{' '}
-                    <MultiColorLink
-                        to={ONE_OF.slug}
-                        ref={textRef}
-                        transitionLength={TRANSITION_LENGTH}
-                    >
+                    <MultiColorLink to={ONE_OF.slug} ref={textRef}>
                         industrial one-of
                     </MultiColorLink>{' '}
                     a kind pieces. I specialize in digital craft, conceptual
@@ -68,7 +64,7 @@ function IndexPage() {
 export default IndexPage
 
 const MultiColorLink = styled(GreyLink)`
-    transition: color ${props => props.transitionLength};
+    transition: color ${TRANSITION_LENGTH};
     color: #4ba1cc;
     cursor: pointer;
 `

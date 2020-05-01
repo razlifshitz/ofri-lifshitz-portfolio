@@ -21,6 +21,7 @@ const ContactSuccessPage = () => {
                 title="Thank you!"
                 images={images}
                 activeIndex={getRandIndex(images.length)}
+                isConstantImage={true}
             >
                 <div className={style.successMessage}>
                     <h3 style={{ marginBottom: '7rem' }}>

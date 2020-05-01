@@ -8,8 +8,9 @@ import { AspectRatioBox } from '../styled-components'
 function Carousel({
     images,
     activeIndex,
-    interval,
     aspectRatio,
+    // optional
+    interval,
     onImageChange,
     transitionLength,
     wrapperClass,
