@@ -11,6 +11,9 @@
     font-size: 1.2rem;
     font-weight: bold;
     animation: fade-in-from-bottom 1s;
+    @media (max-width: $media-large) {
+        margin-bottom: calc(1.45rem + 20px);
+    }
 }
 
 @media (max-width: 550px) {

@@ -29,18 +29,6 @@ class RotatingPlateDialog extends React.Component {
         this.setState({ ...this.state, isMobileView: result.matches })
     }
 
-    getRandIndex = limit => {
-        let result = Math.floor(Math.random() * Math.floor(limit))
-
-        if (this.state) {
-            while (result === this.state.activeIndex) {
-                result = Math.floor(Math.random() * Math.floor(limit))
-            }
-        }
-
-        return result
-    }
-
     /**
      * Jsx getters
      */
@@ -49,8 +37,9 @@ class RotatingPlateDialog extends React.Component {
         return (
             <div className={style.plateWrapper}>
                 <Carousel
-                    key={this.props.activeIndex}
+                    aspectRatio={{ width: 1, height: 1 }}
                     activeIndex={this.props.activeIndex}
+                    transitionLength={this.props.transitionLength}
                     images={this.props.images}
                     wrapperClass={style.rotatingImage}
                 ></Carousel>

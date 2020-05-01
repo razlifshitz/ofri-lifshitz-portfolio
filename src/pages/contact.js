@@ -36,6 +36,7 @@ function ContactPage() {
                 title="Let's Talk!"
                 images={images}
                 activeIndex={activeIndex}
+                transitionLength="2000ms"
             >
                 <form
                     name="contact"
