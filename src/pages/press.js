@@ -19,6 +19,8 @@ const PressPage = ({ data }) => {
     const DM = data.DM.childImageSharp.fixed
     const culaizuv = data.culaizuv.childImageSharp.fixed
     const portfolioSrc = data.portfolio.childImageSharp.fixed
+    const walla = data.walla.childImageSharp.fixed
+
     // press list
     const pressList = [
         {
@@ -63,6 +65,12 @@ const PressPage = ({ data }) => {
             magazine: 'portfolio',
             url: 'https://www.prtfl.co.il/archives/126582',
             logo: portfolioSrc,
+        },
+        {
+            magazine: 'walla',
+            url:
+                'https://itsuvina.walla.co.il/item/3348263?utm_source=whatsup&utm_medium=sharebuttonapp&utm_term=social&utm_content=whatsup&utm_campaign=socialbutton',
+            logo: walla,
         },
     ]
 
@@ -289,6 +297,13 @@ export const query = graphql`
             }
         }
         portfolio: file(relativePath: { eq: "press/portfolio.png" }) {
+            childImageSharp {
+                fixed(width: 180) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+            }
+        }
+        walla: file(relativePath: { eq: "press/walla.png" }) {
             childImageSharp {
                 fixed(width: 180) {
                     ...GatsbyImageSharpFixed_noBase64
