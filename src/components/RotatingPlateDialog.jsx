@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import style from '../styles/contact.module.scss'
 import NoStretchImage from './NoStretchImage'
 import Carousel from './Carousel'
-import { useResize } from '../hooks'
+import { useResize, useHasMount } from '../hooks'
 
 function RotatingPlateDialog({
     title,
@@ -17,12 +17,7 @@ function RotatingPlateDialog({
     const formRef = useRef()
     // state
     const [isMobileView, setIsMobileView] = useState(null)
-    const [hasMounted, setHasMounted] = useState(false)
-
-    // ON INIT
-    useEffect(() => {
-        setHasMounted(true)
-    }, [])
+    const hasMounted = useHasMount()
 
     useResize(() => {
         const result = window.matchMedia(

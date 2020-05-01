@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { useHasMount } from '../hooks'
 // Components
 import NoStretchImage from './NoStretchImage'
 import { AspectRatioBox } from '../styled-components'
@@ -15,14 +16,7 @@ function Carousel({
     transitionLength,
     wrapperClass,
 }) {
-    const [hasMounted, setHasMounted] = useState(false)
-
-    // ON INIT
-    useEffect(() => {
-        // to trigger animation - without timeout the update of hasMounted
-        // will occur before first paint
-        setTimeout(() => setHasMounted(true), 10)
-    }, [])
+    const hasMounted = useHasMount(true)
 
     // on active image change
     useEffect(() => {

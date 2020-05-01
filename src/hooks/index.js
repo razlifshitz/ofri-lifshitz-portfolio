@@ -91,3 +91,19 @@ export const useResize = (fn, dependanciesList) => {
         }
     }, [memorizedFn])
 }
+
+export const useHasMount = async => {
+    const [hasMounted, setHasMounted] = useState(false)
+
+    useEffect(() => {
+        if (async) {
+            // to trigger animation - without timeout the update of hasMounted
+            // will occur before first paint
+            setTimeout(() => setHasMounted(true), 10)
+        } else {
+            setHasMounted(true)
+        }
+    }, [])
+
+    return hasMounted
+}
