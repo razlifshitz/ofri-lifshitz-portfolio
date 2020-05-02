@@ -98,10 +98,6 @@
 // colorlib
 $grey-light: #999;
 $black-color: #222;
-$contact-mobile-display: 1200px;
-:export {
-    contactMobileDisplay: $contact-mobile-display;
-}
 
 @mixin input-placeholder($value) {
     &::-webkit-input-placeholder {
@@ -156,12 +152,6 @@ $contact-mobile-display: 1200px;
     overflow-y: auto;
 }
 
-// success page
-.success-message {
-    margin-top: 4.5rem;
-    animation: fade-in 1s;
-}
-
 // mobile calc(100vh-100px)
 @media (max-width: $contact-mobile-display) {
     .wrapper {
@@ -210,10 +200,6 @@ $contact-mobile-display: 1200px;
     }
     .rotating-image {
         margin: 0 !important;
-    }
-    .success-message {
-        margin-top: 0;
-        text-align: center;
     }
 }
 

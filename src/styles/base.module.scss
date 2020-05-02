@@ -2,6 +2,7 @@ $media-small: 400px;
 $media-medium: 900px;
 $media-large: 1000px;
 $media-small-desktop: 1300px;
+$contact-mobile-display: 1200px;
 $media-medium-desktop: 1400px;
 
 :export {
@@ -9,6 +10,7 @@ $media-medium-desktop: 1400px;
     mediaMedium: $media-medium;
     mediaLarge: $media-large;
     mediaSmallDesktop: $media-small-desktop;
+    contactMobileDisplay: $contact-mobile-display;
     mediaMediumDesktop: $media-medium-desktop;
 }
 
