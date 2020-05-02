@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import { AspectRatioBox } from '../../styled-components'
 
 function VideoPlayer(props) {
-    const data = { ...props, src: undefined }
+    const { src, ...rest } = props
     return (
         <Wrapper>
             <AspectRatioBox width={1} height={1}>
-                <Video {...data}>
-                    <source src={props.src} type="video/mp4"></source>
+                <Video {...rest}>
+                    <source src={src} type="video/mp4"></source>
                 </Video>
             </AspectRatioBox>
         </Wrapper>

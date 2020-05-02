@@ -47,47 +47,21 @@ const SEO = ({ title, description, image, pathname, article }) => {
                 {seo.url && <meta property="og:url" content={seo.url} />}
                 {article && <meta property="og:type" content="article" />}
                 {seo.title && <meta property="og:title" content={seo.title} />}
-                {seo.description && (
+                {/* {seo.description && (
                     <meta property="og:description" content={seo.description} />
-                )}
-                {/* {seo.image && <meta property="og:image" content={seo.image} />} */}
+                )} */}
+                {seo.image && <meta property="og:image" content={seo.image} />}
 
                 {/* twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
                 {seo.title && <meta name="twitter:title" content={seo.title} />}
-                {seo.description && (
+                {/* {seo.description && (
                     <meta
                         name="twitter:description"
                         content={seo.description}
                     />
-                )}
+                )} */}
                 {/* {seo.image && <meta name="twitter:image" content={seo.image} />} */}
-
-                {/* favicon */}
-                <link
-                    rel="icon"
-                    href={ol_logo_transparent}
-                    type="image/x-icon"
-                />
-
-                {/* <link rel="icon" type="image/png" href={} sizes="16x16"></link>
-                <link rel="icon" type="image/png" href={} sizes="32x32"></link>
-                <link rel="icon" type="image/png" href={} sizes="96x96"></link>
-                <link
-                    rel="icon"
-                    type="image/png"
-                    href={}
-                    sizes="180x180"
-                ></link>
-                <link
-                    rel="icon"
-                    type="image/png"
-                    href={}
-                    sizes="192x192"
-                ></link> */}
-
-                {/* apple icon */}
-                {/* <link rel="apple-touch-icon" sizes="180x180" href={} /> */}
             </Helmet>
         </>
     )
