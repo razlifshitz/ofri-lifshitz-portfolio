@@ -2,7 +2,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import ol_logo_transparent from '../../assets/logos/ol-logo-transparent.png'
 
 const SEO = ({ title, description, image, pathname, article }) => {
     const data = useStaticQuery(graphql`

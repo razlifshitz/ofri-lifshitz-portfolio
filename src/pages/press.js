@@ -56,10 +56,10 @@ const PressPage = ({ data }) => {
             logo: designZoom,
         },
         {
-            magazine: 'culaizuv',
+            magazine: 'walla',
             url:
-                'http://design.hit.ac.il/blog/%d7%94%d7%90%d7%93%d7%9d-%d7%94%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%95%d7%94%d7%9e%d7%93%d7%99%d7%94-%d7%94%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/',
-            logo: culaizuv,
+                'https://itsuvina.walla.co.il/item/3348263?utm_source=whatsup&utm_medium=sharebuttonapp&utm_term=social&utm_content=whatsup&utm_campaign=socialbutton',
+            logo: walla,
         },
         {
             magazine: 'portfolio',
@@ -67,10 +67,10 @@ const PressPage = ({ data }) => {
             logo: portfolioSrc,
         },
         {
-            magazine: 'walla',
+            magazine: 'culaizuv',
             url:
-                'https://itsuvina.walla.co.il/item/3348263?utm_source=whatsup&utm_medium=sharebuttonapp&utm_term=social&utm_content=whatsup&utm_campaign=socialbutton',
-            logo: walla,
+                'http://design.hit.ac.il/blog/%d7%94%d7%90%d7%93%d7%9d-%d7%94%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%95%d7%94%d7%9e%d7%93%d7%99%d7%94-%d7%94%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/',
+            logo: culaizuv,
         },
     ]
 

@@ -45,6 +45,8 @@ const Wrapper = styled.div`
 `
 
 const Header = styled(GreyLink)`
+    color: #000000;
+
     // cancel hover effect
     @media (max-width: ${baseStyle.mediaLarge}) {
         &:hover {
@@ -65,7 +67,7 @@ const Header = styled(GreyLink)`
         content: url(${chevron_right});
         font-weight: bold;
         float: left;
-        margin: 2px 5px 0 0;
+        margin: -1.6px 0 0 0;
         transition: 0.3s;
     }
     .active &::before {

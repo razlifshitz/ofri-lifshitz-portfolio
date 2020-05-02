@@ -3,9 +3,10 @@ import baseStyle from '../styles/base.module.scss'
 import { Link } from 'gatsby'
 
 export const GreyLink = styled(Link)`
-    color: black;
-    font-weight: bold;
-    opacity: 0.84;
+    color: #646464;
+    font-style: normal;
+    font-weight: 700;
+    // opacity: 0.84;
     transition: 0.3s;
     cursor: pointer;
     text-decoration: none;

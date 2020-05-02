@@ -103,7 +103,7 @@ export const useHasMount = async => {
         } else {
             setHasMounted(true)
         }
-    }, [])
+    }, [async])
 
     return hasMounted
 }

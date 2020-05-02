@@ -31,8 +31,6 @@ const Footer = () => {
             ></div> */}
             <span
                 style={{
-                    fontFamily: `-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif`,
                     fontSize: '0.6rem',
                 }}
             >

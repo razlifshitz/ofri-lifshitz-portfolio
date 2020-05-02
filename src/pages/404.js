@@ -45,5 +45,6 @@ const Wrapper = styled.div`
 `
 
 const Message = styled.h3`
+    font-weight: 600;
     margin-bottom: 4rem;
 `
