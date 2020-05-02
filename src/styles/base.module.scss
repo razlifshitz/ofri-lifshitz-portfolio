@@ -1,3 +1,24 @@
+/* 
+ * Purpose:
+ * Assign height: "100%" to
+ * html, body, #___gatsby &  
+ * div with role="group"
+*/
+
+html,
+body,
+#___gatsby {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+}
+
+div[id='gatsby-focus-wrapper'][tabindex] {
+    height: 100%;
+}
+
 $media-small: 400px;
 $media-medium: 900px;
 $media-large: 1000px;
