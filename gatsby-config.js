@@ -35,7 +35,7 @@ module.exports = {
                 theme_color: `#ffffff`,
                 // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
                 // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-                display: `browser`,
+                display: `minimal-ui`,
                 icon: `src/assets/logos/ol-logo-transparent.png`, // This path is relative to the root of the site.
                 cache_busting_mode: 'none',
             },
