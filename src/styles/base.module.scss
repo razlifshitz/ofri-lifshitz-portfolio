@@ -5,19 +5,19 @@
  * div with role="group"
 */
 
-html,
-body,
-#___gatsby {
-    height: 100%;
-}
+// html,
+// body,
+// #___gatsby {
+//     height: 100%;
+// }
 
-body {
-    margin: 0px;
-}
+// body {
+//     margin: 0px;
+// }
 
-div[id='gatsby-focus-wrapper'][tabindex] {
-    height: 100%;
-}
+// div[id='gatsby-focus-wrapper'][tabindex] {
+//     height: 100%;
+// }
 
 $media-small: 400px;
 $media-medium: 900px;
