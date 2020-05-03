@@ -1,21 +1,13 @@
 import React from 'react'
-// import styled from 'styled-components'
 // style
 import '../styles/index.scss'
 // components
 import layoutStyle from '../styles/layout.module.scss'
-// import { useResize } from '../hooks'
 import Header from './Header'
 import Footer from './Footer'
 import SEO from './SEO'
 
 const Layout = ({ activeItem, children }) => {
-    // const [contentHeight, setContentHeight] = useState(null)
-
-    // useResize(() => {
-    //     setContentHeight(window.innerHeight)
-    // }, [])
-
     return (
         <>
             <SEO></SEO>
@@ -32,8 +24,3 @@ const Layout = ({ activeItem, children }) => {
 }
 
 export default Layout
-
-// const Container = styled.div`
-//     min-height: ${params =>
-//         params.contentHeight ? params.contentHeight + 'px' : '100vh'};
-// `
