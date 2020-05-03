@@ -14,7 +14,7 @@ const Footer = () => {
     } = useStaticQuery(query)
 
     return (
-        <div
+        <Wrapper
             style={{
                 paddingTop: '2rem',
                 textAlign: 'center',
@@ -71,11 +71,18 @@ const Footer = () => {
                     <i className="envelope icon"></i>
                 </a> */}
             </div>
-        </div>
+        </Wrapper>
     )
 }
 
 export default Footer
+
+const Wrapper = styled.div`
+    paddingtop: '2rem';
+    textalign: 'center';
+    color: '#3d3d3d';
+    animation: fade-in 1s;
+`
 
 const Icon = styled(Img)``
 

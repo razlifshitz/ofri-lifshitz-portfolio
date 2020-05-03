@@ -58,6 +58,7 @@
 // }
 .wrapper {
     display: flex;
+    margin-bottom: 4rem;
 }
 .form {
     .title {
@@ -152,7 +153,7 @@ $black-color: #222;
     overflow-y: auto;
 }
 
-// mobile calc(100vh-100px)
+// mobile
 @media (max-width: $contact-mobile-display) {
     .wrapper {
         // display: block;
@@ -161,7 +162,6 @@ $black-color: #222;
         // height: 100%;
 
         overflow: hidden;
-        margin-bottom: 1.5rem;
     }
     .form {
         width: 100%;
