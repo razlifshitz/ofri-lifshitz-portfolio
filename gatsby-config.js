@@ -3,7 +3,7 @@ module.exports = {
         title: 'Ofri Lifshitz Design',
         titleTemplate: '%s | Ofri Lifshitz Design',
         description: '',
-        url: 'https://www.ofri.netlify.app',
+        url: 'https://www.ofrilifshitz.com',
         author: '',
         image: '/icons/wedgwood-icon-512x512.jpg',
     },
