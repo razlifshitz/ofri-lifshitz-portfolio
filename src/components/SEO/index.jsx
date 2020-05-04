@@ -32,6 +32,7 @@ const SEO = ({ title, description, image, pathname, article }) => {
 
     const seo = {
         title: title || defaultTitle,
+        fullTitle: title ? title + ' | ' + defaultTitle : defaultTitle,
         description: description || defaultDescription,
         image: `${siteUrl}${image || defaultImage}`,
         url: `${siteUrl}${pathname || '/'}`,
@@ -40,12 +41,14 @@ const SEO = ({ title, description, image, pathname, article }) => {
 
     return (
         <>
-            <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
-                <meta name="description" content={seo.description} />
+            <Helmet title={seo.fullTitle}>
+                {/* <meta name="description" content={seo.description} /> */}
                 <meta name="image" content={seo.image} />
                 {seo.url && <meta property="og:url" content={seo.url} />}
                 {article && <meta property="og:type" content="article" />}
-                {seo.title && <meta property="og:title" content={seo.title} />}
+                {seo.fullTitle && (
+                    <meta property="og:title" content={seo.fullTitle} />
+                )}
                 {/* {seo.description && (
                     <meta property="og:description" content={seo.description} />
                 )} */}
@@ -53,7 +56,9 @@ const SEO = ({ title, description, image, pathname, article }) => {
 
                 {/* twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                {seo.title && <meta name="twitter:title" content={seo.title} />}
+                {seo.fullTitle && (
+                    <meta name="twitter:title" content={seo.fullTitle} />
+                )}
                 {/* {seo.description && (
                     <meta
                         name="twitter:description"
