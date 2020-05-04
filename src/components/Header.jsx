@@ -5,7 +5,7 @@ import { OPEN_MENU, getMenuItemsList } from '../constants/one-of.constants'
 
 // style
 import headerStyles from '../styles/header.module.scss'
-import logo from '../assets/logos/logo 18.3.20.png'
+import logo from '../assets/logos/logo 3.5.2020.png'
 
 const items = getMenuItemsList()
 

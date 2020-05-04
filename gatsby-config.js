@@ -5,7 +5,7 @@ module.exports = {
         description: '',
         url: 'https://www.ofri.netlify.app',
         author: '',
-        image: '',
+        image: '/icons/wedgwood-icon-512x512.jpg',
     },
     plugins: [
         'gatsby-plugin-sass',
@@ -36,7 +36,7 @@ module.exports = {
                 // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
                 // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
                 display: `minimal-ui`,
-                icon: `src/assets/logos/ol-logo-transparent.png`, // This path is relative to the root of the site.
+                icon: `src/assets/logos/ol-logo-transparent-51x512.png`, // This path is relative to the root of the site.
                 cache_busting_mode: 'none',
             },
         },
