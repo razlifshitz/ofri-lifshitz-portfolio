@@ -63,7 +63,6 @@ function Carousel({
                         <NoStretchImage
                             fluid={image.src}
                             className={wrapperClass}
-                            loading="eager"
                         ></NoStretchImage>
                     </Wrapper>
                 ))}

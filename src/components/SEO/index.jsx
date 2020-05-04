@@ -42,7 +42,7 @@ const SEO = ({ title, description, image, pathname, article }) => {
         <>
             <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
                 <meta name="description" content={seo.description} />
-                {/* <meta name="image" content={seo.image} /> */}
+                <meta name="image" content={seo.image} />
                 {seo.url && <meta property="og:url" content={seo.url} />}
                 {article && <meta property="og:type" content="article" />}
                 {seo.title && <meta property="og:title" content={seo.title} />}
@@ -60,7 +60,7 @@ const SEO = ({ title, description, image, pathname, article }) => {
                         content={seo.description}
                     />
                 )} */}
-                {/* {seo.image && <meta name="twitter:image" content={seo.image} />} */}
+                {seo.image && <meta name="twitter:image" content={seo.image} />}
             </Helmet>
         </>
     )
