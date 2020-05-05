@@ -59,7 +59,7 @@ export const usePlatesImages = () => {
                     }
                 }
             }
-            top_jeru: file(relativePath: { eq: "plates/top_jeru.png" }) {
+            top_all_4: file(relativePath: { eq: "plates/top_all_4.png" }) {
                 childImageSharp {
                     id
                     fluid(maxWidth: 250) {
@@ -100,8 +100,8 @@ export const usePlatesImages = () => {
             src: data.top_3c.childImageSharp.fluid,
         },
         {
-            id: data.top_jeru.childImageSharp.id,
-            src: data.top_jeru.childImageSharp.fluid,
+            id: data.top_all_4.childImageSharp.id,
+            src: data.top_all_4.childImageSharp.fluid,
         },
     ]
 
