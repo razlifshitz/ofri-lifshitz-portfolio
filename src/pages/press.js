@@ -275,7 +275,7 @@ export const query = graphql`
                 }
             }
         }
-        PD: file(relativePath: { eq: "press/puro.png" }) {
+        PD: file(relativePath: { eq: "press/PD.png" }) {
             childImageSharp {
                 fixed(width: 180) {
                     ...GatsbyImageSharpFixed_noBase64
