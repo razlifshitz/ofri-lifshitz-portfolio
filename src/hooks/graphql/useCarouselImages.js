@@ -9,7 +9,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -17,7 +17,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }
@@ -25,7 +25,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }
@@ -33,7 +33,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }
@@ -41,7 +41,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }
@@ -49,7 +49,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }
@@ -57,7 +57,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }
@@ -65,7 +65,7 @@ export const useCarouselImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }

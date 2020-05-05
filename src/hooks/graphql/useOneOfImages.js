@@ -7,7 +7,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -15,7 +15,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -25,7 +25,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -33,7 +33,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -41,7 +41,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -49,7 +49,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -57,7 +57,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -65,7 +65,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -73,7 +73,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -81,7 +81,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -89,7 +89,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -99,7 +99,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -109,7 +109,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -119,7 +119,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -127,7 +127,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -135,7 +135,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -143,7 +143,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -151,7 +151,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -159,7 +159,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -167,7 +167,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -175,7 +175,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -183,7 +183,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -191,7 +191,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -199,7 +199,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -207,7 +207,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -215,7 +215,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -227,7 +227,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -239,7 +239,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -251,7 +251,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -263,7 +263,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -275,7 +275,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -285,7 +285,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -295,7 +295,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -305,7 +305,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -315,7 +315,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -325,7 +325,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -335,7 +335,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -345,7 +345,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -355,7 +355,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -365,7 +365,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -375,7 +375,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -385,7 +385,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -397,7 +397,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -409,7 +409,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
@@ -421,7 +421,7 @@ export const useOneOfImages = () => {
                 childImageSharp {
                     id
                     fluid(maxWidth: 750) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
