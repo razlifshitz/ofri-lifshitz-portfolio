@@ -13,13 +13,13 @@ const PressPage = ({ data }) => {
     // constants
     const ONE_COLUMN_WIDTH = '511px'
     // images
-    const designZoom = data.designZoom.childImageSharp.fixed
-    const coolHunting = data.coolHunting.childImageSharp.fixed
-    const PD = data.PD.childImageSharp.fixed
-    const DM = data.DM.childImageSharp.fixed
-    const culaizuv = data.culaizuv.childImageSharp.fixed
-    const portfolioSrc = data.portfolio.childImageSharp.fixed
-    const walla = data.walla.childImageSharp.fixed
+    const designZoom = data.designZoom.childImageSharp
+    const coolHunting = data.coolHunting.childImageSharp
+    const PD = data.PD.childImageSharp
+    const DM = data.DM.childImageSharp
+    const culaizuv = data.culaizuv.childImageSharp
+    const portfolioSrc = data.portfolio.childImageSharp
+    const walla = data.walla.childImageSharp
 
     // press list
     const pressList = [
@@ -128,7 +128,9 @@ function ImageCard({ logo, url, isMobileView }) {
     return (
         <PressItem isMobileView={isMobileView}>
             <PressLink href={url}>
-                <PressImage fixed={logo}></PressImage>
+                <PressImage
+                    fixed={isMobileView ? logo.mobile : logo.desktop}
+                ></PressImage>
             </PressLink>
         </PressItem>
     )
@@ -241,7 +243,7 @@ const PressList = styled.div`
     // grid-gap: 0 87px;
 
     // mobile
-    height: ${props =>
+    // height: ${props =>
         props.isMobileView ? props.contentHeight + 'px' : 'inherit'};
     align-content: ${props =>
         props.isMobileView ? 'space-evenly' : 'inherit'};
@@ -257,55 +259,78 @@ const PressLink = styled.a.attrs(props => ({
     href: props.href,
 }))``
 
-const PressImage = styled(NoStretchImage)``
+const PressImage = styled(NoStretchImage)`
+    margin-bottom: 2.5rem !important;
+`
 
 export const query = graphql`
     query {
         designZoom: file(relativePath: { eq: "press/designZoom.png" }) {
             childImageSharp {
-                fixed(width: 180) {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
         coolHunting: file(relativePath: { eq: "press/coolHunting.png" }) {
             childImageSharp {
-                fixed(width: 180) {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
         PD: file(relativePath: { eq: "press/puro.png" }) {
             childImageSharp {
-                fixed(width: 180) {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
         DM: file(relativePath: { eq: "press/DM.png" }) {
             childImageSharp {
-                fixed(width: 180) {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
         culaizuv: file(relativePath: { eq: "press/culaizuv.png" }) {
             childImageSharp {
-                fixed(width: 180) {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
         portfolio: file(relativePath: { eq: "press/portfolio.png" }) {
             childImageSharp {
-                fixed(width: 180) {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
         walla: file(relativePath: { eq: "press/walla.png" }) {
             childImageSharp {
-                fixed(width: 180) {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
             }

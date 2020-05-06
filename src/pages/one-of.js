@@ -89,8 +89,10 @@ function OneOfPage() {
 
             sectionsData.forEach(section => {
                 if (
+                    // adding section.ref to condition to prevent excepetion on save file
+                    section.ref &&
                     ACTIVE_SECTION_PADDING >
-                    section.ref.current.getBoundingClientRect().top
+                        section.ref.current.getBoundingClientRect().top
                 ) {
                     result = section.item
                 }
@@ -98,6 +100,7 @@ function OneOfPage() {
 
             return result
         }
+
         setActiveSection(getActiveSection())
         setShowTableOfContents(scroll > SCROLL_SHOW_TABLE_OF_CONTENTS)
     }, [scroll])

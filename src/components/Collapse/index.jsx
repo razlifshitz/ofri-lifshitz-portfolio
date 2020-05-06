@@ -20,11 +20,11 @@ function Collapse({ isOpen, header, children }) {
     useEffect(() => {
         if (open) {
             headerRef.current.classList.add('active')
-            contentRef.current.style.maxHeight =
+            contentRef.current.style.height =
                 contentRef.current.scrollHeight + 'px'
         } else {
             headerRef.current.classList.remove('active')
-            contentRef.current.style.maxHeight = null
+            contentRef.current.style.height = '0px'
         }
     }, [open])
 
@@ -91,9 +91,9 @@ const Content = styled.div`
     margin: 1.45rem 1.2rem 0;
 
     // padding: 0 18px;
-    max-height: 0;
+    height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
     // background-color: #f1f1f1;
 `
 
