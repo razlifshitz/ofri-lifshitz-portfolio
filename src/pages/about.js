@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { GreyLink } from '../styled-components'
 // components
 import Layout from '../components/Layout'
@@ -29,56 +30,60 @@ const AboutPage = ({ data }) => {
     const ofriImage = data.ofriImage.childImageSharp.fluid
 
     return (
-        <Layout activeItem={ABOUT}>
-            <SEO
-                title="About"
-                pathname={ABOUT.slug}
-                description={FIRST_P_TEXT}
-            ></SEO>
-            <BackToTop></BackToTop>
-            <NoStretchImage
-                fluid={ofriImage}
-                style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    width: '12rem',
-                    borderRadius: '50%',
-                    marginBottom: '1.45rem',
-                    // position: 'absolute', // web view..?
-                    // top: '5rem',
-                    // left: '8rem',
-                }}
-            />
-            <p>{FIRST_P_TEXT}</p>
-            <p>
-                As a designer, she is interested in the interface between craft
-                and technology, and most of her body of work incorporates both
-                worlds. She is driven by the process - the ideating process,
-                developing process, and manufacturing process. Having often been
-                drawn to objects that tell their own manufacturing story, it’s
-                therefore no coincidence that her current main project,{' '}
-                <GreyLink to={ONE_OF.slug}>Industrial one-of</GreyLink>, is one
-                that centers on observing and also interfering with
-                manufacturing processes and methods.
-            </p>
-            <p>
-                She hopes to always challenge herself and approach a creative
-                design from an interdisciplinary standpoint. While doing so, she
-                aims to collaborate with individuals and companies that also
-                want to offer an alternative to industrial production, apart
-                from the visual, cultural and consumer homogeneity that is the
-                basis of global industrial production today.
-            </p>
-            <FieldPresentation
-                name="Education"
-                data={education}
-            ></FieldPresentation>
-            <FieldPresentation
-                name="Awards and Exhibitions"
-                data={awardsAndExhibitions}
-            ></FieldPresentation>
-        </Layout>
+            <Layout activeItem={ABOUT}>
+                <SEO
+                    title="About"
+                    pathname={ABOUT.slug}
+                    description={FIRST_P_TEXT}
+                ></SEO>
+                <BackToTop></BackToTop>
+                <Content>
+                    <NoStretchImage
+                        fluid={ofriImage}
+                        style={{
+                            display: 'block',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                            width: '12rem',
+                            borderRadius: '50%',
+                            marginBottom: '1.45rem',
+                            // position: 'absolute', // web view..?
+                            // top: '5rem',
+                            // left: '8rem',
+                        }}
+                    />
+                    <p>{FIRST_P_TEXT}</p>
+                    <p>
+                        As a designer, she is interested in the interface
+                        between craft and technology, and most of her body of
+                        work incorporates both worlds. She is driven by the
+                        process - the ideating process, developing process, and
+                        manufacturing process. Having often been drawn to
+                        objects that tell their own manufacturing story, it’s
+                        therefore no coincidence that her current main project,{' '}
+                        <GreyLink to={ONE_OF.slug}>Industrial one-of</GreyLink>,
+                        is one that centers on observing and also interfering
+                        with manufacturing processes and methods.
+                    </p>
+                    <p>
+                        She hopes to always challenge herself and approach a
+                        creative design from an interdisciplinary standpoint.
+                        While doing so, she aims to collaborate with individuals
+                        and companies that also want to offer an alternative to
+                        industrial production, apart from the visual, cultural
+                        and consumer homogeneity that is the basis of global
+                        industrial production today.
+                    </p>
+                    <FieldPresentation
+                        name="Education"
+                        data={education}
+                    ></FieldPresentation>
+                    <FieldPresentation
+                        name="Awards and Exhibitions"
+                        data={awardsAndExhibitions}
+                    ></FieldPresentation>
+                </Content>
+            </Layout>
     )
 }
 
@@ -94,6 +99,10 @@ const FieldPresentation = props => {
 }
 
 export default AboutPage
+
+const Content = styled.div`
+    animation: fade-in 1s;
+`
 
 export const query = graphql`
     query {

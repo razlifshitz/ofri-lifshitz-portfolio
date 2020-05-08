@@ -74,11 +74,14 @@ const NavBar = ({ items, isNavbarActive, activeItem, onAction }) => {
                 ? setActiveParentItem(item)
                 : setActiveParentItem(null)
         } else {
-            closeMenu()
-
-            setTimeout(() => {
+            if (mobileDisplay) {
+                closeMenu()
+                setTimeout(() => {
+                    navigate(item.slug)
+                }, 500)
+            } else {
                 navigate(item.slug)
-            }, 500)
+            }
         }
     }
 

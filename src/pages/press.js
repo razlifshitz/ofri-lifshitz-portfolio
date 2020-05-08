@@ -287,7 +287,7 @@ export const query = graphql`
         }
         PD: file(relativePath: { eq: "press/puro.png" }) {
             childImageSharp {
-                mobile: fixed(width: 120, grayscale: true) {
+                mobile: fixed(width: 120, height: 15, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
                 }
                 desktop: fixed(width: 180, grayscale: true) {
