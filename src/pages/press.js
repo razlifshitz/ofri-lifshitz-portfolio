@@ -20,6 +20,7 @@ const PressPage = ({ data }) => {
     const culaizuv = data.culaizuv.childImageSharp
     const portfolioSrc = data.portfolio.childImageSharp
     const walla = data.walla.childImageSharp
+    const haaretz = data.haaretz.childImageSharp
 
     // press list
     const pressList = [
@@ -54,6 +55,12 @@ const PressPage = ({ data }) => {
             url:
                 'https://dezignzoom.co.il/%d7%a2%d7%91%d7%95%d7%93%d7%aa-%d7%94%d7%99%d7%93-%d7%a9%d7%9c-%d7%94%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%91%d7%95%d7%92%d7%a8%d7%99%d7%9d-2017/',
             logo: designZoom,
+        },
+        {
+            magazine: 'haaretz',
+            url:
+                'https://www.google.com/amp/s/www.haaretz.co.il/amp/gallery/galleryfriday/bechorot/.premium-1.9084707',
+            logo: haaretz,
         },
         {
             magazine: 'walla',
@@ -326,6 +333,16 @@ export const query = graphql`
             }
         }
         walla: file(relativePath: { eq: "press/walla.png" }) {
+            childImageSharp {
+                mobile: fixed(width: 120, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+                desktop: fixed(width: 180, grayscale: true) {
+                    ...GatsbyImageSharpFixed_noBase64
+                }
+            }
+        }
+        haaretz: file(relativePath: { eq: "press/haaretz.png" }) {
             childImageSharp {
                 mobile: fixed(width: 120, grayscale: true) {
                     ...GatsbyImageSharpFixed_noBase64
