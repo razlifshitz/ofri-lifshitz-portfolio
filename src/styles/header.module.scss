@@ -225,16 +225,16 @@ header {
                 @include transition(opacity 0s 0.5s);
             }
             li:nth-child(1) a {
-                animation: fade-in-from-bottom 0.5s;
+                animation: fade-in-from-bottom 0.5s forwards;
             }
             li:nth-child(2) a {
-                animation: fade-in-from-bottom 0.5s 0.1s;
+                animation: fade-in-from-bottom 0.5s 0.1s forwards;
             }
             li:nth-child(3) a {
-                animation: fade-in-from-bottom 0.5s 0.2s;
+                animation: fade-in-from-bottom 0.5s 0.2s forwards;
             }
             li:nth-child(4) a {
-                animation: fade-in-from-bottom 0.5s 0.3s;
+                animation: fade-in-from-bottom 0.5s 0.3s forwards;
             }
             // li:nth-child(5) a {
             //     animation: fade-in-from-bottom 0.5s 0.4s;

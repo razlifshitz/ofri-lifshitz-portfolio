@@ -79,6 +79,7 @@ const Wrapper = styled.div`
     display: block;
     position: absolute;
     width: 100%;
+    z-Index: -10;
     opacity: ${props => (props.activeImage ? '1' : '0')};
     transition: opacity ${props => props.transitionLength};
 `
