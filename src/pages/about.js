@@ -16,6 +16,10 @@ const education = [
 ]
 
 const awardsAndExhibitions = [
+    '2025 / "dough offering" - Al ha-Tsuk Gallery Netanya',
+    '2023 / Take a a seat - the center for the center for accessible culture, Tel aviv',
+    '2023 / "Working zone" - Tel aviv Biennal of crafts & Design, Eretz Israel museum',
+    '2021 / Present Future - Joseph gallery Paris',
     '2020 / Industrial One Of 3.0 - Solo Exhibition - Jerusalem Artists’ House',
     '2018 / Award for art & design from AICF - America-Israel cultural foundation',
     '2018 / "Pro Jerusalem" - Jerusalem Design week - Hansen House Jerusalem',
